@@ -1,59 +1,53 @@
 <div class="bs-docs-section">
   <h1 id="download" class="page-header">Download</h1>
 
-  <p class="lead">Bootstrap (currently v{{ site.current_version }}) has a few easy ways to quickly get started, each one appealing to a different skill level and use case. Read through to see what suits your particular needs.</p>
-
-  <div class="row bs-downloads">
-    <div class="col-sm-4">
-      <h3 id="download-bootstrap">Bootstrap</h3>
-      <p>Compiled and minified CSS, JavaScript, and fonts. No docs or original source files are included.</p>
-      <p>
-        <a href="{{ site.download.dist }}" class="btn btn-lg btn-outline" role="button" onclick="ga('send', 'event', 'Getting started', 'Download', 'Download compiled');">Download Bootstrap</a>
+  <p class="lead">
+    Bootstrap (currently v{{ site.current_version }}) has a few easy ways to quickly get started,
+    each one appealing to a different skill level and use case. Read through to see what suits your particular needs.
       </p>
-    </div>
-    <div class="col-sm-4">
-      <h3 id="download-source">Source code</h3>
-      <p>Source Less, JavaScript, and font files, along with our docs. <strong>Requires a Less compiler and <a href="#grunt">some setup.</a></strong></p>
+  <h3 id="install">Install with NodeJS</h3>
+  <h4 id="install-module">Install SumTotal Module</h4>
       <p>
-        <a href="{{ site.download.source }}" class="btn btn-lg btn-outline" role="button" onclick="ga('send', 'event', 'Getting started', 'Download', 'Download source');">Download source</a>
+    To download and install Foundation you'll need to clone the sumtotal-module from the TFS Git repository. After cloning
+    you'll run Node's <code>npm</code> command and install it globally. The final argument in the second command below is
+    the directory where the <code>git clone</code> placed the code. It will default to <em>sumtotal-module</em>.
       </p>
-    </div>
-    <div class="col-sm-4">
-      <h3 id="download-sass">Sass</h3>
-      <p><a href="{{ site.sass_repo }}">Bootstrap ported from Less to Sass</a> for easy inclusion in Rails, Compass, or Sass-only projects.</p>
+  {% highlight bash %}git clone http://team2:8080/tfs/DefaultCollection/Foundation/_git/sumtotal-module
+  npm install -g sumtotal-module
+  {% endhighlight %}
+
+  <h4 id="init-foundation">Initialize Foundation</h4>
       <p>
-        <a href="{{ site.download.sass }}" class="btn btn-lg btn-outline" role="button" onclick="ga('send', 'event', 'Getting started', 'Download', 'Download Sass');">Download Sass</a>
+    Now that the SumTotal module is installed. The Foundation components can be applied to your project. Open a Node
+    command prompt in your project's root. Running the <code>sumtotal init</code> will ask a series of questions
+    about where your scripts and styles are stored. Answer the questions and a file called <em>.sumtotal</em> will
+    be created. This should be stored in your source control system.
       </p>
-    </div>
-  </div>
+  {% highlight bash %}
+  sumtotal init
+  {% endhighlight %}
 
-  <h3 id="download-cdn">Bootstrap CDN</h3>
-  <p>The folks over at <a href="http://www.maxcdn.com/">MaxCDN</a> graciously provide CDN support for Bootstrap's CSS and JavaScript. Just use these <a href="http://www.bootstrapcdn.com/">Bootstrap CDN</a> links.</p>
-{% highlight html %}
-<!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="{{ site.cdn.css }}">
+  <h4 id="install-foundation">Install Foundation</h4>
+  <p>
 
-<!-- Optional theme -->
-<link rel="stylesheet" href="{{ site.cdn.css_theme }}">
+  </p>
+  {% highlight bash %}
+  sumtotal install
+  {% endhighlight %}
 
-<!-- Latest compiled and minified JavaScript -->
-<script src="{{ site.cdn.js }}"></script>
+  <h3 id="upgrading">Upgrading</h3>
+  <h4 id="upgrading-module">Upgrade SumTotal Module</h4>
+  <p>
+    When upgrading the SumTotal module
+  </p>
+  {% highlight bash %}git pull origin master
+  npm install -g . --force
 {% endhighlight %}
 
-  <h3 id="download-bower">Install with Bower</h3>
-  <p>You can also install and manage Bootstrap's Less, CSS, JavaScript, and fonts using <a href="http://bower.io">Bower</a>:</p>
-  {% highlight bash %}$ bower install bootstrap{% endhighlight %}
+  <h4 id="upgrading-foundation">Upgrade Foundation</h4>
+  <p>
+    When upgrading the SumTotal module
+  </p>
+  {% highlight bash %}sumtotal upgrade{% endhighlight %}
 
-  <h3 id="download-npm">Install with npm</h3>
-  <p>You can also install Bootstrap using <a href="https://www.npmjs.com">npm</a>:</p>
-  {% highlight bash %}$ npm install bootstrap{% endhighlight %}
-  <p><code>require('bootstrap')</code> will load all of Bootstrap's jQuery plugins onto the jQuery object. The <code>bootstrap</code> module itself does not export anything. You can manually load Bootstrap's jQuery plugins individually by loading the <code>/js/*.js</code> files under the package's top-level directory.</p>
-  <p>Bootstrap's <code>package.json</code> contains some additional metadata under the following keys:</p>
-  <ul>
-    <li><code>less</code> - path to Bootstrap's main <a href="http://lesscss.org">Less</a> source file</li>
-    <li><code>style</code> - path to Bootstrap's non-minified CSS that's been precompiled using the default settings (no customization)</li>
-  </ul>
-
-  <h3 id="download-autoprefixer">Autoprefixer required for Less/Sass</h3>
-  <p>Bootstrap uses <a href="https://github.com/postcss/autoprefixer">Autoprefixer</a> to deal with <a href="http://webdesign.about.com/od/css/a/css-vendor-prefixes.htm">CSS vendor prefixes</a>. If you're compiling Bootstrap from its Less/Sass source and not using our Gruntfile, you'll need to integrate Autoprefixer into your build process yourself. If you're using precompiled Bootstrap or using our Gruntfile, you don't need to worry about this because Autoprefixer is already integrated into our Gruntfile.</p>
 </div>
