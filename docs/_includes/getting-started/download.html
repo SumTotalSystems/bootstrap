@@ -6,6 +6,7 @@
     each one appealing to a different skill level and use case. Read through to see what suits your particular needs.
       </p>
   <h3 id="install">Install with NodeJS</h3>
+  <p class="lead">Download and install NodeJS to use the SumTotal NodJS module for installating and upgrading foundation.</p>
   <h4 id="install-module">Install SumTotal Module</h4>
       <p>
     To download and install Foundation you'll need to clone the sumtotal-module from the TFS Git repository. After cloning
@@ -21,7 +22,7 @@
     Now that the SumTotal module is installed. The Foundation components can be applied to your project. Open a Node
     command prompt in your project's root. Running the <code>sumtotal init</code> will ask a series of questions
     about where your scripts and styles are stored. Answer the questions and a file called <em>.sumtotal</em> will
-    be created. This should be stored in your source control system.
+    be created. This should be stored in your source control system. <em>Note: This is only done once!</em>
       </p>
   {% highlight bash %}
   sumtotal init
@@ -29,7 +30,8 @@
 
   <h4 id="install-foundation">Install Foundation</h4>
   <p>
-
+    Once the SumTotal module has initialized your project you can then install Foundation. Install will always take
+    the latest version of the code and install it according to the settings in <code>.sumtotal</code>.
   </p>
   {% highlight bash %}
   sumtotal install
