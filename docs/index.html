@@ -1,7 +1,4 @@
----
-layout: home
-title: Bootstrap
----
+--- layout: home title: Bootstrap ---
 
 <main class="bs-docs-masthead" id="content" role="main">
   <div class="container">
@@ -11,14 +8,13 @@ title: Bootstrap
       <a href="getting-started#download" class="btn btn-outline-inverse btn-lg" onclick="ga('send', 'event', 'Jumbotron actions', 'Download', 'Download {{ site.current_version }}');">Download Bootstrap</a>
     </p>
     <p class="version">Currently v{{ site.current_version }}</p>
-    {% include ads.html %}
   </div>
 </main>
 
 <div class="bs-docs-featurette">
   <div class="container">
     <h2 class="bs-docs-featurette-title">Designed for everyone, everywhere.</h2>
-    <p class="lead">Bootstrap makes front-end web development faster and easier. It's made for folks of all skill levels, devices of all shapes, and projects of all sizes.</p>
+    <p class="lead">SumTotal Foundation uses Bootstrap which makes front-end web development faster and easier. It's made for folks of all skill levels, devices of all shapes, and projects of all sizes.</p>
 
     <hr class="half-rule">
 
@@ -42,6 +38,8 @@ title: Bootstrap
 
     <hr class="half-rule">
 
+    <p class="lead">SumTotal Foundation is awesome. It's hosted, developed, and maintained on TFS 2013 (team2).</p>
+    <a href="http://team2:8080/tfs/DefaultCollection/Foundation" class="btn btn-outline btn-lg">View the Foundation project</a>
     <p class="lead">Bootstrap is open source. It's hosted, developed, and maintained on GitHub.</p>
     <a href="{{ site.repo }}" class="btn btn-outline btn-lg">View the GitHub project</a>
   </div>
@@ -55,18 +53,18 @@ title: Bootstrap
     <hr class="half-rule">
 
     <div class="row bs-docs-featured-sites">
-    {% for showcase in site.data.showcase %}
+      {% for showcase in site.data.showcase %}
       <div class="col-sm-3">
         <a href="{{ showcase.expo_url }}" target="_blank" title="{{ showcase.name }}">
           <img src="http://expo.getbootstrap.com/screenshots/{{ showcase.img }}.jpg" alt="{{ showcase.name }}" class="img-responsive">
         </a>
       </div>
-    {% endfor %}
+      {% endfor %}
     </div>
 
     <hr class="half-rule">
 
-    <p class="lead">We showcase dozens of inspiring projects built with Bootstrap on the Bootstrap Expo.</p>
+    <p class="lead">The Bootstrap devs showcase dozens of inspiring projects built with Bootstrap on the Bootstrap Expo.</p>
     <a href="{{ site.expo }}" class="btn btn-outline btn-lg">Explore the Expo</a>
   </div>
 </div>
