@@ -36,14 +36,8 @@
 <script src="../dist/js/foundation.js"></script>
 
 
-{% if site.github %}
   <script src="../assets/js/docs.min.js"></script>
-{% else %}
-  {% for file in site.data.configBridge.paths.docsJs %}
-  <script src="{{ file }}"></script>
-  {% endfor %}
-{% endif %}
-
+<script src="../assets/js/jsExamples.js"></script>
 {% if page.slug == "customize" %}
   <script>var __configBridge = {{ site.data.configBridge.config | jsonify }}</script>
   {% if site.github %}
