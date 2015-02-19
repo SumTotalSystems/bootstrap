@@ -40,3 +40,9 @@ validation-status.json
 # Folders to ignore
 bower_components
 node_modules
+
+# SumTotal files to ignore - these are created during the build process.
+foundation.css
+foundation.js
+vendor.css
+vendor.js
