@@ -363,4 +363,119 @@ angular.module('Examples', ['SumTotalComponents', 'mgcrea.ngStrap', 'ngAnimate',
       "gapLabel": 'CURRENT CAPABILITY GAPS',
       "legendColors": ['#f27c2a', '#00aed3', '#33c4b3']
     };
-  }]);;
+  }])
+  .controller('BarChartCtrl', ['$scope', 'ExamplesData', function ($scope, ExamplesData) {
+    $scope.barChartData = {};
+    $scope.barChartConfig = {
+      "ChartConfig": {
+        "columnMap": ["a", "b", "c"],
+        "barType": "",
+        "ChartLabelColumn": "y",
+        "isStacked": true
+      }
+    };
+
+    $scope.colorsHash = ExamplesData.colorsHash;
+
+    ExamplesData.barchartData().then(function (result) {
+      $scope.barChartData = result;
+    });
+
+
+}])
+  .controller('BellChartCtrl', ['$scope', 'ExamplesData', function ($scope, ExamplesData) {
+    $scope.bellChartData = {};
+    $scope.bellChartConfig = {
+      "ChartConfig": {
+        "columnMap": ["rating", "count", "expenses"],
+        "barType": "",
+        "ChartLabelColumn": "y",
+        "IsStacked": true
+      }
+    };
+
+    $scope.colorsHash = ExamplesData.colorsHash;
+
+    ExamplesData.bellChartData().then(function (result) {
+      $scope.bellChartData = result;
+    });
+}])
+  .controller('BulletChartCtrl', ['$scope', 'ExamplesData', function ($scope, ExamplesData) {
+    $scope.colorsHash = ExamplesData.colorsHash;
+
+    $scope.chartData = {};
+    $scope.chartConfig = {
+      'ChartConfig': {
+        'ChartLabelColumn': 'category'
+      }
+    };
+    $scope.curTheme = 'no-theme';
+
+    ExamplesData.bulletChartData().then(function (data) {
+      $scope.chartData = data;
+    })
+
+}])
+  .controller('LineChartCtrl', ['$scope', 'ExamplesData', function ($scope, ExamplesData) {
+    $scope.colorsHash = ExamplesData.colorsHash;
+
+    $scope.lineChartData = {};
+    $scope.lineChartConfig = {
+      "ChartConfig": {
+        "columnMap": ["date", "scheduled", "regular", "overtime", "absence"],
+        "barType": "",
+        "titleMap": ["Scheduled", "ScheduledRegular", "Overtime", "Absence"]
+      }
+    };
+    $scope.curTheme = 'no-theme';
+
+    ExamplesData.lineChartData().then(function (result) {
+      $scope.lineChartData = result;
+    });
+}])
+  .controller('PieChartCtrl', ['$scope', 'ExamplesData', function ($scope, ExamplesData) {
+
+    $scope.colorsHash = ExamplesData.colorsHash;
+
+    $scope.pieChartData = {};
+    $scope.pieChartConfig = {};
+    $scope.curTheme = 'no-theme';
+    $scope.percentage = 4 / 5 * 100;
+
+    ExamplesData.dounutChartData().then(function (result) {
+      $scope.pieChartData = result;
+    });
+
+    $scope.pieConfig = {
+      barData: [{
+        "label": "Performance Ranking",
+        "value": 0
+      }],
+      animateChart: false,
+      curTheme: ExamplesData.colorsHash,
+      chartAngle: 0,
+      paramJson: {
+        "HeaderLinkIcon": "",
+        "IsCustomEditor": false,
+        "ChartConfig": {
+          "columnMap": ["value"],
+          "barType": "bar",
+          "ChartLabelColumn": "label"
+        }
+      },
+      colorHash: ExamplesData.colorsHash
+    };
+    var color = "#00AED3";
+    var val = 4;
+    $scope.pieConfig.colorHash = '#00AED3';
+    $scope.pieConfig.barData = [{
+      "label": "Performance",
+      "value": val,
+      "color": color
+    }, {
+      "label": "Gap",
+      "value": 5 - val,
+      "color": "#e2e5e8"
+    }];
+}]);
+
