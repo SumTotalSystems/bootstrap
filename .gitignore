@@ -40,3 +40,9 @@ validation-report.json
 # Folders to ignore
 node_modules
 bower_components
+
+# SumTotal files to ignore - these are created during the build process.
+foundation.css
+foundation.js
+vendor.css
+vendor.js
