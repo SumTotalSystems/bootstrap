@@ -1,0 +1,10 @@
+  <div class="bs-docs-section"  ng-controller="gridMain">
+    <h1 id="grid" >NG Table</h1>
+    <table ng-table="tableParams" class="table table-hover">
+      <tr ng-repeat="card in $data">
+        <td data-title="'Name'">{{card.name}}</td>
+        <td data-title="'Username'">{{card.username}}</td>
+        <td data-title="'Email'">{{card.email}}</td>
+      </tr>
+    </table>
+  </div>
