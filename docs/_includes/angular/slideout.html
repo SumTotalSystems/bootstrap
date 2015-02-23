@@ -1,0 +1,20 @@
+  <div class="bs-docs-section"  ng-controller="slideoutController">
+    <h1 id="slideout" class="page-header">Slide Out</h1>
+    <ol class="breadcrumb">
+      <li>
+        <a href="/index.html">Home</a>
+      </li>
+    </ol>
+    <h1>Slideout Panel Demo</h1>
+    <button type="button" class="btn btn-default" ng-click="openSlideOut()">Open</button>
+    <slideout id="slideout" vertical-offset="100" title-text="Example Slideout" open-slide-out-class="sumt-slideout" close-slide-out-class="sumt-slideout-initial">
+      <div>
+        <button type="button" class="btn btn-default" ng-click="fullOpen()">Full Open</button>
+      </div>
+      <div class="expandedOrgSlideoutContainer">
+        <div>
+          Content goes here
+        </div>
+      </div>
+    </slideout>
+  </div>
