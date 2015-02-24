@@ -8,13 +8,12 @@
     <p>Alerts require the <a href="#modals">modal plugin</a> to be included.</p>
   </div>
 
-{% highlight js %}
-$scope.alert = {
-  "title": "Holy guacamole!",
-  "content": "Best check yo self, you're not looking too good.",
-  "type": "info"
-};
-{% endhighlight %}
+  {% highlight js %}
+  $scope.alert = {
+    "title": "Holy guacamole!",
+    "content": "Best check yo self, you're not looking too good.",
+    "type": "info"
+  }; {% endhighlight %}
 
   <div class="bs-example" style="padding-bottom: 24px;" append-source="">
 
@@ -72,12 +71,11 @@ $scope.alert = {
   <div class="callout callout-info">
     <h4>The module also exposes an <code>$alert</code>service</h4>
     <p>Available for programmatic use (inside a controller/directive).</p>
-{% highlight js %}
+    {% highlight js %}
 angular.module('myApp')
 .controller('DemoCtrl', function($scope, $alert) {
   var myAlert = $alert({title: 'Holy guacamole!', content: 'Best check yo self, you\'re not looking too good.', placement: 'top', type: 'info', show: true});
-})
-{% endhighlight %}
+}) {% endhighlight %}
   </div>
 
   <h3>Options</h3>
@@ -175,15 +173,7 @@ angular.module('myApp')
     <h4>Default options</h4>
     <p>You can override global defaults for the plugin with <code>$alertProvider.defaults</code>
     </p>
-{% highlight js %}
-angular.module('myApp')
-.config(function($alertProvider) {
-  angular.extend($alertProvider.defaults, {
-    animation: 'am-fade-and-slide-top',
-    placement: 'top'
-  });
-})
-{% endhighlight %}
+    {% highlight js %} angular.module('myApp') .config(function($alertProvider) { angular.extend($alertProvider.defaults, { animation: 'am-fade-and-slide-top', placement: 'top' }); }) {% endhighlight %}
   </div>
 
 
