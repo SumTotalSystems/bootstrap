@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="../dist/ng-table.css">
 </head>
 <body ng-app="main">
-<h1>Example with custom start & end symbols (for Twig, Django, etc...)</h1>
+<h1>Example with custom start &amp; end symbols (for Twig, Django, etc...)</h1>
 
 <div ng-controller="DemoCtrl">
 
@@ -41,7 +41,7 @@
                 .config(function($interpolateProvider){
                     $interpolateProvider.startSymbol('{[').endSymbol(']}');
                 })
-                .controller('DemoCtrl', function($scope, NgTableParams, $sce) {
+                .controller('DemoCtrl', function($scope, ngTableParams, $sce) {
                     var data = [{name: "Moroni", age: 50},
                         {name: "Tiancum", age: 43},
                         {name: "Jacob", age: 27},
@@ -60,7 +60,7 @@
                         {name: "Nephi", age: 29},
                         {name: "Enos", age: 34}];
 
-                    $scope.tableParams = new NgTableParams({
+                    $scope.tableParams = new ngTableParams({
                         page: 1,            // show first page
                         count: 10           // count per page
                     }, {
