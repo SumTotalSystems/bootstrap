@@ -17,7 +17,7 @@
         </div>
         <div ng-show="video.$selected">
           {% raw %}
-          <video id="{{'#video'+($index+1)}}" ng-src={{video.link}} type="video/mp4" width="640" height="480" vidplay ng-attr-poster={{video.img}} preload="none" controls>
+          <video id="{{'#video'+($index+1)}}" ng-src="{{'/' + video.link}}" type="video/mp4" width="640" height="480" vidplay ng-attr-poster="{{'/' + video.img}}" preload="none" controls>
             Your browser does not support the video tag.
           </video>
           {% endraw %}
@@ -25,7 +25,6 @@
       </td>
       <td data-title="'Duration'" style="width: 100px; text-align: center;">
         {% raw %}{{video.duration}}{% endraw %}
-
       </td>
     </tr>
   </table>
