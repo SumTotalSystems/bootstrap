@@ -1,4 +1,4 @@
-angular.module('AngularJSTraining', ['SumTotalComponents']) //jshint ignore:line
+angular.module('GettingStarted', ['SumTotalComponents']) //jshint ignore:line
   .factory('videoList', ['$q', function ($q) {
     var deferred = $q.defer();
     //video list ends
