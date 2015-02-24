@@ -27,18 +27,20 @@
       <small>(using data-template)</small>
     </button>
 
-  </div><div class="highlight" ng-non-bindable=""><pre><code class="html hljs xml" style="margin:0"><span class="hljs-comment">&lt;!-- Button to trigger a default aside with a scope as an object {title:'', content:'', etc.} --&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-title">button</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">"button"</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"btn btn-lg btn-primary"</span> <span class="hljs-attribute">bs-aside</span>=<span class="hljs-value">"aside"</span>&gt;</span>Click to toggle aside
-  <span class="hljs-tag">&lt;<span class="hljs-title">br</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-title">small</span>&gt;</span>(using an object)<span class="hljs-tag">&lt;/<span class="hljs-title">small</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-title">button</span>&gt;</span>
+  </div>
+  {% highlight html %}
+<!-- Button to trigger a default aside with a scope as an object {title:'', content:'', etc.} -->
+    <button type="button" class="btn btn-lg btn-primary" bs-aside="aside">Click to toggle aside
+      <br>
+      <small>(using an object)</small>
+    </button>
 
-<span class="hljs-comment">&lt;!-- You can use a custom html template with the `data-template` attr --&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-title">button</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">"button"</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"btn btn-lg btn-danger"</span> <span class="hljs-attribute">data-template</span>=<span class="hljs-value">"aside/docs/aside.tpl.demo.html"</span> <span class="hljs-attribute">data-placement</span>=<span class="hljs-value">"left"</span> <span class="hljs-attribute">data-animation</span>=<span class="hljs-value">"am-slide-left"</span> <span class="hljs-attribute">bs-aside</span>=<span class="hljs-value">"aside"</span> <span class="hljs-attribute">data-container</span>=<span class="hljs-value">"body"</span>&gt;</span>Custom aside
-  <span class="hljs-tag">&lt;<span class="hljs-title">br</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-title">small</span>&gt;</span>(using data-template)<span class="hljs-tag">&lt;/<span class="hljs-title">small</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-title">button</span>&gt;</span>
-</code></pre></div>
+  <!-- You can use a custom html template with the `data-template` attr -->
+    <button type="button" class="btn btn-lg btn-danger" data-template="templates/asides.html" data-placement="left" data-animation="am-slide-left" bs-aside="aside" data-container="body">Custom aside
+      <br>
+      <small>(using data-template)</small>
+    </button>
+{% endhighlight %}
 
   <div class="callout callout-info">
     <h4>Custom styles required</h4>

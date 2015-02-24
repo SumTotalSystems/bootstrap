@@ -37,25 +37,26 @@
       <small>(using data-template)</small>
     </button>
   </div>
-  <div class="highlight" ng-non-bindable=""><pre><code class="html hljs xml" style="margin:0"><span class="hljs-comment">&lt;!-- Button to trigger a default popover with a scope as an object {title:'', content:'', etc.} --&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-title">button</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">"button"</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"btn btn-lg btn-primary"</span> <span class="hljs-attribute">data-placement</span>=<span class="hljs-value">"bottom"</span> <span class="hljs-attribute">data-animation</span>=<span class="hljs-value">"am-flip-x"</span> <span class="hljs-attribute">bs-popover</span>=<span class="hljs-value">"popover"</span>&gt;</span>Click to toggle popover
-  <span class="hljs-tag">&lt;<span class="hljs-title">br</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-title">small</span>&gt;</span>(using an object)<span class="hljs-tag">&lt;/<span class="hljs-title">small</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-title">button</span>&gt;</span>
 
-<span class="hljs-comment">&lt;!-- You can also use data-attrs to assign scope variables --&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-title">button</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">"button"</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"btn btn-lg btn-primary"</span> <span class="hljs-attribute">data-placement</span>=<span class="hljs-value">"top-right"</span> <span class="hljs-attribute">title</span>=<span class="hljs-value">"{{popover.title}}"</span> <span class="hljs-attribute">data-content</span>=<span class="hljs-value">"{{popover.content}}"</span> <span class="hljs-attribute">data-trigger</span>=<span class="hljs-value">"focus"</span> <span class="hljs-attribute">bs-popover</span>&gt;</span>Click to toggle popover
-  <span class="hljs-tag">&lt;<span class="hljs-title">br</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-title">small</span>&gt;</span>(using data-attrs)<span class="hljs-tag">&lt;/<span class="hljs-title">small</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-title">button</span>&gt;</span>
+  {% highlight html %}
+  <!-- Button to trigger a default popover with a scope as an object {title:'', content:'', etc.} -->
+    <button type="button" class="btn btn-lg btn-primary" data-placement="bottom" data-animation="am-flip-x" bs-popover="popover">Click to toggle popover
+      <br>
+      <small>(using an object)</small>
+    </button>
 
-<span class="hljs-comment">&lt;!-- You can use a custom html template with the `data-template` attr --&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-title">button</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">"button"</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"btn btn-lg btn-danger"</span> <span class="hljs-attribute">title</span>=<span class="hljs-value">"{{popover.title}}"</span> <span class="hljs-attribute">data-content</span>=<span class="hljs-value">"{{popover.content}}"</span> <span class="hljs-attribute">data-template</span>=<span class="hljs-value">"popover/docs/popover.tpl.demo.html"</span> <span class="hljs-attribute">data-animation</span>=<span class="hljs-value">"am-flip-x"</span> <span class="hljs-attribute">data-auto-close</span>=<span class="hljs-value">"1"</span> <span class="hljs-attribute">bs-popover</span>&gt;</span>Custom Popover
-  <span class="hljs-tag">&lt;<span class="hljs-title">br</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-title">small</span>&gt;</span>(using data-template)<span class="hljs-tag">&lt;/<span class="hljs-title">small</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-title">button</span>&gt;</span>
-</code></pre>
-  </div>
+    <!-- You can also use data-attrs to assign scope variables -->
+    <button type="button" class="btn btn-lg btn-primary" data-placement="top-right" title="Title" data-content="Hello Popover<br />This is a multiline message!" data-trigger="focus" bs-popover="">Click to toggle popover
+      <br>
+      <small>(using data-attrs)</small>
+    </button>
+
+    <!-- You can use a custom html template with the `data-template` attr -->
+    <button type="button" class="btn btn-lg btn-danger" title="Title" data-content="Hello Popover<br />This is a multiline message!" data-template="popover/docs/popover.tpl.demo.html" data-animation="am-flip-x" data-auto-close="1" bs-popover="">Custom Popover
+      <br>
+      <small>(using data-template)</small>
+    </button>
+  {% endhighlight %}
 
   <h2 id="popovers-usage">Usage</h2>
   <p>Append a <code>bs-popover</code>attribute to any element to enable the directive.</p>
