@@ -31,7 +31,9 @@
               {% if page.slug == "getting-started" %}
                 {% include nav/getting-started.html %}
               {% elsif page.slug == "ng-table" %}
-                {% include nav/sub/ngTable.html %}
+                {% include nav/3rd-party/ngTable.html %}
+              {% elsif page.slug == "angular-strap" %}
+                {% include nav/3rd-party/angular-strap.html %}
               {% endif %}
             </ul>
             <a class="back-to-top" href="#top">
