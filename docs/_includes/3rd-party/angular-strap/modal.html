@@ -45,22 +45,22 @@
     <h4>Backdrop animation</h4>
     <p>Backdrop animation being powered by <code>ngAnimate</code>, it requires custom CSS.</p>
     {% highlight css %}
-        .modal-backdrop.am-fade {
+.modal-backdrop.am-fade {
+  opacity: .5;
+  transition: opacity .15s linear;
+    .ng-enter {
+      opacity: 0;
+      .ng-enter-active {
         opacity: .5;
-        transition: opacity .15s linear;
-        .ng-enter {
+      }
+    }
+    .ng-leave {
+      opacity: .5;
+      .ng-leave-active {
         opacity: 0;
-        .ng-enter-active {
-        opacity: .5;
-        }
-        }
-        .ng-leave {
-        opacity: .5;
-        .ng-leave-active {
-        opacity: 0;
-        }
-        }
-        }
+      }
+    }
+  }
     {% endhighlight %}
   </div>
 
@@ -69,24 +69,20 @@
   <div class="callout callout-info">
     <h4>The module also exposes a <code>$modal</code>service</h4>
     <p>Available for programmatic use (inside a directive/controller).</p>
-    <div class="highlight">
-      <pre>
-        <code class="javascript" highlight-block>
-          angular.module('myApp')
-          .controller('DemoCtrl', function($scope, $modal) {
-          // Show a basic modal from a controller
-          var myModal = $modal({title: 'My Title', content: 'My Content', show: true});
+    {% highlight js %}
+angular.module('myApp')
+.controller('DemoCtrl', function($scope, $modal) {
+    // Show a basic modal from a controller
+    var myModal = $modal({title: 'My Title', content: 'My Content', show: true});
 
-          // Pre-fetch an external template populated with a custom scope
-          var myOtherModal = $modal({scope: $scope, template: 'modal/docs/modal.tpl.demo.html', show: false});
-          // Show when some event occurs (use $promise property to ensure the template has been loaded)
-          $scope.showModal = function() {
-          myOtherModal.$promise.then(myOtherModal.show);
-          };
-          })
-        </code>
-      </pre>
-    </div>
+    // Pre-fetch an external template populated with a custom scope
+    var myOtherModal = $modal({scope: $scope, template: 'modal/docs/modal.tpl.demo.html', show: false});
+    // Show when some event occurs (use $promise property to ensure the template has been loaded)
+    $scope.showModal = function() {
+      myOtherModal.$promise.then(myOtherModal.show);
+    };
+})
+    {% endhighlight %}
   </div>
 
   <h3>Options</h3>
@@ -205,18 +201,14 @@
   <div class="callout callout-info">
     <h4>Default options</h4>
     <p>You can override global defaults for the plugin with <code>$modalProvider.defaults</code></p>
-    <div class="highlight">
-      <pre class="bs-exemple-code">
-        <code class="javascript" highlight-block>
-          angular.module('myApp')
-          .config(function($modalProvider) {
-          angular.extend($modalProvider.defaults, {
-          animation: 'am-flip-x'
-          });
-          })
-        </code>
-      </pre>
-    </div>
+    {% highlight js %}
+angular.module('myApp')
+.config(function($modalProvider) {
+    angular.extend($modalProvider.defaults, {
+      animation: 'am-flip-x'
+    });
+})
+    {% endhighlight %}
   </div>
 
   <h3>Scope methods</h3>

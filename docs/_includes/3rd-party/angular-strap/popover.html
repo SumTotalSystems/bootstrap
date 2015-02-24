@@ -14,10 +14,12 @@
     <label>Content</label>
     <textarea class="form-control ng-pristine ng-untouched ng-valid" ng-model="popover.content" rows="3"></textarea>
   </div>
-  <pre class="bs-example-scope">$scope.popover = {
+  {% highlight js %}
+  $scope.popover = {
   "title": "Title",
   "content": "Hello Popover&lt;br /&gt;This is a multiline message!"
-};</pre>
+};
+  {% endhighlight %}
   <div class="bs-example" style="padding-bottom: 24px;" append-source="">
     <!-- Button to trigger a default popover with a scope as an object {title:'', content:'', etc.} -->
     <button type="button" class="btn btn-lg btn-primary" data-placement="bottom" data-animation="am-flip-x" bs-popover="popover">Click to toggle popover
@@ -63,11 +65,10 @@
   <div class="callout callout-info">
     <h4>The module exposes a <code>$popover</code>service</h4>
     <p>Available for programmatic use (mainly in directives as it requires a DOM element).</p>
-    <div class="highlight">
-      <pre>        <code class="javascript hljs" highlight-block=""><span class="hljs-keyword">var</span> myPopover = $popover(element, {title: <span class="hljs-string">'My Title'</span>, content: <span class="hljs-string">'My Content'</span>});
-</code>
-      </pre>
-    </div>
+    {% highlight js %}
+    var myPopover = $popover(element, {title: 'My Title', content: 'My Content'});
+    {% endhighlight %}
+
   </div>
 
   <h3>Options</h3>
@@ -196,17 +197,15 @@
     <h4>Default options</h4>
     <p>You can override global defaults for the plugin with <code>$popoverProvider.defaults</code>
     </p>
-    <div class="highlight">
-      <pre class="bs-exemple-code">        <code class="javascript hljs" highlight-block="">angular.module(<span class="hljs-string">'myApp'</span>)
-.config(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">($popoverProvider)</span> </span>{
+    {% highlight js %}
+    angular.module('myApp')
+.config(function($popoverProvider){
   angular.extend($popoverProvider.defaults, {
-    animation: <span class="hljs-string">'am-flip-x'</span>,
-    trigger: <span class="hljs-string">'hover'</span>
+    animation: 'am-flip-x',
+    trigger:'hover'
   });
 })
-</code>
-      </pre>
-    </div>
+{% endhighlight %}
   </div>
 
   <h3>Scope methods</h3>
