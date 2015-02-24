@@ -8,11 +8,14 @@
     <p>Alerts require the <a href="#modals">modal plugin</a> to be included.</p>
   </div>
 
-  <pre class="bs-example-scope">$scope.alert = {
+{% highlight js %}
+$scope.alert = {
   "title": "Holy guacamole!",
   "content": "Best check yo self, you're not looking too good.",
   "type": "info"
-};</pre>
+};
+{% endhighlight %}
+
   <div class="bs-example" style="padding-bottom: 24px;" append-source="">
 
     <!-- Button to trigger a default alert with a scope as an object {title:'', content:'', etc.} -->
@@ -37,28 +40,31 @@
     <hr>
     <div id="alerts-container"></div>
 
-  </div><div class="highlight" ng-non-bindable=""><pre><code class="html hljs xml" style="margin:0"><span class="hljs-comment">&lt;!-- Button to trigger a default alert with a scope as an object {title:'', content:'', etc.} --&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-title">button</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"btn btn-lg btn-primary"</span> <span class="hljs-attribute">data-placement</span>=<span class="hljs-value">"top-right"</span> <span class="hljs-attribute">data-container</span>=<span class="hljs-value">"body"</span> <span class="hljs-attribute">data-duration</span>=<span class="hljs-value">"3"</span> <span class="hljs-attribute">bs-alert</span>=<span class="hljs-value">"alert"</span>&gt;</span>Click to toggle alert
-  <span class="hljs-tag">&lt;<span class="hljs-title">br</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-title">small</span>&gt;</span>(using an object)<span class="hljs-tag">&lt;/<span class="hljs-title">small</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-title">button</span>&gt;</span>
+  </div>
 
-<span class="hljs-comment">&lt;!-- You can also use data-attrs to assign scope variables --&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-title">button</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"btn btn-lg btn-primary"</span> <span class="hljs-attribute">title</span>=<span class="hljs-value">"{{alert.title}}"</span> <span class="hljs-attribute">data-content</span>=<span class="hljs-value">"{{alert.content}}"</span> <span class="hljs-attribute">data-type</span>=<span class="hljs-value">"success"</span> <span class="hljs-attribute">data-container</span>=<span class="hljs-value">"#alerts-container"</span> <span class="hljs-attribute">bs-alert</span>&gt;</span>Click to toggle alert
-  <span class="hljs-tag">&lt;<span class="hljs-title">br</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-title">small</span>&gt;</span>(using data-attrs)<span class="hljs-tag">&lt;/<span class="hljs-title">small</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-title">button</span>&gt;</span>
+{% highlight html %}
+<!-- Button to trigger a default alert with a scope as an object {title:'', content:'', etc.} -->
+<button class="btn btn-lg btn-primary" data-placement="top-right" data-container="body" data-duration="3" bs-alert="alert">Click to toggle alert
+  <br>
+  <small>(using an object)</small>
+</button>
 
-<span class="hljs-comment">&lt;!-- You can use a custom html template with the `data-template` attr --&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-title">button</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"btn btn-lg btn-danger"</span> <span class="hljs-attribute">data-template</span>=<span class="hljs-value">"alert/docs/alert.tpl.demo.html"</span> <span class="hljs-attribute">data-placement</span>=<span class="hljs-value">"top"</span> <span class="hljs-attribute">data-duration</span>=<span class="hljs-value">"3"</span> <span class="hljs-attribute">data-animation</span>=<span class="hljs-value">"am-fade-and-slide-top"</span> <span class="hljs-attribute">data-container</span>=<span class="hljs-value">"body"</span> <span class="hljs-attribute">data-keyboard</span>=<span class="hljs-value">"true"</span> <span class="hljs-attribute">bs-alert</span>=<span class="hljs-value">"alert"</span>&gt;</span>Custom alert
-  <span class="hljs-tag">&lt;<span class="hljs-title">br</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-title">small</span>&gt;</span>(using data-template)<span class="hljs-tag">&lt;/<span class="hljs-title">small</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-title">button</span>&gt;</span>
+<!-- You can also use data-attrs to assign scope variables -->
+<button class="btn btn-lg btn-primary" title="{{alert.title}}" data-content="{{alert.content}}" data-type="success" data-container="#alerts-container" bs-alert>Click to toggle alert
+  <br>
+  <small>(using data-attrs)</small>
+</button>
 
-<span class="hljs-comment">&lt;!-- Element container to append the first alert --&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-title">hr</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">"alerts-container"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
-</code></pre></div>
+<!-- You can use a custom html template with the `data-template` attr -->
+<button class="btn btn-lg btn-danger" data-template="alert/docs/alert.tpl.demo.html" data-placement="top" data-duration="3" data-animation="am-fade-and-slide-top" data-container="body" data-keyboard="true" bs-alert="alert">Custom alert
+  <br>
+  <small>(using data-template)</small>
+</button>
+
+<!-- Element container to append the first alert -->
+<hr>
+<div id="alerts-container"></div>
+{% endhighlight %}
 
 
   <h2 id="alerts-usage">Usage</h2>
@@ -66,14 +72,12 @@
   <div class="callout callout-info">
     <h4>The module also exposes an <code>$alert</code>service</h4>
     <p>Available for programmatic use (inside a controller/directive).</p>
-    <div class="highlight">
-      <pre>        <code class="javascript hljs" highlight-block="">angular.module(<span class="hljs-string">'myApp'</span>)
-.controller(<span class="hljs-string">'DemoCtrl'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">($scope, $alert)</span> </span>{
-  <span class="hljs-keyword">var</span> myAlert = $alert({title: <span class="hljs-string">'Holy guacamole!'</span>, content: <span class="hljs-string">'Best check yo self, you\'re not looking too good.'</span>, placement: <span class="hljs-string">'top'</span>, type: <span class="hljs-string">'info'</span>, show: <span class="hljs-literal">true</span>});
+{% highlight js %}
+angular.module('myApp')
+.controller('DemoCtrl', function($scope, $alert) {
+  var myAlert = $alert({title: 'Holy guacamole!', content: 'Best check yo self, you\'re not looking too good.', placement: 'top', type: 'info', show: true});
 })
-</code>
-      </pre>
-    </div>
+{% endhighlight %}
   </div>
 
   <h3>Options</h3>
@@ -169,18 +173,17 @@
   </div>
   <div class="callout callout-info">
     <h4>Default options</h4>
-    <p>You can override global defaults for the plugin with <code>$alertProvider.defaults</code></p>
-    <div class="highlight">
-      <pre class="bs-exemple-code">        <code class="javascript hljs" highlight-block="">angular.module(<span class="hljs-string">'myApp'</span>)
-.config(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">($alertProvider)</span> </span>{
+    <p>You can override global defaults for the plugin with <code>$alertProvider.defaults</code>
+    </p>
+{% highlight js %}
+angular.module('myApp')
+.config(function($alertProvider) {
   angular.extend($alertProvider.defaults, {
-    animation: <span class="hljs-string">'am-fade-and-slide-top'</span>,
-    placement: <span class="hljs-string">'top'</span>
+    animation: 'am-fade-and-slide-top',
+    placement: 'top'
   });
 })
-</code>
-      </pre>
-    </div>
+{% endhighlight %}
   </div>
 
 
