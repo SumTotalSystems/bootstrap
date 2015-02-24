@@ -9,10 +9,12 @@
     <p>Asides require the <a href="#modals">modal plugin</a> to be included.</p>
   </div>
 
-  <pre class="bs-example-scope">$scope.aside = {
+{% highlight js %}
+$scope.aside = {
   "title": "Title",
-  "content": "Hello Aside&lt;br /&gt;This is a multiline message!"
-};</pre>
+  "content": "Hello Aside<br />This is a multiline message!"
+};
+{% endhighlight %}
   <div class="bs-example" append-source="">
 
     <!-- Button to trigger a default aside with a scope as an object {title:'', content:'', etc.} -->
@@ -28,6 +30,7 @@
     </button>
 
   </div>
+<<<<<<< HEAD
   {% highlight html %}
 <!-- Button to trigger a default aside with a scope as an object {title:'', content:'', etc.} -->
     <button type="button" class="btn btn-lg btn-primary" bs-aside="aside">Click to toggle aside
@@ -40,6 +43,20 @@
       <br>
       <small>(using data-template)</small>
     </button>
+=======
+{% highlight html %}
+<!-- Button to trigger a default aside with a scope as an object {title:'', content:'', etc.} -->
+<button type="button" class="btn btn-lg btn-primary" bs-aside="aside">Click to toggle aside
+  <br>
+  <small>(using an object)</small>
+</button>
+
+<!-- You can use a custom html template with the `data-template` attr -->
+<button type="button" class="btn btn-lg btn-danger" data-template="aside/docs/aside.tpl.demo.html" data-placement="left" data-animation="am-slide-left" bs-aside="aside" data-container="body">Custom aside
+  <br>
+  <small>(using data-template)</small>
+</button>
+>>>>>>> origin/sumtotal
 {% endhighlight %}
 
   <div class="callout callout-info">
@@ -52,22 +69,20 @@
   <div class="callout callout-info">
     <h4>The module also exposes an <code>$aside</code>service</h4>
     <p>Available for programmatic use.</p>
-    <div class="highlight">
-      <pre>        <code class="javascript hljs" highlight-block="">angular.module(<span class="hljs-string">'myApp'</span>)
-.controller(<span class="hljs-string">'DemoCtrl'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">($scope, $aside)</span> </span>{
-  <span class="hljs-comment">// Show a basic aside from a controller</span>
-  <span class="hljs-keyword">var</span> myAside = $aside({title: <span class="hljs-string">'My Title'</span>, content: <span class="hljs-string">'My Content'</span>, show: <span class="hljs-literal">true</span>});
+{% highlight js %}
+angular.module('myApp')
+.controller('DemoCtrl', function($scope, $aside) {
+  // Show a basic aside from a controller
+  var myAside = $aside({title: 'My Title', content: 'My Content', show: true});
 
-  <span class="hljs-comment">// Pre-fetch an external template populated with a custom scope</span>
-  <span class="hljs-keyword">var</span> myOtherAside = $aside({scope: $scope, template: <span class="hljs-string">'aside/docs/aside.tpl.demo.html'</span>});
-  <span class="hljs-comment">// Show when some event occurs (use $promise property to ensure the template has been loaded)</span>
-  myOtherAside.$promise.then(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{
+  // Pre-fetch an external template populated with a custom scope
+  var myOtherAside = $aside({scope: $scope, template: 'aside/docs/aside.tpl.demo.html'});
+  // Show when some event occurs (use $promise property to ensure the template has been loaded)
+  myOtherAside.$promise.then(function() {
     myOtherAside.show();
   })
 })
-</code>
-      </pre>
-    </div>
+{% endhighlight %}
   </div>
 
   <h3>Options</h3>
@@ -139,10 +154,10 @@
           <td>false</td>
           <td>
             <p>Appends the popover to a specific element. Example:
- <code>container: 'body'</code>. This option is particularly useful in that it allows you to position the popover in the flow of the document near the triggering element -&nbsp;which will prevent the popover from floating away from the triggering element during a window resize.</p>
+              <code>container: 'body'</code>. This option is particularly useful in that it allows you to position the popover in the flow of the document near the triggering element -&nbsp;which will prevent the popover from floating away from the triggering element during a window resize.</p>
           </td>
         </tr>
-<tr>
+        <tr>
           <td>template</td>
           <td>path</td>
           <td>false</td>
@@ -164,18 +179,17 @@
   </div>
   <div class="callout callout-info">
     <h4>Default options</h4>
-    <p>You can override global defaults for the plugin with <code>$asideProvider.defaults</code></p>
-    <div class="highlight">
-      <pre class="bs-exemple-code">        <code class="javascript hljs" highlight-block="">angular.module(<span class="hljs-string">'myApp'</span>)
-.config(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">($asideProvider)</span> </span>{
+    <p>You can override global defaults for the plugin with <code>$asideProvider.defaults</code>
+    </p>
+    {% highlight js %}
+angular.module('myApp')
+.config(function($asideProvider) {
   angular.extend($asideProvider.defaults, {
-    animation: <span class="hljs-string">'am-fadeAndSlideLeft'</span>,
-    placement: <span class="hljs-string">'left'</span>
+    animation: 'am-fadeAndSlideLeft',
+    placement: 'left'
   });
 })
-</code>
-      </pre>
-    </div>
+    {% endhighlight %}
   </div>
 
 

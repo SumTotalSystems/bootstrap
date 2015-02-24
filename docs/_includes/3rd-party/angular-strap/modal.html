@@ -5,10 +5,12 @@
 <h2 id="modals-examples">Examples</h2>
   <p>Modals are streamlined, but flexible, dialog prompts with the minimum required functionality and smart defaults.</p>
 
-  <pre class="bs-example-scope">$scope.modal = {
+  {% highlight js %}
+  $scope.modal = {
   "title": "Title",
   "content": "Hello Modal<br />This is a multiline message!"
-};</pre>
+};
+  {% endhighlight %}
   <div class="bs-example" style="padding-bottom: 24px;" append-source>
 
     <!-- Button to trigger a default modal with a scope as an object {title:'', content:'', etc.} -->
@@ -42,26 +44,24 @@
   <div class="callout callout-info">
     <h4>Backdrop animation</h4>
     <p>Backdrop animation being powered by <code>ngAnimate</code>, it requires custom CSS.</p>
-    <pre class="bs-exemple-code">
-      <code class="css" highlight-block>
+    {% highlight css %}
         .modal-backdrop.am-fade {
         opacity: .5;
         transition: opacity .15s linear;
-        &.ng-enter {
+        .ng-enter {
         opacity: 0;
-        &.ng-enter-active {
+        .ng-enter-active {
         opacity: .5;
         }
         }
-        &.ng-leave {
+        .ng-leave {
         opacity: .5;
-        &.ng-leave-active {
+        .ng-leave-active {
         opacity: 0;
         }
         }
         }
-      </code>
-    </pre>
+    {% endhighlight %}
   </div>
 
   <h2 id="modals-usage">Usage</h2>
