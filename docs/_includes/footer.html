@@ -36,8 +36,14 @@
 <script src="../dist/js/foundation.js"></script>
 
 
-  <script src="../assets/js/docs.min.js"></script>
+<script src="../assets/js/docs.min.js"></script>
 <script src="../assets/js/jsExamples.js"></script>
+
+{% if page.slug == "angular-training" %}
+  <script src="../assets/js/training.js"></script>
+{% endif %}
+
+
 {% if page.slug == "customize" %}
   <script>var __configBridge = {{ site.data.configBridge.config | jsonify }}</script>
   {% if site.github %}
