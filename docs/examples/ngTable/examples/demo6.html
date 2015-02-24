@@ -9,6 +9,7 @@
         <meta name="viewport" content="width=device-width">
 
         <link rel="stylesheet" href="/dist/css/vendor.css">
+        <link rel="stylesheet" href="/dist/css/foundation.css">
         <!--[if lt IE 9]>
         <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
         <![endif]-->
@@ -67,7 +68,7 @@
             return !isNaN(parseFloat(n)) && isFinite(n);
         }
         var app = angular.module('main', ['ngTable', 'ngResource', 'ngMockE2E']).
-            run(function($httpBackend, $filter, $log, NgTableParams) {
+            run(function($httpBackend, $filter, $log, ngTableParams) {
                 // emulation of api server
                 $httpBackend.whenGET(/data.*/).respond(function(method, url, data, headers) {
                     var query = url.split('?')[1],
@@ -116,7 +117,7 @@
                             {name: "Nephi", age: 29},
                             {name: "Enos", age: 34}];
 
-                    var params = new NgTableParams(requestParams);
+                    var params = new ngTableParams(requestParams);
                     data = params.filter() ? $filter('filter')(data, params.filter()) : data;
                     data = params.sorting() ? $filter('orderBy')(data, params.orderBy()) : data;
 
@@ -144,10 +145,10 @@
                     }
                 };
             })
-        .controller('DemoCtrl', function($scope, $timeout, $resource, NgTableParams) {
+        .controller('DemoCtrl', function($scope, $timeout, $resource, ngTableParams) {
             var Api = $resource('/data');
 
-            $scope.tableParams = new NgTableParams({
+            $scope.tableParams = new ngTableParams({
                 page: 1,            // show first page
                 count: 10,          // count per page
                 sorting: {
