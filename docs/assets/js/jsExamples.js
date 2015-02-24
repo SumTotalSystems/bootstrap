@@ -323,12 +323,12 @@ angular.module('Examples', ['SumTotalComponents', 'mgcrea.ngStrap', 'ngAnimate',
   }])
 
 .controller('ToolTipExample', ['$scope', '$tooltip', '$sce', function ($scope, $tooltip, $sce) {
-  $scope.tooltip = {
-    title: 'Hello Tooltip<br />This is a multiline message!',
-    checked: false
-  };
+    $scope.tooltip = {
+      title: 'Hello Tooltip<br />This is a multiline message!',
+      checked: false
+    };
   }])
-.controller('gridMain', ['$scope', '$timeout', '$q', 'ngTableParams', function ($scope, $timeout, $q, ngTableParams) {
+  .controller('gridMain', ['$scope', '$timeout', '$q', 'ngTableParams', function ($scope, $timeout, $q, ngTableParams) {
     $scope.cards = [];
     $scope.total = 1000;
 
@@ -354,6 +354,14 @@ angular.module('Examples', ['SumTotalComponents', 'mgcrea.ngStrap', 'ngAnimate',
       }
     });
 }])
+  .controller('alertsController', function ($scope) {
+    $scope.alert = {
+      "title": "Holy guacamole!",
+      "content": "Best check yo self, you're not looking too good.",
+      "type": "info"
+    };
+
+  })
 
 .controller('DialogExampleController', function ($scope, $modal) {
     $scope.modal = {
@@ -361,15 +369,13 @@ angular.module('Examples', ['SumTotalComponents', 'mgcrea.ngStrap', 'ngAnimate',
       content: 'Hello Modal<br />This is a multiline message!'
     };
 
-    // Controller usage example
-    //
-    // var myModal = $modal({title: 'Title', content: 'Hello Modal<br />This is a multiline message!', show: false});
-    // $scope.showModal = function() {
-    //   myModal.$promise.then(myModal.show);
-    // };
-    // $scope.hideModal = function() {
-    //   myModal.$promise.then(myModal.hide);
-    // };
+
+  })
+  .controller('popoverController', function ($scope) {
+    $scope.popover = {
+      "title": "Title",
+      "content": "Hello Popover<br />This is a multiline message!"
+    };
 
   })
   .controller('ClawCtrl', ['$scope', 'ExamplesData', function ($scope, ExamplesData) {
@@ -504,4 +510,3 @@ angular.module('Examples', ['SumTotalComponents', 'mgcrea.ngStrap', 'ngAnimate',
       "color": "#e2e5e8"
     }];
 }]);
-
