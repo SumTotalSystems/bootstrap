@@ -328,6 +328,32 @@ angular.module('Examples', ['SumTotalComponents', 'mgcrea.ngStrap', 'ngAnimate',
     checked: false
   };
   }])
+.controller('gridMain', ['$scope', '$timeout', '$q', 'ngTableParams', function ($scope, $timeout, $q, ngTableParams) {
+    $scope.cards = [];
+    $scope.total = 1000;
+
+    var deferred = $q.defer();
+
+    $timeout(function () {
+      for (var i = 0; i < $scope.total; i++) {
+        $scope.cards.push(faker.helpers.createCard());
+      }
+      deferred.resolve();
+    }, 200);
+
+
+    $scope.tableParams = new ngTableParams({
+      page: 1, // show first page
+      count: 10 // count per page
+    }, {
+      total: $scope.total, // length of data
+      getData: function ($defer, params) {
+        deferred.promise.then(function () {
+          $defer.resolve($scope.cards.slice((params.page() - 1) * params.count(), params.page() * params.count()));
+        });
+      }
+    });
+}])
 
 .controller('DialogExampleController', function ($scope, $modal) {
     $scope.modal = {
