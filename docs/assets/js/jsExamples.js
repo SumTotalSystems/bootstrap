@@ -362,6 +362,13 @@ angular.module('Examples', ['SumTotalComponents', 'mgcrea.ngStrap', 'ngAnimate',
     };
 
   })
+  .controller('asideController', function ($scope) {
+    $scope.aside = {
+      "title": "Title",
+      "content": "Hello Aside<br />This is a multiline message!"
+    };
+
+  })
 
 .controller('DialogExampleController', function ($scope, $modal) {
     $scope.modal = {
