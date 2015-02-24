@@ -439,7 +439,7 @@ angular.module('Examples', ['SumTotalComponents', 'mgcrea.ngStrap', 'ngAnimate',
 
     ExamplesData.bulletChartData().then(function (data) {
       $scope.chartData = data;
-    })
+    });
 
 }])
   .controller('LineChartCtrl', ['$scope', 'ExamplesData', function ($scope, ExamplesData) {
