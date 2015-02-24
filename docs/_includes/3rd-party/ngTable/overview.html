@@ -16,22 +16,22 @@
             <code>&lt;table ng-table&gt;...&lt;/table&gt;</code>
           </li>
           <li>We are going to define a basic style for table in style.css:
-            <pre style="margin-top:10px" class="prettyprint">
+{% highlight css %}
   .ng-table {
       border: 1px solid #000;
   }
-  </pre>
+{% endhighlight %}
           </li>
           <li>In your javascript file within the controller where you plan to use
             <br>ng-table, lets add data that our table will use:
             <br> </li>
-          <pre style="margin-top:10px" class="prettyprint">
+{% highlight js %}
   $scope.users = [{name: "Moroni", age: 50},
                   {name: "Tiancum", age: 43},
                   {name: "Jacob", age: 27},
                   {name: "Nephi", age: 29},
                   {name: "Enos", age: 34}];
-  </pre>
+{% endhighlight %}
           <li>Now create your table rows:
             <br>
             <code>ng-repeat="user in users"</code>
