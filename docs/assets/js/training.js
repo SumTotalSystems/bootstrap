@@ -1,8 +1,8 @@
-angular.module('AngularJSTraining', ['SumTotalComponents', 'mgcrea.ngStrap', 'ngAnimate', 'ngSanitize', 'ngTable']) //jshint ignore:line
-.factory('videoList', ['$q', function ($q) {
-  var deferred = $q.defer();
-  //video list ends
-  var videoList = [
+angular.module('AngularJSTraining', ['SumTotalComponents']) //jshint ignore:line
+  .factory('videoList', ['$q', function ($q) {
+    var deferred = $q.defer();
+    //video list ends
+    var videoList = [
       {
         title: 'Binding',
         description: 'Binding is a core feature of AngularJS. It provides a simple mechanism for integrating your HTML with your data via {{bracketed expressions}}. In this video, John covers the basics of binding to get you started.',
@@ -940,91 +940,59 @@ angular.module('AngularJSTraining', ['SumTotalComponents', 'mgcrea.ngStrap', 'ng
     ];
     //video list ends
 
-  deferred.resolve(videoList);
+    deferred.resolve(videoList);
 
-  return deferred.promise;
+    return deferred.promise;
 }])
 
-.controller('videoCtrl', ['$scope', '$filter', 'videoList', function ($scope, $filter, videoList) {
+.controller('videoController', ['$scope', '$q', 'videoList', 'ngTableParams', function ($scope, $q, videoList, ngTableParams) {
 
-  $scope.dynrandom = function () {
-    console.log('starts');
-    $scope.dynvar = Math.random() % 100 + '%';
-    console.log('inside dynrandom', $scope.dynvar);
-    return ($scope.dynvar);
-  };
+    $scope.videos = null;
 
-  $scope.reverse = false;
-  $scope.filteredVideos = [];
-  $scope.groupedVideos = [];
-  $scope.videosPerPage = 10;
-  $scope.pagedVideos = [];
-  $scope.currentPage = 0;
+    $scope.tableParams = new ngTableParams({
+      page: 1, // show first page
+      count: 10 // count per page
+    }, {
+      total: 0, // length of data
+      getData: function ($defer, params) {
+        if (!$scope.videos) {
+          videoList.then(function (videos) {
 
-  var searchMatch = function (vdo, query) {
-    if (!query) {
-      return true;
-    }
-    return vdo.toLowerCase().indexOf(query.toLowerCase()) !== -1;
-  };
+            $scope.videos = videos;
 
-  // init the filtered items
-  $scope.search = function () {
-    $scope.filteredVideos = $filter('filter')(videoList, function (vdoList) {
-      for (var vdo in vdoList) {
-        if (searchMatch(vdoList[vdo], $scope.query))
-          return true;
+            params.total($scope.videos.length);
+
+            var pageData = $scope.videos.slice((params.page() - 1) * params.count(), params.page() * params.count());
+            $defer.resolve(pageData);
+          });
+        } else {
+          var pageData = $scope.videos.slice((params.page() - 1) * params.count(), params.page() * params.count());
+          $defer.resolve(pageData);
+        }
       }
-      return false;
     });
 
-    $scope.currentPage = 0;
-    // now group by pages
-    $scope.groupToPages();
-  };
+    $scope.selectionChanged = function (selectedVideo) {
+      _.forEach($scope.videos, function (video) {
 
-  // calculate page in place
-  $scope.groupToPages = function () {
-    $scope.pagedVideos = [];
+        video.$selected = false;
+      })
+    };
+}])
+  .directive("vidplay", function () {
+    return function (scope, element, attrs) {
+      restrict: "A",
+      element.bind("click", function () {
+        var video = document.getElementById(attrs.id);
+        //var button = document.getElementById("play");
+        if (video.paused) {
+          video.play();
+          //  button.textContent = "||";
+        } else {
+          video.pause();
+          //   button.textContent = ">";
+        }
 
-    for (var i = 0; i < $scope.filteredVideos.length; i++) {
-      if (i % $scope.videosPerPage === 0) {
-        $scope.pagedVideos[Math.floor(i / $scope.videosPerPage)] = [$scope.filteredVideos[i]];
-      } else {
-        $scope.pagedVideos[Math.floor(i / $scope.videosPerPage)].push($scope.filteredVideos[i]);
-      }
+      })
     }
-  };
-
-  $scope.range = function (start, end) {
-    var ret = [];
-    if (!end) {
-      end = start;
-      start = 0;
-    }
-    for (var i = start; i < end; i++) {
-      ret.push(i);
-    }
-    return ret;
-  };
-
-  $scope.prevPage = function () {
-    if ($scope.currentPage > 0) {
-      $scope.currentPage--;
-    }
-  };
-
-  $scope.nextPage = function () {
-    if ($scope.currentPage < $scope.pagedVideos.length - 1) {
-      $scope.currentPage++;
-    }
-  };
-
-  $scope.setPage = function () {
-    $scope.currentPage = this.n;
-  };
-
-  $scope.search();
-  $scope.isCollapsed = true;
-
-}]);
+  });

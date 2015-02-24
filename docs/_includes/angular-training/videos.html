@@ -1,56 +1,32 @@
-<div class="bs-docs-section" ng-controller="videoCtrl">
-  <h1 id="videos" class="page-header">Videos</h1>
-  <br />
-  <input ng-model="query" style="font-size:12pt;height:25px" ng-change="search()" placeholder="Search">
-  <hr />
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/lodash.js/3.2.0/lodash.min.js"></script>
 
-  <table class="table table-striped table-condensed table-hover">
-    <thead>
-      <tr>
-        <th>#</th>
-        <th>Title</th>
-        <th>Duration</th>
-      </tr>
-    </thead>
-    <tfoot>
-      <td colspan="6">
-        <div class="pagination">
-          <ul>
-            <li ng-class="{disabled: currentPage == 0}">
-              <a href ng-click="prevPage()">« Prev</a>
-            </li>
-            <li ng-repeat="n in range(pagedVideos.length)" ng-class="{active: n == currentPage}" ng-click="setPage()">
-              <a href ng-bind="n + 1">1</a>
-            </li>
-            <li ng-class="{disabled: currentPage == pagedVideos.length - 1}">
-              <a href ng-click="nextPage()">Next »</a>
-            </li>
-          </ul>
+<div class="bs-docs-section" ng-controller="videoController">
+  <h1 id="videos" class="page-header">Videos</h1>
+
+
+
+  <table ng-cloak ng-table="tableParams" class="table table-striped table-condensed table-hover">
+    <tr ng-repeat="video in $data" ng-click="selectionChanged(); video.$selected = !video.$selected;" ng-class="{'active': video.$selected}">
+      <td data-title="'#'" style="width:50px;">
+      {% raw %}{{(params.page() - 1) * 10 + $index + 1}}{% endraw %}
+      </td>
+      <td data-title="'Video'" style="cursor: pointer;">
+        {% raw %}{{video.title}}{% endraw %}
+        <div ng-show="video.$selected" style="margin-top:10px;">
+          {% raw %}{{video.description}}{% endraw %}
+        </div>
+        <div ng-show="video.$selected">
+          {% raw %}
+          <video id="{{'#video'+($index+1)}}" ng-src={{video.link}} type="video/mp4" width="640" height="480" vidplay ng-attr-poster={{video.img}} preload="none" controls>
+            Your browser does not support the video tag.
+          </video>
+          {% endraw %}
         </div>
       </td>
-    </tfoot>
-    <tbody>
-      <tr ng-repeat="video in pagedVideos[currentPage] | orderBy:sortingOrder:reverse">
-        <td>{{$index+(currentPage*videosPerPage)+1}}</td>
-        <td>
-          <panel id="videoPanel" ng-click="isCollapsed = !isCollapsed">{{video.title}}</panel>
-          <br />
-          <div collapse="isCollapsed">
-            <p>{{video.description}}</p>
+      <td data-title="'Duration'" style="width: 100px; text-align: center;">
+        {% raw %}{{video.duration}}{% endraw %}
 
-            <!-- This is to add downloadable files for corresponding videos
-                                       <div ng-show="{{video.files!='null' && video.files!=''}}">
-                                        <a ng-href={{video.files}} download>Download files</a>
-                                    </div>  -->
-
-            <video id="{{'#video'+($index+1)}}" ng-src={{video.link}} type="video/mp4" width="640" height="480" vidplay ng-attr-poster={{video.img}} preload="none" controls>
-              Your browser does not support the video tag.
-            </video>
-
-          </div>
-        </td>
-        <td>{{video.duration}}</td>
-      </tr>
-    </tbody>
+      </td>
+    </tr>
   </table>
 </div>
