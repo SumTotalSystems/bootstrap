@@ -360,7 +360,6 @@ angular.module('Examples', ['SumTotalComponents', 'mgcrea.ngStrap', 'ngAnimate',
       "content": "Best check yo self, you're not looking too good.",
       "type": "info"
     };
-
   })
   .controller('asideController', function ($scope) {
     $scope.aside = {
@@ -369,7 +368,6 @@ angular.module('Examples', ['SumTotalComponents', 'mgcrea.ngStrap', 'ngAnimate',
     };
 
   })
-
 .controller('DialogExampleController', function ($scope, $modal) {
     $scope.modal = {
       title: 'Title',
@@ -383,7 +381,6 @@ angular.module('Examples', ['SumTotalComponents', 'mgcrea.ngStrap', 'ngAnimate',
       "title": "Title",
       "content": "Hello Popover<br />This is a multiline message!"
     };
-
   })
   .controller('ClawCtrl', ['$scope', 'ExamplesData', function ($scope, ExamplesData) {
     $scope.data = {};
