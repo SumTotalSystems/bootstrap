@@ -1,7 +1,80 @@
-<div class="bs-docs-section">
+<div class="bs-docs-section" ng-controller="NGTableExamples">
   <h1 id="ng-table" class="page-header">ng-table</h1>
 
-  <p>Here's an example of an awesome table!</p>
+  <p class="lead">This directive allow to liven your tables.</p>
+  <p>It support sorting, filtering and pagination. Header row with titles and filters automatic generated on compilation step.</p>
+
+  <h3 id="ng-table-example">Example</h3>
+  <div class="bs-example">
+    <table ng-cloak ng-table="tableParams" class="table table-striped">
+      <tr ng-repeat="person in $data">
+        <td><img ng-src="{% raw %}{{person.avatar}}{% endraw %}" style="height:32px; width: 32px;" />
+        </td>
+        <td data-title="'Name'">{% raw %}{{person.name}}{% endraw %}</td>
+        <td data-title="'Username'">{% raw %}{{person.username}}{% endraw %}</td>
+      </tr>
+    </table>
+  </div>
+
+  {% highlight html %}
+<table ng-cloak ng-table="tableParams" class="table table-striped">
+  <tr ng-repeat="person in $data">
+    <td><img ng-src="{% raw %}{{person.avatar}}{% endraw %}" style="height:32px; width: 32px;" />
+    </td>
+    <td data-title="'Name'">{% raw %}{{person.name}}{% endraw %}</td>
+    <td data-title="'Username'">{% raw %}{{person.username}}{% endraw %}</td>
+  </tr>
+</table>
+  {% endhighlight %}
+<h3>JavaScript</h3>
+  {% highlight js %}
+angular.module('ThirdParty', ['ngTable'])
+  .factory('examplePersonData', ['$q', function ($q) {
+    var deferred = $q.defer();
+
+    var people = [];
+
+    while (people.length < 20) {
+      var person = faker.helpers.userCard();
+      person.avatar = faker.internet.avatar();
+
+      people.push(person);
+    }
+
+    deferred.resolve(people);
+
+
+    return deferred.promise;
+  }])
+  .controller('NGTableExamples', ['$scope', '$q', 'ngTableParams', 'examplePersonData',
+                                  function ($scope, $q, ngTableParams, examplePersonData) {
+
+      $scope.people = [];
+
+      var peopleDeferred = $q.defer();
+
+      examplePersonData.then(function (people) {
+        $scope.people = people;
+        peopleDeferred.resolve();
+      });
+
+      $scope.tableParams = new ngTableParams({
+        page: 1, // show first page
+        count: 10 // count per page
+      }, {
+        total: 0, // length of data
+        getData: function ($defer, params) {
+          peopleDeferred.promise.then(function () {
+            params.total($scope.people.length);
+
+            $defer.resolve($scope.people.slice((params.page() - 1) * params.count(), params.page() * params.count()));
+          });
+        }
+      });
+}]);
+                              {% endhighlight %}
+<h3 id="ng-table-more">More Examples</h3>
+  <p>There are a ton of examples provided by the developer for ng-table. We've included them in our site to show the code acting within our CSS.</p>
 
   <a href="/3rd-party/ngTable/">More Information and Examples</a>
 </div>
