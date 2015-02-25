@@ -30,16 +30,16 @@ body {
 
 /* Outline button for use within the docs */
 .btn-outline {
-  color: #563d7c;
+  color: #227AB9;
   background-color: transparent;
-  border-color: #563d7c;
+  border-color: #227AB9;
 }
 .btn-outline:hover,
 .btn-outline:focus,
 .btn-outline:active {
   color: #fff;
-  background-color: #563d7c;
-  border-color: #563d7c;
+  background-color: #227AB9;
+  border-color: #227AB9;
 }
 
 /* Inverted outline button (white on dark) */
@@ -51,7 +51,7 @@ body {
 .btn-outline-inverse:hover,
 .btn-outline-inverse:focus,
 .btn-outline-inverse:active {
-  color: #563d7c;
+  color: #227AB9;
   text-shadow: none;
   background-color: #fff;
   border-color: #fff;
@@ -64,7 +64,7 @@ body {
   color: #fff;
   text-align: center;
   cursor: default;
-  background-color: #563d7c;
+  background-color: #227AB9;
   border-radius: 15%;
 }
 .bs-docs-booticon-sm {
@@ -80,7 +80,7 @@ body {
   line-height: 140px;
 }
 .bs-docs-booticon-inverse {
-  color: #563d7c;
+  color: #227AB9;
   background-color: #fff;
 }
 .bs-docs-booticon-outline {
@@ -135,7 +135,7 @@ body {
   background-color: #f9f9f9;
 }
 .bs-docs-nav .navbar-toggle .icon-bar {
-  background-color: #563d7c;
+  background-color: #227AB9;
 }
 .bs-docs-nav .navbar-header .navbar-toggle {
   border-color: #fff;
@@ -576,19 +576,19 @@ body {
 .bs-docs-sidebar .nav > li > a:hover,
 .bs-docs-sidebar .nav > li > a:focus {
   padding-left: 19px;
-  color: #563d7c;
+  color: #227AB9;
   text-decoration: none;
   background-color: transparent;
-  border-left: 1px solid #563d7c;
+  border-left: 1px solid #227AB9;
 }
 .bs-docs-sidebar .nav > .active > a,
 .bs-docs-sidebar .nav > .active:hover > a,
 .bs-docs-sidebar .nav > .active:focus > a {
   padding-left: 18px;
   font-weight: bold;
-  color: #563d7c;
+  color: #227AB9;
   background-color: transparent;
-  border-left: 2px solid #563d7c;
+  border-left: 2px solid #227AB9;
 }
 
 /* Nav: second level (shown on .active) */
@@ -627,7 +627,7 @@ body {
 }
 .back-to-top:hover,
 .bs-docs-theme-toggle:hover {
-  color: #563d7c;
+  color: #227AB9;
   text-decoration: none;
 }
 .bs-docs-theme-toggle {
@@ -805,7 +805,7 @@ h1[id] {
 
 /* Docs colors */
 .color-swatches .bs-purple {
-  background-color: #563d7c;
+  background-color: #227AB9;
 }
 .color-swatches .bs-purple-light {
   background-color: #c7bfd3;
@@ -1318,7 +1318,7 @@ h1[id] {
 }
 .bs-glyphicons li:hover {
   color: #fff;
-  background-color: #563d7c;
+  background-color: #227AB9;
 }
 
 @media (min-width: 768px) {
@@ -1462,7 +1462,7 @@ h1[id] {
   width: 100%;
   margin-bottom: 15px;
   overflow: hidden;
-  color: #563d7c;
+  color: #227AB9;
   background-color: #f9f9f9;
   border-radius: 4px;
 }
@@ -1477,7 +1477,7 @@ h1[id] {
 }
 .bs-brand-logos .inverse {
   color: #fff;
-  background-color: #563d7c;
+  background-color: #227AB9;
 }
 
 /* Heading content within */
@@ -1546,8 +1546,8 @@ h1[id] {
 }
 .btn-clipboard-hover {
   color: #fff;
-  background-color: #563d7c;
-  border-color: #563d7c;
+  background-color: #227AB9;
+  border-color: #227AB9;
 }
 
 @media (min-width: 768px) {
