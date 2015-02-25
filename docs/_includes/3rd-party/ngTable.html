@@ -8,7 +8,7 @@
   <div class="bs-example">
     <table ng-cloak ng-table="tableParams" class="table table-striped">
       <tr ng-repeat="person in $data">
-        <td><img ng-src="{% raw %}{{person.avatar}}{% endraw %}" style="height:32px; width: 32px;" />
+        <td><img ng-src="{% raw %}{{person.avatar}}{% endraw %}" style="height:32px; width: 32px;" class="img-circle" />
         </td>
         <td data-title="'Name'">{% raw %}{{person.name}}{% endraw %}</td>
         <td data-title="'Username'">{% raw %}{{person.username}}{% endraw %}</td>
@@ -17,9 +17,9 @@
   </div>
 
   {% highlight html %}
-<table ng-cloak ng-table="tableParams" class="table table-striped">
+<table ng-cloak ng-table="tableParams" class="table">
   <tr ng-repeat="person in $data">
-    <td><img ng-src="{% raw %}{{person.avatar}}{% endraw %}" style="height:32px; width: 32px;" />
+    <td><img ng-src="{% raw %}{{person.avatar}}{% endraw %}" style="height:32px; width: 32px;" class="img-circle" />
     </td>
     <td data-title="'Name'">{% raw %}{{person.name}}{% endraw %}</td>
     <td data-title="'Username'">{% raw %}{{person.username}}{% endraw %}</td>
