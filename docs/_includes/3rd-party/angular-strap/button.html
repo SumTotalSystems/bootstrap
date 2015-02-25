@@ -1,0 +1,84 @@
+<div class="bs-docs-section" ng-controller="buttonController">
+    <h1 id="button">Buttons </h1>
+
+    <h2 id="buttons-examples">Examples</h2>
+    <p>Do more with buttons. Control button states or create groups of buttons for more components like toolbars.</p>
+    <p>This modules exposes two directives: <code>bs-checkbox</code> and <code>bs-radio</code> that can be used as attributes to trigger toggle, checkbox or radio behavior.</p>
+    <div class="callout callout-info">
+      <h4>Group directives are also available as shortcuts</h4>
+      <p>Use <code>bs-checkbox-group</code> and <code>bs-radio-group</code> to easily setup the proper markup at compile time.</p>
+    </div>
+
+  {% highlight js %}
+    $scope.button = {
+  "toggle": false,
+  "checkbox": {
+    "left": false,
+    "middle": false,
+    "right": false
+  },
+  "radio": 0
+};
+  {% endhighlight %}
+    <div class="bs-example" style="padding-bottom: 24px;" append-source="">
+
+      <label>Toggle:</label>
+      <button type="button" class="btn btn-default ng-valid ng-dirty ng-valid-parse ng-touched" ng-model="button.toggle" bs-checkbox="">Toggle</button>
+      <!-- You can also use custom values with the `data-true-value` & `data-false-value` attributes -->
+
+      <hr><label>Checkboxes:</label>
+      <div class="btn-group ng-pristine ng-untouched ng-valid" bs-checkbox-group="" data-toggle="buttons">
+        <label class="btn btn-default"><input type="checkbox" value="left" bs-checkbox="" ng-model="button.checkbox.left" class="ng-valid ng-dirty ng-valid-parse ng-touched"> Left</label>
+        <label class="btn btn-default"><input type="checkbox" value="middle" bs-checkbox="" ng-model="button.checkbox.middle" class="ng-valid ng-dirty ng-valid-parse ng-touched"> Middle</label>
+        <label class="btn btn-default"><input type="checkbox" value="right" bs-checkbox="" ng-model="button.checkbox.right" class="ng-valid ng-dirty ng-valid-parse ng-touched"> Right</label>
+        <!-- Children get compiled by `bs-checkbox-group` to :
+        <label class="btn btn-default"><input type="checkbox" value="left" ng-model="button.checkbox.left" bs-checkbox> Left</label>
+        ...
+        -->
+      </div>
+
+      <hr><label>Radios:</label>
+      <div class="btn-group ng-pristine ng-untouched ng-valid" bs-radio-group="" data-toggle="buttons">
+        <label class="btn btn-default active"><input type="radio" class="btn btn-default ng-valid ng-dirty ng-touched ng-valid-parse" value="0" bs-radio="" ng-model="button.radio" name="82"> First</label>
+        <label class="btn btn-default"><input type="radio" class="btn btn-default ng-valid ng-dirty ng-touched" value="1" bs-radio="" ng-model="button.radio" name="83"> Second</label>
+        <label class="btn btn-default"><input type="radio" class="btn btn-default ng-valid ng-dirty ng-touched" value="2" bs-radio="" ng-model="button.radio" name="84"> Third</label>
+        <!-- Children get compiled by `bs-radio-group` to :
+        <label class="btn btn-default"><input type="radio" class="btn btn-default" value="left" ng-model="button.radio" bs-radio> Left</label>
+        ...
+        -->
+      </div>
+
+    </div>
+  {% highlight html %}
+  <label>Toggle:</label>
+      <button type="button" class="btn btn-default ng-valid ng-dirty ng-valid-parse ng-touched" ng-model="button.toggle" bs-checkbox="">Toggle</button>
+      <!-- You can also use custom values with the `data-true-value` & `data-false-value` attributes -->
+
+      <hr><label>Checkboxes:</label>
+      <div class="btn-group ng-pristine ng-untouched ng-valid" bs-checkbox-group="" data-toggle="buttons">
+        <label class="btn btn-default"><input type="checkbox" value="left" bs-checkbox="" ng-model="button.checkbox.left" class="ng-valid ng-dirty ng-valid-parse ng-touched"> Left</label>
+        <label class="btn btn-default"><input type="checkbox" value="middle" bs-checkbox="" ng-model="button.checkbox.middle" class="ng-valid ng-dirty ng-valid-parse ng-touched"> Middle</label>
+        <label class="btn btn-default"><input type="checkbox" value="right" bs-checkbox="" ng-model="button.checkbox.right" class="ng-valid ng-dirty ng-valid-parse ng-touched"> Right</label>
+        <!-- Children get compiled by `bs-checkbox-group` to :
+        <label class="btn btn-default"><input type="checkbox" value="left" ng-model="button.checkbox.left" bs-checkbox> Left</label>
+        ...
+        -->
+      </div>
+
+      <hr><label>Radios:</label>
+      <div class="btn-group ng-pristine ng-untouched ng-valid" bs-radio-group="" data-toggle="buttons">
+        <label class="btn btn-default active"><input type="radio" class="btn btn-default ng-valid ng-dirty ng-touched ng-valid-parse" value="0" bs-radio="" ng-model="button.radio" name="82"> First</label>
+        <label class="btn btn-default"><input type="radio" class="btn btn-default ng-valid ng-dirty ng-touched" value="1" bs-radio="" ng-model="button.radio" name="83"> Second</label>
+        <label class="btn btn-default"><input type="radio" class="btn btn-default ng-valid ng-dirty ng-touched" value="2" bs-radio="" ng-model="button.radio" name="84"> Third</label>
+        <!-- Children get compiled by `bs-radio-group` to :
+        <label class="btn btn-default"><input type="radio" class="btn btn-default" value="left" ng-model="button.radio" bs-radio> Left</label>
+        ...
+        -->
+      </div>
+{% endhighlight %}
+    <div class="callout callout-info">
+      <h4>Type support</h4>
+      <p>Theses directives can handle both <code>strings</code>, <code>numbers</code> and <code>booleans</code> values.</p>
+    </div>
+
+</div>

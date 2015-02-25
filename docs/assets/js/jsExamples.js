@@ -380,12 +380,76 @@ angular.module('Examples', ['SumTotalComponents', 'mgcrea.ngStrap', 'ngAnimate',
   "checked": true
 };
   })
+.controller('selectController', function($scope, $http) {
 
-  .controller('popoverController', function ($scope) {
+  $scope.selectedIcon = '';
+  $scope.selectedIcons = ['Globe', 'Heart'];
+  $scope.icons = [
+    {value: 'Gear', label: '<i class="fa fa-gear"></i> Gear'},
+    {value: 'Globe', label: '<i class="fa fa-globe"></i> Globe'},
+    {value: 'Heart', label: '<i class="fa fa-heart"></i> Heart'},
+    {value: 'Camera', label: '<i class="fa fa-camera"></i> Camera'}
+  ];
+
+  $scope.selectedMonth = 0;
+  $scope.months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
+})
+.controller('datepickerController', function($scope, $http) {
+
+  $scope.selectedDate = new Date();
+  $scope.selectedDateAsNumber = Date.UTC(1986, 1, 22);
+  // $scope.fromDate = new Date();
+  // $scope.untilDate = new Date();
+  $scope.getType = function(key) {
+    return Object.prototype.toString.call($scope[key]);
+  };
+
+  $scope.clearDates = function() {
+    $scope.selectedDate = null;
+  };
+
+})
+
+.controller('buttonController', function($scope) {
+  $scope.button = {
+    toggle: false,
+    checkbox: {left: false, middle: true, right: false},
+    radio: 'left'
+  };
+})
+.controller('timepickerController', function($scope, $http) {
+  $scope.time = new Date(1970, 0, 1, 10, 30);
+  $scope.selectedTimeAsNumber = 10 * 36e5;
+  $scope.selectedTimeAsString = '10:00';
+  $scope.sharedDate = new Date(new Date().setMinutes(0));
+})
+.controller('popoverController', function ($scope) {
     $scope.popover = {
       "title": "Title",
       "content": "Hello Popover<br />This is a multiline message!"
     };
+  })
+  .controller('typeheadController', function ($scope, $http) {
+    $scope.selectedState = '';
+  $scope.states = ['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California', 'Colorado', 'Connecticut', 'Delaware', 'Florida', 'Georgia', 'Hawaii', 'Idaho', 'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky', 'Louisiana', 'Maine', 'Maryland', 'Massachusetts', 'Michigan', 'Minnesota', 'Mississippi', 'Missouri', 'Montana', 'Nebraska', 'Nevada', 'New Hampshire', 'New Jersey', 'New Mexico', 'New York', 'North Dakota', 'North Carolina', 'Ohio', 'Oklahoma', 'Oregon', 'Pennsylvania', 'Rhode Island', 'South Carolina', 'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont', 'Virginia', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming'];
+
+  $scope.selectedIcon = '';
+  $scope.icons = [
+    {value: 'Gear', label: '<i class="fa fa-gear"></i> Gear'},
+    {value: 'Globe', label: '<i class="fa fa-globe"></i> Globe'},
+    {value: 'Heart', label: '<i class="fa fa-heart"></i> Heart'},
+    {value: 'Camera', label: '<i class="fa fa-camera"></i> Camera'}
+  ];
+
+  $scope.selectedAddress = '';
+  $scope.getAddress = function(viewValue) {
+    var params = {address: viewValue, sensor: false};
+    return $http.get('http://maps.googleapis.com/maps/api/geocode/json', {params: params})
+    .then(function(res) {
+      return res.data.results;
+    });
+  };
   })
   .controller('ClawCtrl', ['$scope', 'ExamplesData', function ($scope, ExamplesData) {
     $scope.data = {};
