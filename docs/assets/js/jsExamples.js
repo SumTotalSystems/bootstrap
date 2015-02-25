@@ -373,9 +373,14 @@ angular.module('Examples', ['SumTotalComponents', 'mgcrea.ngStrap', 'ngAnimate',
       title: 'Title',
       content: 'Hello Modal<br />This is a multiline message!'
     };
-
-
   })
+.controller('tooltipController', function ($scope, $tooltip) {
+    $scope.tooltip = {
+  "title": "Hello Tooltip<br />This is a multiline message!",
+  "checked": true
+};
+  })
+
   .controller('popoverController', function ($scope) {
     $scope.popover = {
       "title": "Title",
