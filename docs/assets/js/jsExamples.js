@@ -15,45 +15,108 @@ angular.module('Examples', ['SumTotalComponents', 'mgcrea.ngStrap', 'ngAnimate',
       var barData = [
         {
           y: '2006',
-          a: faker.random.number({min: 0, max: 100}),
-          b: faker.random.number({min: 0, max: 100}),
-          c: faker.random.number({min: 0, max: 100})
+          a: faker.random.number({
+            min: 0,
+            max: 100
+          }),
+          b: faker.random.number({
+            min: 0,
+            max: 100
+          }),
+          c: faker.random.number({
+            min: 0,
+            max: 100
+          })
         },
         {
           y: '2007',
-          a: faker.random.number({min: 0, max: 100}),
-          b: faker.random.number({min: 0, max: 100}),
-          c: faker.random.number({min: 0, max: 100})
+          a: faker.random.number({
+            min: 0,
+            max: 100
+          }),
+          b: faker.random.number({
+            min: 0,
+            max: 100
+          }),
+          c: faker.random.number({
+            min: 0,
+            max: 100
+          })
         },
         {
           y: '2008',
-          a: faker.random.number({min: 0, max: 100}),
-          b: faker.random.number({min: 0, max: 100}),
-          c: faker.random.number({min: 0, max: 100})
+          a: faker.random.number({
+            min: 0,
+            max: 100
+          }),
+          b: faker.random.number({
+            min: 0,
+            max: 100
+          }),
+          c: faker.random.number({
+            min: 0,
+            max: 100
+          })
         },
         {
           y: '2009',
-          a: faker.random.number({min: 0, max: 100}),
-          b: faker.random.number({min: 0, max: 100}),
-          c: faker.random.number({min: 0, max: 100})
+          a: faker.random.number({
+            min: 0,
+            max: 100
+          }),
+          b: faker.random.number({
+            min: 0,
+            max: 100
+          }),
+          c: faker.random.number({
+            min: 0,
+            max: 100
+          })
         },
         {
           y: '2010',
-          a: faker.random.number({min: 0, max: 100}),
-          b: faker.random.number({min: 0, max: 100}),
-          c: faker.random.number({min: 0, max: 100})
+          a: faker.random.number({
+            min: 0,
+            max: 100
+          }),
+          b: faker.random.number({
+            min: 0,
+            max: 100
+          }),
+          c: faker.random.number({
+            min: 0,
+            max: 100
+          })
         },
         {
           y: '2011',
-          a: faker.random.number({min: 0, max: 100}),
-          b: faker.random.number({min: 0, max: 100}),
-          c: faker.random.number({min: 0, max: 100})
+          a: faker.random.number({
+            min: 0,
+            max: 100
+          }),
+          b: faker.random.number({
+            min: 0,
+            max: 100
+          }),
+          c: faker.random.number({
+            min: 0,
+            max: 100
+          })
         },
         {
           y: '2012',
-          a: faker.random.number({min: 0, max: 100}),
-          b: faker.random.number({min: 0, max: 100}),
-          c: faker.random.number({min: 0, max: 100})
+          a: faker.random.number({
+            min: 0,
+            max: 100
+          }),
+          b: faker.random.number({
+            min: 0,
+            max: 100
+          }),
+          c: faker.random.number({
+            min: 0,
+            max: 100
+          })
         }
       ];
 
@@ -70,38 +133,98 @@ angular.module('Examples', ['SumTotalComponents', 'mgcrea.ngStrap', 'ngAnimate',
       var data = [
         {
           date: "Monday",
-          scheduled: faker.random.number({min: 0, max: 200}),
-          regular: faker.random.number({min: 0, max: 100}),
-          overtime: faker.random.number({min: 0, max: 50}),
-          absence: faker.random.number({min: 0, max: 10})
+          scheduled: faker.random.number({
+            min: 0,
+            max: 200
+          }),
+          regular: faker.random.number({
+            min: 0,
+            max: 100
+          }),
+          overtime: faker.random.number({
+            min: 0,
+            max: 50
+          }),
+          absence: faker.random.number({
+            min: 0,
+            max: 10
+          })
         },
         {
           date: "Tuesday",
-          scheduled: faker.random.number({min: 0, max: 200}),
-          regular: faker.random.number({min: 0, max: 100}),
-          overtime: faker.random.number({min: 0, max: 50}),
-          absence: faker.random.number({min: 0, max: 10})
+          scheduled: faker.random.number({
+            min: 0,
+            max: 200
+          }),
+          regular: faker.random.number({
+            min: 0,
+            max: 100
+          }),
+          overtime: faker.random.number({
+            min: 0,
+            max: 50
+          }),
+          absence: faker.random.number({
+            min: 0,
+            max: 10
+          })
         },
         {
           date: "Wednesday",
-          scheduled: faker.random.number({min: 0, max: 200}),
-          regular: faker.random.number({min: 0, max: 100}),
-          overtime: faker.random.number({min: 0, max: 50}),
-          absence: faker.random.number({min: 0, max: 10})
+          scheduled: faker.random.number({
+            min: 0,
+            max: 200
+          }),
+          regular: faker.random.number({
+            min: 0,
+            max: 100
+          }),
+          overtime: faker.random.number({
+            min: 0,
+            max: 50
+          }),
+          absence: faker.random.number({
+            min: 0,
+            max: 10
+          })
         },
         {
           date: "Thursday",
-          scheduled: faker.random.number({min: 0, max: 200}),
-          regular: faker.random.number({min: 0, max: 100}),
-          overtime: faker.random.number({min: 0, max: 50}),
-          absence: faker.random.number({min: 0, max: 10})
+          scheduled: faker.random.number({
+            min: 0,
+            max: 200
+          }),
+          regular: faker.random.number({
+            min: 0,
+            max: 100
+          }),
+          overtime: faker.random.number({
+            min: 0,
+            max: 50
+          }),
+          absence: faker.random.number({
+            min: 0,
+            max: 10
+          })
         },
         {
           date: "Friday",
-          scheduled: faker.random.number({min: 0, max: 200}),
-          regular: faker.random.number({min: 0, max: 100}),
-          overtime: faker.random.number({min: 0, max: 50}),
-          absence: faker.random.number({min: 0, max: 10})
+          scheduled: faker.random.number({
+            min: 0,
+            max: 200
+          }),
+          regular: faker.random.number({
+            min: 0,
+            max: 100
+          }),
+          overtime: faker.random.number({
+            min: 0,
+            max: 50
+          }),
+          absence: faker.random.number({
+            min: 0,
+            max: 10
+          })
         }
       ];
 
@@ -119,15 +242,24 @@ angular.module('Examples', ['SumTotalComponents', 'mgcrea.ngStrap', 'ngAnimate',
       var data = [
         {
           label: "Expired",
-          value: faker.random.number({min: 0, max: 100})
+          value: faker.random.number({
+            min: 0,
+            max: 100
+          })
         },
         {
           label: "Overdue",
-          value: faker.random.number({min: 0, max: 100})
+          value: faker.random.number({
+            min: 0,
+            max: 100
+          })
         },
         {
           label: "In Progress",
-          value: faker.random.number({min: 0, max: 100})
+          value: faker.random.number({
+            min: 0,
+            max: 100
+          })
         }
       ];
 
@@ -144,35 +276,59 @@ angular.module('Examples', ['SumTotalComponents', 'mgcrea.ngStrap', 'ngAnimate',
       var data = [
         {
           label: "Jan",
-          value: faker.random.number({min: 0, max: 10})
+          value: faker.random.number({
+            min: 0,
+            max: 10
+          })
         },
         {
           label: "Feb",
-          value: faker.random.number({min: 0, max: 10})
+          value: faker.random.number({
+            min: 0,
+            max: 10
+          })
         },
         {
           label: "Mar",
-          value: faker.random.number({min: 0, max: 10})
+          value: faker.random.number({
+            min: 0,
+            max: 10
+          })
         },
         {
           label: "Apr",
-          value: faker.random.number({min: 0, max: 10})
+          value: faker.random.number({
+            min: 0,
+            max: 10
+          })
         },
         {
           label: "May",
-          value: faker.random.number({min: 0, max: 10})
+          value: faker.random.number({
+            min: 0,
+            max: 10
+          })
         },
         {
           label: "Jun",
-          value: faker.random.number({min: 0, max: 10})
+          value: faker.random.number({
+            min: 0,
+            max: 10
+          })
         },
         {
           label: "Jul",
-          value: faker.random.number({min: 0, max: 10})
+          value: faker.random.number({
+            min: 0,
+            max: 10
+          })
         },
         {
           label: "Aug",
-          value: faker.random.number({min: 0, max: 10})
+          value: faker.random.number({
+            min: 0,
+            max: 10
+          })
         }
       ];
 
@@ -189,40 +345,77 @@ angular.module('Examples', ['SumTotalComponents', 'mgcrea.ngStrap', 'ngAnimate',
       //jshint ignore:start
       var unacceptable = {
           "rating": "Unacceptable",
-          "count": faker.random.number({min: 0, max: 100}),
+          "count": faker.random.number({
+            min: 0,
+            max: 100
+          }),
           "expenses": 0
-        }, below = {
+        },
+        below = {
           "rating": "Below",
           "count": 0,
           "expenses": 0
-        }, meets = {
+        },
+        meets = {
           "rating": "Meets",
           "count": 0,
           "expenses": 0
-        }, exceeds = {
+        },
+        exceeds = {
           "rating": "Exceeds",
           "count": 0,
           "expenses": 0
-        }, outstanding = {
+        },
+        outstanding = {
           "rating": "Outstanding",
           "count": 0,
           "expenses": 0
         };
 
-      unacceptable.count = faker.random.number({min: 0, max: 100});
-      unacceptable.expenses = faker.random.number({min: 0, max: unacceptable.count * 10}) / 10;
+      unacceptable.count = faker.random.number({
+        min: 0,
+        max: 100
+      });
+      unacceptable.expenses = faker.random.number({
+        min: 0,
+        max: unacceptable.count * 10
+      }) / 10;
 
-      below.count = faker.random.number({min: 0, max: 100 - unacceptable.count});
-      below.expenses = faker.random.number({min: 0, max: below.count * 10}) / 10;
+      below.count = faker.random.number({
+        min: 0,
+        max: 100 - unacceptable.count
+      });
+      below.expenses = faker.random.number({
+        min: 0,
+        max: below.count * 10
+      }) / 10;
 
-      meets.count = faker.random.number({min: 0, max: 100 - unacceptable.count - below.count});
-      meets.expenses = faker.random.number({min: 0, max: meets.count * 10}) / 10;
+      meets.count = faker.random.number({
+        min: 0,
+        max: 100 - unacceptable.count - below.count
+      });
+      meets.expenses = faker.random.number({
+        min: 0,
+        max: meets.count * 10
+      }) / 10;
 
-      exceeds.count = faker.random.number({min: 0, max: 100 - unacceptable.count - below.count - meets.count});
-      exceeds.expenses = faker.random.number({min: 0, max: exceeds.count * 10}) / 10;
+      exceeds.count = faker.random.number({
+        min: 0,
+        max: 100 - unacceptable.count - below.count - meets.count
+      });
+      exceeds.expenses = faker.random.number({
+        min: 0,
+        max: exceeds.count * 10
+      }) / 10;
 
-      outstanding.count = faker.random.number({min: 0, max: 100 - unacceptable.count - below.count - meets.count - exceeds.count});
-      outstanding.expenses = faker.random.number({min: 0, max: outstanding.count * 10}) / 10;
+      outstanding.count = faker.random.number({
+        min: 0,
+        max: 100 - unacceptable.count - below.count - meets.count - exceeds.count
+      });
+      outstanding.expenses = faker.random.number({
+        min: 0,
+        max: outstanding.count * 10
+      }) / 10;
 
       console.log(below)
 
@@ -439,99 +632,149 @@ angular.module('Examples', ['SumTotalComponents', 'mgcrea.ngStrap', 'ngAnimate',
     };
 
   })
-.controller('DialogExampleController', function ($scope, $modal) {
+  .controller('DialogExampleController', function ($scope, $modal) {
     $scope.modal = {
       title: 'Title',
       content: 'Hello Modal<br />This is a multiline message!'
     };
   })
-.controller('tooltipController', function ($scope, $tooltip) {
+  .controller('tooltipController', function ($scope, $tooltip) {
     $scope.tooltip = {
-  "title": "Hello Tooltip<br />This is a multiline message!",
-  "checked": true
-};
+      "title": "Hello Tooltip<br />This is a multiline message!",
+      "checked": true
+    };
   })
-.controller('selectController', function($scope, $http) {
+  .controller('selectController', function ($scope, $http) {
 
-  $scope.selectedIcon = '';
-  $scope.selectedIcons = ['Globe', 'Heart'];
-  $scope.icons = [
-    {value: 'Gear', label: '<i class="fa fa-gear"></i> Gear'},
-    {value: 'Globe', label: '<i class="fa fa-globe"></i> Globe'},
-    {value: 'Heart', label: '<i class="fa fa-heart"></i> Heart'},
-    {value: 'Camera', label: '<i class="fa fa-camera"></i> Camera'}
+    $scope.selectedIcon = '';
+    $scope.selectedIcons = ['Globe', 'Heart'];
+    $scope.icons = [
+      {
+        value: 'Gear',
+        label: '<i class="fa fa-gear"></i> Gear'
+      },
+      {
+        value: 'Globe',
+        label: '<i class="fa fa-globe"></i> Globe'
+      },
+      {
+        value: 'Heart',
+        label: '<i class="fa fa-heart"></i> Heart'
+      },
+      {
+        value: 'Camera',
+        label: '<i class="fa fa-camera"></i> Camera'
+      }
   ];
 
-  $scope.selectedMonth = 0;
-  $scope.months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+    $scope.selectedMonth = 0;
+    $scope.months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
-})
-.controller('datepickerController', function($scope, $http) {
+  })
+  .controller('datepickerController', function ($scope, $http) {
 
-  $scope.selectedDate = new Date();
-  $scope.selectedDateAsNumber = Date.UTC(1986, 1, 22);
-  // $scope.fromDate = new Date();
-  // $scope.untilDate = new Date();
-  $scope.getType = function(key) {
-    return Object.prototype.toString.call($scope[key]);
-  };
+    $scope.selectedDate = new Date();
+    $scope.selectedDateAsNumber = Date.UTC(1986, 1, 22);
+    // $scope.fromDate = new Date();
+    // $scope.untilDate = new Date();
+    $scope.getType = function (key) {
+      return Object.prototype.toString.call($scope[key]);
+    };
 
-  $scope.clearDates = function() {
-    $scope.selectedDate = null;
-  };
+    $scope.clearDates = function () {
+      $scope.selectedDate = null;
+    };
 
-})
-.controller('dropdownController', function($scope, $alert) {
+  })
+  .controller('dropdownController', function ($scope, $alert) {
 
-  $scope.dropdown = [
-    {text: 'Another action', href: '#anotherAction'},
-    {text: 'Display an alert', click: '$alert("Holy guacamole!")'},
-    {text: 'External link', href: '/auth/facebook', target: '_self'},
-    {divider: true},
-    {text: 'Separated link', href: '#separatedLink'}
+    $scope.dropdown = [
+      {
+        text: 'Another action',
+        href: '#anotherAction'
+      },
+      {
+        text: 'Display an alert',
+        click: '$alert("Holy guacamole!")'
+      },
+      {
+        text: 'External link',
+        href: '/auth/facebook',
+        target: '_self'
+      },
+      {
+        divider: true
+      },
+      {
+        text: 'Separated link',
+        href: '#separatedLink'
+      }
   ];
 
-  $scope.$alert = function(title) {
-    $alert({title: title, content: 'Best check yo self, you\'re not looking too good.', placement: 'top', type: 'info', keyboard: true, show: true});
-  };
+    $scope.$alert = function (title) {
+      $alert({
+        title: title,
+        content: 'Best check yo self, you\'re not looking too good.',
+        placement: 'top',
+        type: 'info',
+        keyboard: true,
+        show: true
+      });
+    };
 
-})
-.controller('navbarController', function($scope, $location) {
-  $scope.$location = $location;
-})
-.controller('collapseController', function($scope) {
+  })
+  .controller('navbarController', function ($scope, $location) {
+    $scope.$location = $location;
+  })
+  .controller('collapseController', function ($scope) {
 
-  $scope.panels = [
-    {title:'Collapsible Group Item #1', body: 'Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch.'},
-    {title:'Collapsible Group Item #2', body: 'Food truck fixie locavore, accusamus mcsweeney\'s marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee.'},
-    {title:'Collapsible Group Item #3', body: 'Etsy mixtape wayfarers, ethical wes anderson tofu before they sold out mcsweeney\'s organic lomo retro fanny pack lo-fi farm-to-table readymade.'}
+    $scope.panels = [
+      {
+        title: 'Collapsible Group Item #1',
+        body: 'Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch.'
+      },
+      {
+        title: 'Collapsible Group Item #2',
+        body: 'Food truck fixie locavore, accusamus mcsweeney\'s marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee.'
+      },
+      {
+        title: 'Collapsible Group Item #3',
+        body: 'Etsy mixtape wayfarers, ethical wes anderson tofu before they sold out mcsweeney\'s organic lomo retro fanny pack lo-fi farm-to-table readymade.'
+      }
   ];
-console.log($scope.panels);
-  $scope.panels.activePanel = 1;
 
-  $scope.multiplePanels = {
-    activePanels: [0,1]
-  };
+    $scope.panels.activePanel = 1;
 
-  $scope.pushPanel = function() {
-    $scope.panels.push({title: 'Collapsible Group Item #4', body: 'Reprehenderit butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid.'});
-  };
+    $scope.multiplePanels = {
+      activePanels: [0, 1]
+    };
 
-})
-.controller('buttonController', function($scope) {
-  $scope.button = {
-    toggle: false,
-    checkbox: {left: false, middle: true, right: false},
-    radio: 'left'
-  };
-})
-.controller('timepickerController', function($scope, $http) {
-  $scope.time = new Date(1970, 0, 1, 10, 30);
-  $scope.selectedTimeAsNumber = 10 * 36e5;
-  $scope.selectedTimeAsString = '10:00';
-  $scope.sharedDate = new Date(new Date().setMinutes(0));
-})
-.controller('popoverController', function ($scope) {
+    $scope.pushPanel = function () {
+      $scope.panels.push({
+        title: 'Collapsible Group Item #4',
+        body: 'Reprehenderit butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid.'
+      });
+    };
+
+  })
+  .controller('buttonController', function ($scope) {
+    $scope.button = {
+      toggle: false,
+      checkbox: {
+        left: false,
+        middle: true,
+        right: false
+      },
+      radio: 'left'
+    };
+  })
+  .controller('timepickerController', function ($scope, $http) {
+    $scope.time = new Date(1970, 0, 1, 10, 30);
+    $scope.selectedTimeAsNumber = 10 * 36e5;
+    $scope.selectedTimeAsString = '10:00';
+    $scope.sharedDate = new Date(new Date().setMinutes(0));
+  })
+  .controller('popoverController', function ($scope) {
     $scope.popover = {
       "title": "Title",
       "content": "Hello Popover<br />This is a multiline message!"
@@ -539,24 +782,41 @@ console.log($scope.panels);
   })
   .controller('typeheadController', function ($scope, $http) {
     $scope.selectedState = '';
-  $scope.states = ['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California', 'Colorado', 'Connecticut', 'Delaware', 'Florida', 'Georgia', 'Hawaii', 'Idaho', 'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky', 'Louisiana', 'Maine', 'Maryland', 'Massachusetts', 'Michigan', 'Minnesota', 'Mississippi', 'Missouri', 'Montana', 'Nebraska', 'Nevada', 'New Hampshire', 'New Jersey', 'New Mexico', 'New York', 'North Dakota', 'North Carolina', 'Ohio', 'Oklahoma', 'Oregon', 'Pennsylvania', 'Rhode Island', 'South Carolina', 'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont', 'Virginia', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming'];
+    $scope.states = ['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California', 'Colorado', 'Connecticut', 'Delaware', 'Florida', 'Georgia', 'Hawaii', 'Idaho', 'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky', 'Louisiana', 'Maine', 'Maryland', 'Massachusetts', 'Michigan', 'Minnesota', 'Mississippi', 'Missouri', 'Montana', 'Nebraska', 'Nevada', 'New Hampshire', 'New Jersey', 'New Mexico', 'New York', 'North Dakota', 'North Carolina', 'Ohio', 'Oklahoma', 'Oregon', 'Pennsylvania', 'Rhode Island', 'South Carolina', 'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont', 'Virginia', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming'];
 
-  $scope.selectedIcon = '';
-  $scope.icons = [
-    {value: 'Gear', label: '<i class="fa fa-gear"></i> Gear'},
-    {value: 'Globe', label: '<i class="fa fa-globe"></i> Globe'},
-    {value: 'Heart', label: '<i class="fa fa-heart"></i> Heart'},
-    {value: 'Camera', label: '<i class="fa fa-camera"></i> Camera'}
+    $scope.selectedIcon = '';
+    $scope.icons = [
+      {
+        value: 'Gear',
+        label: '<i class="fa fa-gear"></i> Gear'
+      },
+      {
+        value: 'Globe',
+        label: '<i class="fa fa-globe"></i> Globe'
+      },
+      {
+        value: 'Heart',
+        label: '<i class="fa fa-heart"></i> Heart'
+      },
+      {
+        value: 'Camera',
+        label: '<i class="fa fa-camera"></i> Camera'
+      }
   ];
 
-  $scope.selectedAddress = '';
-  $scope.getAddress = function(viewValue) {
-    var params = {address: viewValue, sensor: false};
-    return $http.get('http://maps.googleapis.com/maps/api/geocode/json', {params: params})
-    .then(function(res) {
-      return res.data.results;
-    });
-  };
+    $scope.selectedAddress = '';
+    $scope.getAddress = function (viewValue) {
+      var params = {
+        address: viewValue,
+        sensor: false
+      };
+      return $http.get('http://maps.googleapis.com/maps/api/geocode/json', {
+          params: params
+        })
+        .then(function (res) {
+          return res.data.results;
+        });
+    };
   })
   .controller('ClawCtrl', ['$scope', 'ExamplesData', function ($scope, ExamplesData) {
     $scope.data = {};
@@ -634,9 +894,9 @@ console.log($scope.panels);
     $scope.lineChartData = {};
     $scope.lineChartConfig = {
       "ChartConfig": {
-        "columnMap": ["date", "scheduled", "regular", "overtime", "absence"],
-        "barType": "",
-        "titleMap": ["Scheduled", "ScheduledRegular", "Overtime", "Absence"]
+        "columnMap": ["scheduled", "regular", "overtime", "absence"],
+        "ChartLabelColumn": "date",
+        "titleMap": ["Scheduled", "Scheduled - Regular", "Overtime", "Absence"]
       }
     };
     $scope.curTheme = 'no-theme';
