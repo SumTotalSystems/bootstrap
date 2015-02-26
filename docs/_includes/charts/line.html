@@ -1,19 +1,19 @@
 <div class="bs-docs-section" ng-controller="LineChartCtrl">
   <h1 id="Line" class="page-header">Line</h1>
-
-  <div style="width:500px; height: 500px;">
-    <div sumt-line-chart chart-data="lineChartData" chart-height="500px" chart-width="100%" chart-config="lineChartConfig" theme-hash="colorsHash" cur-theme="white-theme">
+  <div class="bs-example">
+    <div style="width:500px; height: 500px;">
+      <div sumt-line-chart chart-data="lineChartData" chart-height="500px" chart-width="100%" chart-config="lineChartConfig" theme-hash="colorsHash" cur-theme="default-theme" animate="false">
 
       </div>
+    </div>
+    <button class="btn btn-default">Animate</button>
   </div>
-  <p>
-    This is the HTML to add this chart into your page.
-  </p>
-{% highlight html %}
-<div ng-controller="MyController">
-  <div sumt-line-chart chart-data="lineChartData" chart-height="500px" chart-width="100%" chart-config="lineChartConfig" theme-hash="colorsHash" cur-theme="white-theme">
 
-      </div>
-</div>
-{% endhighlight %}
+  {% highlight html %}
+  <div ng-controller="MyController">
+    <div sumt-line-chart chart-data="lineChartData" chart-height="500px" chart-width="100%" chart-config="lineChartConfig" theme-hash="colorsHash" cur-theme="default-theme" animate="false">
+
+    </div>
+  </div>
+  {% endhighlight %}
 </div>

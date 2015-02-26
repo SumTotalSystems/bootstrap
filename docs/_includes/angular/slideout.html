@@ -1,5 +1,6 @@
-  <div class="bs-docs-section"  ng-controller="slideoutController">
-    <h1 id="slideout" class="page-header">Slideout Panel</h1>
+<div class="bs-docs-section" ng-controller="slideoutController">
+  <h1 id="slideout" class="page-header">Slideout Panel</h1>
+  <div class="bs-example">
     <button type="button" class="btn btn-default" ng-click="openSlideOut()">Open</button>
     <slideout id="slideout" vertical-offset="100" slide-out-width="300" title-text="Example Slideout" open-slide-out-class="sumt-slideout" close-slide-out-class="sumt-slideout-initial">
       <div>
@@ -12,3 +13,17 @@
       </div>
     </slideout>
   </div>
+  {% highlight html %}
+   <button type="button" class="btn btn-default" ng-click="openSlideOut()">Open</button>
+    <slideout id="slideout" vertical-offset="100" slide-out-width="300" title-text="Example Slideout" open-slide-out-class="sumt-slideout" close-slide-out-class="sumt-slideout-initial">
+      <div>
+        <button type="button" class="btn btn-default" ng-click="fullOpen()">Full Open</button>
+      </div>
+      <div class="expandedOrgSlideoutContainer">
+        <div>
+          Content goes here
+        </div>
+      </div>
+    </slideout>
+  {% endhighlight %}
+</div>

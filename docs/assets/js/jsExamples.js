@@ -8,6 +8,9 @@ angular.module('Examples', ['SumTotalComponents', 'mgcrea.ngStrap', 'ngAnimate',
     });
   })
   .service("ExamplesData", ['$q', function ($q) {
+    //this.colorsHash = new Object();
+    this.colorsHash = ["#1fbba6", "#ffc600", "#f27c2a"];
+
     this.barchartData = function () {
       var deferred = $q.defer();
 
@@ -489,6 +492,7 @@ angular.module('Examples', ['SumTotalComponents', 'mgcrea.ngStrap', 'ngAnimate',
   }])
   .controller('BarChartCtrl', ['$scope', 'ExamplesData', function ($scope, ExamplesData) {
     $scope.barChartData = {};
+
     $scope.barChartConfig = {
       "ChartConfig": {
         "columnMap": ["a", "b", "c"],
@@ -504,7 +508,11 @@ angular.module('Examples', ['SumTotalComponents', 'mgcrea.ngStrap', 'ngAnimate',
       $scope.barChartData = result;
     });
 
-
+    $scope.showAnimation = function()
+    {
+      $scope.$$childTail.animate = true;
+      $scope.$$childTail.configureChart();
+    };
 }])
   .controller('BellChartCtrl', ['$scope', 'ExamplesData', function ($scope, ExamplesData) {
     $scope.bellChartData = {};
@@ -516,7 +524,11 @@ angular.module('Examples', ['SumTotalComponents', 'mgcrea.ngStrap', 'ngAnimate',
         "IsStacked": true
       }
     };
-
+    $scope.showAnimation = function()
+    {
+      $scope.$$childTail.animateChart = true;
+      $scope.$$childTail.configureChart();
+    };
     $scope.colorsHash = ExamplesData.colorsHash;
 
     ExamplesData.bellChartData().then(function (result) {
@@ -529,10 +541,17 @@ angular.module('Examples', ['SumTotalComponents', 'mgcrea.ngStrap', 'ngAnimate',
     $scope.chartData = {};
     $scope.chartConfig = {
       'ChartConfig': {
-        'ChartLabelColumn': 'category'
+        'ChartLabelColumn': 'category',
+        'bullet': 'value'
       }
     };
     $scope.curTheme = 'no-theme';
+
+    $scope.showAnimation = function()
+    {
+      $scope.$$childTail.animate = true;
+      $scope.$$childTail.configureChart();
+    };
 
     ExamplesData.bulletChartData().then(function (data) {
       $scope.chartData = data;
@@ -552,6 +571,12 @@ angular.module('Examples', ['SumTotalComponents', 'mgcrea.ngStrap', 'ngAnimate',
     };
     $scope.curTheme = 'no-theme';
 
+    $scope.showAnimation = function()
+    {
+      $scope.$$childTail.animate = true;
+      $scope.$$childTail.configureChart();
+    };
+
     ExamplesData.lineChartData().then(function (result) {
       $scope.lineChartData = result;
     });
@@ -564,6 +589,12 @@ angular.module('Examples', ['SumTotalComponents', 'mgcrea.ngStrap', 'ngAnimate',
     $scope.pieChartConfig = {};
     $scope.curTheme = 'no-theme';
     $scope.percentage = 4 / 5 * 100;
+
+    $scope.showAnimation = function()
+    {
+      $scope.$$childTail.animate = true;
+      $scope.$$childTail.configureChart();
+    };
 
     ExamplesData.dounutChartData().then(function (result) {
       $scope.pieChartData = result;
