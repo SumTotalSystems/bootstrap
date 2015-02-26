@@ -641,7 +641,7 @@ angular.module('Examples', ['SumTotalComponents', 'mgcrea.ngStrap', 'ngAnimate',
       content: 'Hello Modal<br />This is a multiline message!'
     };
   })
-<<<<<<< HEAD
+
 .controller('tabController', function($scope, $templateCache) {
 
   $scope.tabs = [
@@ -657,10 +657,8 @@ angular.module('Examples', ['SumTotalComponents', 'mgcrea.ngStrap', 'ngAnimate',
   };
 
 })
-.controller('tooltipController', function ($scope, $tooltip) {
-=======
   .controller('tooltipController', function ($scope, $tooltip) {
->>>>>>> origin/sumtotal
+
     $scope.tooltip = {
       "title": "Hello Tooltip<br />This is a multiline message!",
       "checked": true
@@ -689,10 +687,6 @@ angular.module('Examples', ['SumTotalComponents', 'mgcrea.ngStrap', 'ngAnimate',
       }
   ];
 
-<<<<<<< HEAD
-  $scope.selectedMonth = 0;
-  $scope.months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-
 })
 .controller('datepickerController', function($scope, $http) {
 
@@ -709,33 +703,7 @@ angular.module('Examples', ['SumTotalComponents', 'mgcrea.ngStrap', 'ngAnimate',
   };
 
 })
-.controller('dropdownController', function($scope, $alert) {
-  $scope.dropdown = [
-    {text: 'Another action', href: '#anotherAction'},
-    {text: 'Display an alert', click: '$alert("Holy guacamole!")'},
-    {text: 'External link', href: '/auth/facebook', target: '_self'},
-    {divider: true},
-    {text: 'Separated link', href: '#separatedLink'}
-=======
-    $scope.selectedMonth = 0;
-    $scope.months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
-  })
-  .controller('datepickerController', function ($scope, $http) {
-
-    $scope.selectedDate = new Date();
-    $scope.selectedDateAsNumber = Date.UTC(1986, 1, 22);
-    // $scope.fromDate = new Date();
-    // $scope.untilDate = new Date();
-    $scope.getType = function (key) {
-      return Object.prototype.toString.call($scope[key]);
-    };
-
-    $scope.clearDates = function () {
-      $scope.selectedDate = null;
-    };
-
-  })
   .controller('dropdownController', function ($scope, $alert) {
 
     $scope.dropdown = [
@@ -759,7 +727,7 @@ angular.module('Examples', ['SumTotalComponents', 'mgcrea.ngStrap', 'ngAnimate',
         text: 'Separated link',
         href: '#separatedLink'
       }
->>>>>>> origin/sumtotal
+
   ];
 
     $scope.$alert = function (title) {
@@ -793,7 +761,7 @@ angular.module('Examples', ['SumTotalComponents', 'mgcrea.ngStrap', 'ngAnimate',
         body: 'Etsy mixtape wayfarers, ethical wes anderson tofu before they sold out mcsweeney\'s organic lomo retro fanny pack lo-fi farm-to-table readymade.'
       }
   ];
-<<<<<<< HEAD
+
   $scope.panels.activePanel = 1;
 
   $scope.multiplePanels = { activePanels: [0,1] };
@@ -810,12 +778,6 @@ angular.module('Examples', ['SumTotalComponents', 'mgcrea.ngStrap', 'ngAnimate',
     radio: 'left'
   };
 })
-.controller('timepickerController', function($scope, $http) {
-  $scope.time = new Date(1970, 0, 1, 10, 30);
-  $scope.selectedTimeAsNumber = 10 * 36e5;
-  $scope.selectedTimeAsString = '10:00';
-  $scope.sharedDate = new Date(new Date().setMinutes(0));
-})
 .controller('popoverController', function($scope, $popover) {
 
   $scope.popover = {title: 'Title', content: 'Hello Popover<br />This is a multiline message!'};
@@ -828,46 +790,14 @@ angular.module('Examples', ['SumTotalComponents', 'mgcrea.ngStrap', 'ngAnimate',
 
 
 })
-=======
 
-    $scope.panels.activePanel = 1;
-
-    $scope.multiplePanels = {
-      activePanels: [0, 1]
-    };
-
-    $scope.pushPanel = function () {
-      $scope.panels.push({
-        title: 'Collapsible Group Item #4',
-        body: 'Reprehenderit butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid.'
-      });
-    };
-
-  })
-  .controller('buttonController', function ($scope) {
-    $scope.button = {
-      toggle: false,
-      checkbox: {
-        left: false,
-        middle: true,
-        right: false
-      },
-      radio: 'left'
-    };
-  })
   .controller('timepickerController', function ($scope, $http) {
     $scope.time = new Date(1970, 0, 1, 10, 30);
     $scope.selectedTimeAsNumber = 10 * 36e5;
     $scope.selectedTimeAsString = '10:00';
     $scope.sharedDate = new Date(new Date().setMinutes(0));
   })
-  .controller('popoverController', function ($scope) {
-    $scope.popover = {
-      "title": "Title",
-      "content": "Hello Popover<br />This is a multiline message!"
-    };
-  })
->>>>>>> origin/sumtotal
+
   .controller('typeheadController', function ($scope, $http) {
     $scope.selectedState = '';
     $scope.states = ['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California', 'Colorado', 'Connecticut', 'Delaware', 'Florida', 'Georgia', 'Hawaii', 'Idaho', 'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky', 'Louisiana', 'Maine', 'Maryland', 'Massachusetts', 'Michigan', 'Minnesota', 'Mississippi', 'Missouri', 'Montana', 'Nebraska', 'Nevada', 'New Hampshire', 'New Jersey', 'New Mexico', 'New York', 'North Dakota', 'North Carolina', 'Ohio', 'Oklahoma', 'Oregon', 'Pennsylvania', 'Rhode Island', 'South Carolina', 'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont', 'Virginia', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming'];
