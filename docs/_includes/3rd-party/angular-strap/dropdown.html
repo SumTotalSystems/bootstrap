@@ -120,13 +120,13 @@
     <h4>Default options</h4>
     <p>You can override global defaults for the plugin with <code>$dropdownProvider.defaults</code></p>
     {% highlight js %}
-          angular.module('myApp')
-          .config(function($dropdownProvider) {
-            angular.extend($dropdownProvider.defaults, {
-              animation: 'am-flip-x',
-              trigger: 'hover'
-            });
-          })
+angular.module('myApp')
+.config(function($dropdownProvider) {
+  angular.extend($dropdownProvider.defaults, {
+    animation: 'am-flip-x',
+    trigger: 'hover'
+  });
+})
     {% endhighlight %}
   </div>
 

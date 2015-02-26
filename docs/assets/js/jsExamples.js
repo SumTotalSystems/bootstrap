@@ -374,6 +374,21 @@ angular.module('Examples', ['SumTotalComponents', 'mgcrea.ngStrap', 'ngAnimate',
       content: 'Hello Modal<br />This is a multiline message!'
     };
   })
+.controller('tabController', function($scope, $templateCache) {
+
+  $scope.tabs = [
+    {title:'Home', content: 'Raw denim you probably haven\'t heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica.'},
+    {title:'Profile', content: 'Food truck fixie locavore, accusamus mcsweeney\'s marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee.'},
+    {title:'About', content: 'Etsy mixtape wayfarers, ethical wes anderson tofu before they sold out mcsweeney\'s organic lomo retro fanny pack lo-fi farm-to-table readymade.'}
+  ];
+
+  $scope.tabs.activeTab = 1;
+
+  $scope.pushTab = function() {
+    $scope.tabs.push({title: 'Contact', content: 'Reprehenderit butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid.'});
+  };
+
+})
 .controller('tooltipController', function ($scope, $tooltip) {
     $scope.tooltip = {
   "title": "Hello Tooltip<br />This is a multiline message!",
@@ -411,7 +426,6 @@ angular.module('Examples', ['SumTotalComponents', 'mgcrea.ngStrap', 'ngAnimate',
 
 })
 .controller('dropdownController', function($scope, $alert) {
-
   $scope.dropdown = [
     {text: 'Another action', href: '#anotherAction'},
     {text: 'Display an alert', click: '$alert("Holy guacamole!")'},
@@ -435,12 +449,9 @@ angular.module('Examples', ['SumTotalComponents', 'mgcrea.ngStrap', 'ngAnimate',
     {title:'Collapsible Group Item #2', body: 'Food truck fixie locavore, accusamus mcsweeney\'s marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee.'},
     {title:'Collapsible Group Item #3', body: 'Etsy mixtape wayfarers, ethical wes anderson tofu before they sold out mcsweeney\'s organic lomo retro fanny pack lo-fi farm-to-table readymade.'}
   ];
-console.log($scope.panels);
   $scope.panels.activePanel = 1;
 
-  $scope.multiplePanels = {
-    activePanels: [0,1]
-  };
+  $scope.multiplePanels = { activePanels: [0,1] };
 
   $scope.pushPanel = function() {
     $scope.panels.push({title: 'Collapsible Group Item #4', body: 'Reprehenderit butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid.'});
@@ -460,12 +471,18 @@ console.log($scope.panels);
   $scope.selectedTimeAsString = '10:00';
   $scope.sharedDate = new Date(new Date().setMinutes(0));
 })
-.controller('popoverController', function ($scope) {
-    $scope.popover = {
-      "title": "Title",
-      "content": "Hello Popover<br />This is a multiline message!"
-    };
-  })
+.controller('popoverController', function($scope, $popover) {
+
+  $scope.popover = {title: 'Title', content: 'Hello Popover<br />This is a multiline message!'};
+
+  var asAServiceOptions = {
+    title: $scope.popover.title,
+    content: $scope.popover.content,
+    trigger: 'manual'
+  }
+
+
+})
   .controller('typeheadController', function ($scope, $http) {
     $scope.selectedState = '';
   $scope.states = ['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California', 'Colorado', 'Connecticut', 'Delaware', 'Florida', 'Georgia', 'Hawaii', 'Idaho', 'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky', 'Louisiana', 'Maine', 'Maryland', 'Massachusetts', 'Michigan', 'Minnesota', 'Mississippi', 'Missouri', 'Montana', 'Nebraska', 'Nevada', 'New Hampshire', 'New Jersey', 'New Mexico', 'New York', 'North Dakota', 'North Carolina', 'Ohio', 'Oklahoma', 'Oregon', 'Pennsylvania', 'Rhode Island', 'South Carolina', 'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont', 'Virginia', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming'];
