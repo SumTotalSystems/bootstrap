@@ -1,9 +1,9 @@
-angular.module('Examples', ['SumTotalComponents', 'mgcrea.ngStrap', 'ngAnimate', 'ngSanitize'])
+angular.module('Examples', ['SumTotalComponents', 'mgcrea.ngStrap', 'ngAnimate', 'ngSanitize']) //jshint ignore:line
   .config(function ($tooltipProvider, $modalProvider) {
-    angular.extend($tooltipProvider.defaults, {
+    angular.extend($tooltipProvider.defaults, { //jshint ignore:line
       html: true
     });
-    angular.extend($modalProvider.defaults, {
+    angular.extend($modalProvider.defaults, { //jshint ignore:line
       html: true
     });
   })
@@ -14,52 +14,117 @@ angular.module('Examples', ['SumTotalComponents', 'mgcrea.ngStrap', 'ngAnimate',
     this.barchartData = function () {
       var deferred = $q.defer();
 
+      //jshint ignore:start
       var barData = [
         {
           y: '2006',
-          a: 100,
-          b: 90,
-          c: 92
+          a: faker.random.number({
+            min: 0,
+            max: 100
+          }),
+          b: faker.random.number({
+            min: 0,
+            max: 100
+          }),
+          c: faker.random.number({
+            min: 0,
+            max: 100
+          })
         },
         {
           y: '2007',
-          a: 75,
-          b: 65,
-          c: 14
+          a: faker.random.number({
+            min: 0,
+            max: 100
+          }),
+          b: faker.random.number({
+            min: 0,
+            max: 100
+          }),
+          c: faker.random.number({
+            min: 0,
+            max: 100
+          })
         },
         {
           y: '2008',
-          a: 50,
-          b: 40,
-          c: 39
+          a: faker.random.number({
+            min: 0,
+            max: 100
+          }),
+          b: faker.random.number({
+            min: 0,
+            max: 100
+          }),
+          c: faker.random.number({
+            min: 0,
+            max: 100
+          })
         },
         {
           y: '2009',
-          a: 75,
-          b: 65,
-          c: 9
+          a: faker.random.number({
+            min: 0,
+            max: 100
+          }),
+          b: faker.random.number({
+            min: 0,
+            max: 100
+          }),
+          c: faker.random.number({
+            min: 0,
+            max: 100
+          })
         },
         {
           y: '2010',
-          a: 50,
-          b: 40,
-          c: 47
+          a: faker.random.number({
+            min: 0,
+            max: 100
+          }),
+          b: faker.random.number({
+            min: 0,
+            max: 100
+          }),
+          c: faker.random.number({
+            min: 0,
+            max: 100
+          })
         },
         {
           y: '2011',
-          a: 75,
-          b: 65,
-          c: 72
+          a: faker.random.number({
+            min: 0,
+            max: 100
+          }),
+          b: faker.random.number({
+            min: 0,
+            max: 100
+          }),
+          c: faker.random.number({
+            min: 0,
+            max: 100
+          })
         },
         {
           y: '2012',
-          a: 100,
-          b: 90,
-          c: 80
+          a: faker.random.number({
+            min: 0,
+            max: 100
+          }),
+          b: faker.random.number({
+            min: 0,
+            max: 100
+          }),
+          c: faker.random.number({
+            min: 0,
+            max: 100
+          })
         }
       ];
 
       deferred.resolve(barData);
+      //jshint ignore:end
 
       return deferred.promise;
     };
@@ -67,45 +132,108 @@ angular.module('Examples', ['SumTotalComponents', 'mgcrea.ngStrap', 'ngAnimate',
     this.lineChartData = function () {
       var deferred = $q.defer();
 
+      //jshint ignore:start
       var data = [
         {
           date: "Monday",
-          scheduled: 200,
-          regular: 150,
-          overtime: 30,
-          absence: 5
+          scheduled: faker.random.number({
+            min: 0,
+            max: 200
+          }),
+          regular: faker.random.number({
+            min: 0,
+            max: 100
+          }),
+          overtime: faker.random.number({
+            min: 0,
+            max: 50
+          }),
+          absence: faker.random.number({
+            min: 0,
+            max: 10
+          })
         },
         {
           date: "Tuesday",
-          scheduled: 250,
-          regular: 100,
-          overtime: 80,
-          absence: 5
+          scheduled: faker.random.number({
+            min: 0,
+            max: 200
+          }),
+          regular: faker.random.number({
+            min: 0,
+            max: 100
+          }),
+          overtime: faker.random.number({
+            min: 0,
+            max: 50
+          }),
+          absence: faker.random.number({
+            min: 0,
+            max: 10
+          })
         },
         {
           date: "Wednesday",
-          scheduled: 300,
-          regular: 250,
-          overtime: 100,
-          absence: 20
+          scheduled: faker.random.number({
+            min: 0,
+            max: 200
+          }),
+          regular: faker.random.number({
+            min: 0,
+            max: 100
+          }),
+          overtime: faker.random.number({
+            min: 0,
+            max: 50
+          }),
+          absence: faker.random.number({
+            min: 0,
+            max: 10
+          })
         },
         {
           date: "Thursday",
-          scheduled: 100,
-          regular: 80,
-          overtime: 10,
-          absence: 0
+          scheduled: faker.random.number({
+            min: 0,
+            max: 200
+          }),
+          regular: faker.random.number({
+            min: 0,
+            max: 100
+          }),
+          overtime: faker.random.number({
+            min: 0,
+            max: 50
+          }),
+          absence: faker.random.number({
+            min: 0,
+            max: 10
+          })
         },
         {
           date: "Friday",
-          scheduled: 200,
-          regular: 150,
-          overtime: 5,
-          absence: 8
+          scheduled: faker.random.number({
+            min: 0,
+            max: 200
+          }),
+          regular: faker.random.number({
+            min: 0,
+            max: 100
+          }),
+          overtime: faker.random.number({
+            min: 0,
+            max: 50
+          }),
+          absence: faker.random.number({
+            min: 0,
+            max: 10
+          })
         }
       ];
 
       deferred.resolve(data);
+
+      //jshint ignore:end
 
       return deferred.promise;
     };
@@ -113,22 +241,33 @@ angular.module('Examples', ['SumTotalComponents', 'mgcrea.ngStrap', 'ngAnimate',
     this.dounutChartData = function () {
       var deferred = $q.defer();
 
+      //jshint ignore:start
       var data = [
         {
           label: "Expired",
-          value: 12
+          value: faker.random.number({
+            min: 0,
+            max: 100
+          })
         },
         {
           label: "Overdue",
-          value: 30
+          value: faker.random.number({
+            min: 0,
+            max: 100
+          })
         },
         {
           label: "In Progress",
-          value: 20
+          value: faker.random.number({
+            min: 0,
+            max: 100
+          })
         }
       ];
 
       deferred.resolve(data);
+      //jshint ignore:end
 
       return deferred.promise;
     };
@@ -136,42 +275,69 @@ angular.module('Examples', ['SumTotalComponents', 'mgcrea.ngStrap', 'ngAnimate',
     this.pieChartData = function () {
       var deferred = $q.defer();
 
+      //jshint ignore:start
       var data = [
         {
-          key: "Jan",
-          y: 5
+          label: "Jan",
+          value: faker.random.number({
+            min: 0,
+            max: 10
+          })
         },
         {
-          key: "Feb",
-          y: 2
+          label: "Feb",
+          value: faker.random.number({
+            min: 0,
+            max: 10
+          })
         },
         {
-          key: "Mar",
-          y: 9
+          label: "Mar",
+          value: faker.random.number({
+            min: 0,
+            max: 10
+          })
         },
         {
-          key: "Apr",
-          y: 7
+          label: "Apr",
+          value: faker.random.number({
+            min: 0,
+            max: 10
+          })
         },
         {
-          key: "May",
-          y: 4
+          label: "May",
+          value: faker.random.number({
+            min: 0,
+            max: 10
+          })
         },
         {
-          key: "Jun",
-          y: 3
+          label: "Jun",
+          value: faker.random.number({
+            min: 0,
+            max: 10
+          })
         },
         {
-          key: "Jul",
-          y: 9
+          label: "Jul",
+          value: faker.random.number({
+            min: 0,
+            max: 10
+          })
         },
         {
-          key: "Aug",
-          y: 9
+          label: "Aug",
+          value: faker.random.number({
+            min: 0,
+            max: 10
+          })
         }
       ];
 
       deferred.resolve(data);
+
+      //jshint ignore:end
 
       return deferred.promise;
     };
@@ -179,35 +345,94 @@ angular.module('Examples', ['SumTotalComponents', 'mgcrea.ngStrap', 'ngAnimate',
     this.bellChartData = function () {
       var deferred = $q.defer();
 
-      var data = [
-        {
+      //jshint ignore:start
+      var unacceptable = {
           "rating": "Unacceptable",
-          "count": 10,
-          "expenses": 9.5
+          "count": faker.random.number({
+            min: 0,
+            max: 100
+          }),
+          "expenses": 0
         },
-        {
+        below = {
           "rating": "Below",
-          "count": 20,
-          "expenses": 19.5
+          "count": 0,
+          "expenses": 0
         },
-        {
+        meets = {
           "rating": "Meets",
-          "count": 40,
-          "expenses": 39.5
+          "count": 0,
+          "expenses": 0
         },
-        {
+        exceeds = {
           "rating": "Exceeds",
-          "count": 20,
-          "expenses": 19.5
+          "count": 0,
+          "expenses": 0
         },
-        {
+        outstanding = {
           "rating": "Outstanding",
-          "count": 10,
-          "expenses": 9.5
-        }
+          "count": 0,
+          "expenses": 0
+        };
+
+      unacceptable.count = faker.random.number({
+        min: 0,
+        max: 100
+      });
+      unacceptable.expenses = faker.random.number({
+        min: 0,
+        max: unacceptable.count * 10
+      }) / 10;
+
+      below.count = faker.random.number({
+        min: 0,
+        max: 100 - unacceptable.count
+      });
+      below.expenses = faker.random.number({
+        min: 0,
+        max: below.count * 10
+      }) / 10;
+
+      meets.count = faker.random.number({
+        min: 0,
+        max: 100 - unacceptable.count - below.count
+      });
+      meets.expenses = faker.random.number({
+        min: 0,
+        max: meets.count * 10
+      }) / 10;
+
+      exceeds.count = faker.random.number({
+        min: 0,
+        max: 100 - unacceptable.count - below.count - meets.count
+      });
+      exceeds.expenses = faker.random.number({
+        min: 0,
+        max: exceeds.count * 10
+      }) / 10;
+
+      outstanding.count = faker.random.number({
+        min: 0,
+        max: 100 - unacceptable.count - below.count - meets.count - exceeds.count
+      });
+      outstanding.expenses = faker.random.number({
+        min: 0,
+        max: outstanding.count * 10
+      }) / 10;
+
+      console.log(below)
+
+      var data = [
+        unacceptable,
+        below,
+        meets,
+        exceeds,
+        outstanding
       ];
 
       deferred.resolve(data);
+
+      //jshint ignore:end
 
       return deferred.promise;
     };
@@ -323,6 +548,45 @@ angular.module('Examples', ['SumTotalComponents', 'mgcrea.ngStrap', 'ngAnimate',
 
       return deferred.promise;
     };
+
+    this.userData = function (fetchSize) {
+      var deferred = $q.defer();
+
+      var users = [];
+
+      while (users.length < fetchSize) {
+        var userCard = faker.helpers.createCard(); //jshint ignore:line
+        userCard.avatarUrl = faker.internet.avatar(); //jshint ignore:line
+
+        users.push(userCard);
+      }
+
+      deferred.resolve(users);
+
+      return deferred.promise;
+    };
+
+    this.tabularTextData = function (fetchSize) {
+      var deferred = $q.defer();
+
+      var data = [];
+
+      while (data.length < fetchSize) {
+        //jshint ignore:start
+        var datum = {
+          word: faker.lorem.words(1)[0],
+          sentence: faker.lorem.sentence(),
+          paragraph: faker.lorem.paragraph()
+        };
+
+        data.push(datum);
+        //jshint ignore:end
+      }
+
+      deferred.resolve(data);
+
+      return deferred.promise;
+    };
   }])
 
 .controller('ToolTipExample', ['$scope', '$tooltip', '$sce', function ($scope, $tooltip, $sce) {
@@ -339,7 +603,7 @@ angular.module('Examples', ['SumTotalComponents', 'mgcrea.ngStrap', 'ngAnimate',
 
     $timeout(function () {
       for (var i = 0; i < $scope.total; i++) {
-        $scope.cards.push(faker.helpers.createCard());
+        $scope.cards.push(faker.helpers.createCard()); //jshint ignore:line
       }
       deferred.resolve();
     }, 200);
@@ -371,81 +635,149 @@ angular.module('Examples', ['SumTotalComponents', 'mgcrea.ngStrap', 'ngAnimate',
     };
 
   })
-.controller('DialogExampleController', function ($scope, $modal) {
+  .controller('DialogExampleController', function ($scope, $modal) {
     $scope.modal = {
       title: 'Title',
       content: 'Hello Modal<br />This is a multiline message!'
     };
   })
-.controller('tooltipController', function ($scope, $tooltip) {
+  .controller('tooltipController', function ($scope, $tooltip) {
     $scope.tooltip = {
-  "title": "Hello Tooltip<br />This is a multiline message!",
-  "checked": true
-};
+      "title": "Hello Tooltip<br />This is a multiline message!",
+      "checked": true
+    };
   })
-.controller('selectController', function($scope, $http) {
+  .controller('selectController', function ($scope, $http) {
 
-  $scope.selectedIcon = '';
-  $scope.selectedIcons = ['Globe', 'Heart'];
-  $scope.icons = [
-    {value: 'Gear', label: '<i class="fa fa-gear"></i> Gear'},
-    {value: 'Globe', label: '<i class="fa fa-globe"></i> Globe'},
-    {value: 'Heart', label: '<i class="fa fa-heart"></i> Heart'},
-    {value: 'Camera', label: '<i class="fa fa-camera"></i> Camera'}
+    $scope.selectedIcon = '';
+    $scope.selectedIcons = ['Globe', 'Heart'];
+    $scope.icons = [
+      {
+        value: 'Gear',
+        label: '<i class="fa fa-gear"></i> Gear'
+      },
+      {
+        value: 'Globe',
+        label: '<i class="fa fa-globe"></i> Globe'
+      },
+      {
+        value: 'Heart',
+        label: '<i class="fa fa-heart"></i> Heart'
+      },
+      {
+        value: 'Camera',
+        label: '<i class="fa fa-camera"></i> Camera'
+      }
   ];
 
-  $scope.selectedMonth = 0;
-  $scope.months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+    $scope.selectedMonth = 0;
+    $scope.months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
-})
-.controller('datepickerController', function($scope, $http) {
+  })
+  .controller('datepickerController', function ($scope, $http) {
 
-  $scope.selectedDate = new Date();
-  $scope.selectedDateAsNumber = Date.UTC(1986, 1, 22);
-  // $scope.fromDate = new Date();
-  // $scope.untilDate = new Date();
-  $scope.getType = function(key) {
-    return Object.prototype.toString.call($scope[key]);
-  };
+    $scope.selectedDate = new Date();
+    $scope.selectedDateAsNumber = Date.UTC(1986, 1, 22);
+    // $scope.fromDate = new Date();
+    // $scope.untilDate = new Date();
+    $scope.getType = function (key) {
+      return Object.prototype.toString.call($scope[key]);
+    };
 
-  $scope.clearDates = function() {
-    $scope.selectedDate = null;
-  };
+    $scope.clearDates = function () {
+      $scope.selectedDate = null;
+    };
 
-})
-.controller('collapseController', function($scope) {
+  })
+  .controller('dropdownController', function ($scope, $alert) {
 
-  $scope.panels = [
-    {title:'Collapsible Group Item #1', body: 'Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch.'},
-    {title:'Collapsible Group Item #2', body: 'Food truck fixie locavore, accusamus mcsweeney\'s marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee.'},
-    {title:'Collapsible Group Item #3', body: 'Etsy mixtape wayfarers, ethical wes anderson tofu before they sold out mcsweeney\'s organic lomo retro fanny pack lo-fi farm-to-table readymade.'}
+    $scope.dropdown = [
+      {
+        text: 'Another action',
+        href: '#anotherAction'
+      },
+      {
+        text: 'Display an alert',
+        click: '$alert("Holy guacamole!")'
+      },
+      {
+        text: 'External link',
+        href: '/auth/facebook',
+        target: '_self'
+      },
+      {
+        divider: true
+      },
+      {
+        text: 'Separated link',
+        href: '#separatedLink'
+      }
   ];
 
-  $scope.panels.activePanel = 1;
+    $scope.$alert = function (title) {
+      $alert({
+        title: title,
+        content: 'Best check yo self, you\'re not looking too good.',
+        placement: 'top',
+        type: 'info',
+        keyboard: true,
+        show: true
+      });
+    };
 
-  $scope.multiplePanels = {
-    activePanels: [0,1]
-  };
+  })
+  .controller('navbarController', function ($scope, $location) {
+    $scope.$location = $location;
+  })
+  .controller('collapseController', function ($scope) {
 
-  $scope.pushPanel = function() {
-    $scope.panels.push({title: 'Collapsible Group Item #4', body: 'Reprehenderit butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid.'});
-  };
+    $scope.panels = [
+      {
+        title: 'Collapsible Group Item #1',
+        body: 'Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch.'
+      },
+      {
+        title: 'Collapsible Group Item #2',
+        body: 'Food truck fixie locavore, accusamus mcsweeney\'s marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee.'
+      },
+      {
+        title: 'Collapsible Group Item #3',
+        body: 'Etsy mixtape wayfarers, ethical wes anderson tofu before they sold out mcsweeney\'s organic lomo retro fanny pack lo-fi farm-to-table readymade.'
+      }
+  ];
 
-})
-.controller('buttonController', function($scope) {
-  $scope.button = {
-    toggle: false,
-    checkbox: {left: false, middle: true, right: false},
-    radio: 'left'
-  };
-})
-.controller('timepickerController', function($scope, $http) {
-  $scope.time = new Date(1970, 0, 1, 10, 30);
-  $scope.selectedTimeAsNumber = 10 * 36e5;
-  $scope.selectedTimeAsString = '10:00';
-  $scope.sharedDate = new Date(new Date().setMinutes(0));
-})
-.controller('popoverController', function ($scope) {
+    $scope.panels.activePanel = 1;
+
+    $scope.multiplePanels = {
+      activePanels: [0, 1]
+    };
+
+    $scope.pushPanel = function () {
+      $scope.panels.push({
+        title: 'Collapsible Group Item #4',
+        body: 'Reprehenderit butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid.'
+      });
+    };
+
+  })
+  .controller('buttonController', function ($scope) {
+    $scope.button = {
+      toggle: false,
+      checkbox: {
+        left: false,
+        middle: true,
+        right: false
+      },
+      radio: 'left'
+    };
+  })
+  .controller('timepickerController', function ($scope, $http) {
+    $scope.time = new Date(1970, 0, 1, 10, 30);
+    $scope.selectedTimeAsNumber = 10 * 36e5;
+    $scope.selectedTimeAsString = '10:00';
+    $scope.sharedDate = new Date(new Date().setMinutes(0));
+  })
+  .controller('popoverController', function ($scope) {
     $scope.popover = {
       "title": "Title",
       "content": "Hello Popover<br />This is a multiline message!"
@@ -453,24 +785,41 @@ angular.module('Examples', ['SumTotalComponents', 'mgcrea.ngStrap', 'ngAnimate',
   })
   .controller('typeheadController', function ($scope, $http) {
     $scope.selectedState = '';
-  $scope.states = ['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California', 'Colorado', 'Connecticut', 'Delaware', 'Florida', 'Georgia', 'Hawaii', 'Idaho', 'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky', 'Louisiana', 'Maine', 'Maryland', 'Massachusetts', 'Michigan', 'Minnesota', 'Mississippi', 'Missouri', 'Montana', 'Nebraska', 'Nevada', 'New Hampshire', 'New Jersey', 'New Mexico', 'New York', 'North Dakota', 'North Carolina', 'Ohio', 'Oklahoma', 'Oregon', 'Pennsylvania', 'Rhode Island', 'South Carolina', 'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont', 'Virginia', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming'];
+    $scope.states = ['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California', 'Colorado', 'Connecticut', 'Delaware', 'Florida', 'Georgia', 'Hawaii', 'Idaho', 'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky', 'Louisiana', 'Maine', 'Maryland', 'Massachusetts', 'Michigan', 'Minnesota', 'Mississippi', 'Missouri', 'Montana', 'Nebraska', 'Nevada', 'New Hampshire', 'New Jersey', 'New Mexico', 'New York', 'North Dakota', 'North Carolina', 'Ohio', 'Oklahoma', 'Oregon', 'Pennsylvania', 'Rhode Island', 'South Carolina', 'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont', 'Virginia', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming'];
 
-  $scope.selectedIcon = '';
-  $scope.icons = [
-    {value: 'Gear', label: '<i class="fa fa-gear"></i> Gear'},
-    {value: 'Globe', label: '<i class="fa fa-globe"></i> Globe'},
-    {value: 'Heart', label: '<i class="fa fa-heart"></i> Heart'},
-    {value: 'Camera', label: '<i class="fa fa-camera"></i> Camera'}
+    $scope.selectedIcon = '';
+    $scope.icons = [
+      {
+        value: 'Gear',
+        label: '<i class="fa fa-gear"></i> Gear'
+      },
+      {
+        value: 'Globe',
+        label: '<i class="fa fa-globe"></i> Globe'
+      },
+      {
+        value: 'Heart',
+        label: '<i class="fa fa-heart"></i> Heart'
+      },
+      {
+        value: 'Camera',
+        label: '<i class="fa fa-camera"></i> Camera'
+      }
   ];
 
-  $scope.selectedAddress = '';
-  $scope.getAddress = function(viewValue) {
-    var params = {address: viewValue, sensor: false};
-    return $http.get('http://maps.googleapis.com/maps/api/geocode/json', {params: params})
-    .then(function(res) {
-      return res.data.results;
-    });
-  };
+    $scope.selectedAddress = '';
+    $scope.getAddress = function (viewValue) {
+      var params = {
+        address: viewValue,
+        sensor: false
+      };
+      return $http.get('http://maps.googleapis.com/maps/api/geocode/json', {
+          params: params
+        })
+        .then(function (res) {
+          return res.data.results;
+        });
+    };
   })
   .controller('ClawCtrl', ['$scope', 'ExamplesData', function ($scope, ExamplesData) {
     $scope.data = {};
@@ -564,9 +913,9 @@ angular.module('Examples', ['SumTotalComponents', 'mgcrea.ngStrap', 'ngAnimate',
     $scope.lineChartData = {};
     $scope.lineChartConfig = {
       "ChartConfig": {
-        "columnMap": ["date", "scheduled", "regular", "overtime", "absence"],
-        "barType": "",
-        "titleMap": ["Scheduled", "ScheduledRegular", "Overtime", "Absence"]
+        "columnMap": ["scheduled", "regular", "overtime", "absence"],
+        "ChartLabelColumn": "date",
+        "titleMap": ["Scheduled", "Scheduled - Regular", "Overtime", "Absence"]
       }
     };
     $scope.curTheme = 'no-theme';
