@@ -1,9 +1,9 @@
-angular.module('Examples', ['SumTotalComponents', 'mgcrea.ngStrap', 'ngAnimate', 'ngSanitize'])
+angular.module('Examples', ['SumTotalComponents', 'mgcrea.ngStrap', 'ngAnimate', 'ngSanitize']) //jshint ignore:line
   .config(function ($tooltipProvider, $modalProvider) {
-    angular.extend($tooltipProvider.defaults, {
+    angular.extend($tooltipProvider.defaults, { //jshint ignore:line
       html: true
     });
-    angular.extend($modalProvider.defaults, {
+    angular.extend($modalProvider.defaults, { //jshint ignore:line
       html: true
     });
   })
@@ -11,52 +11,54 @@ angular.module('Examples', ['SumTotalComponents', 'mgcrea.ngStrap', 'ngAnimate',
     this.barchartData = function () {
       var deferred = $q.defer();
 
+      //jshint ignore:start
       var barData = [
         {
           y: '2006',
-          a: 100,
-          b: 90,
-          c: 92
+          a: faker.random.number({min: 0, max: 100}),
+          b: faker.random.number({min: 0, max: 100}),
+          c: faker.random.number({min: 0, max: 100})
         },
         {
           y: '2007',
-          a: 75,
-          b: 65,
-          c: 14
+          a: faker.random.number({min: 0, max: 100}),
+          b: faker.random.number({min: 0, max: 100}),
+          c: faker.random.number({min: 0, max: 100})
         },
         {
           y: '2008',
-          a: 50,
-          b: 40,
-          c: 39
+          a: faker.random.number({min: 0, max: 100}),
+          b: faker.random.number({min: 0, max: 100}),
+          c: faker.random.number({min: 0, max: 100})
         },
         {
           y: '2009',
-          a: 75,
-          b: 65,
-          c: 9
+          a: faker.random.number({min: 0, max: 100}),
+          b: faker.random.number({min: 0, max: 100}),
+          c: faker.random.number({min: 0, max: 100})
         },
         {
           y: '2010',
-          a: 50,
-          b: 40,
-          c: 47
+          a: faker.random.number({min: 0, max: 100}),
+          b: faker.random.number({min: 0, max: 100}),
+          c: faker.random.number({min: 0, max: 100})
         },
         {
           y: '2011',
-          a: 75,
-          b: 65,
-          c: 72
+          a: faker.random.number({min: 0, max: 100}),
+          b: faker.random.number({min: 0, max: 100}),
+          c: faker.random.number({min: 0, max: 100})
         },
         {
           y: '2012',
-          a: 100,
-          b: 90,
-          c: 80
+          a: faker.random.number({min: 0, max: 100}),
+          b: faker.random.number({min: 0, max: 100}),
+          c: faker.random.number({min: 0, max: 100})
         }
       ];
 
       deferred.resolve(barData);
+      //jshint ignore:end
 
       return deferred.promise;
     };
@@ -64,45 +66,48 @@ angular.module('Examples', ['SumTotalComponents', 'mgcrea.ngStrap', 'ngAnimate',
     this.lineChartData = function () {
       var deferred = $q.defer();
 
+      //jshint ignore:start
       var data = [
         {
           date: "Monday",
-          scheduled: 200,
-          regular: 150,
-          overtime: 30,
-          absence: 5
+          scheduled: faker.random.number({min: 0, max: 200}),
+          regular: faker.random.number({min: 0, max: 100}),
+          overtime: faker.random.number({min: 0, max: 50}),
+          absence: faker.random.number({min: 0, max: 10})
         },
         {
           date: "Tuesday",
-          scheduled: 250,
-          regular: 100,
-          overtime: 80,
-          absence: 5
+          scheduled: faker.random.number({min: 0, max: 200}),
+          regular: faker.random.number({min: 0, max: 100}),
+          overtime: faker.random.number({min: 0, max: 50}),
+          absence: faker.random.number({min: 0, max: 10})
         },
         {
           date: "Wednesday",
-          scheduled: 300,
-          regular: 250,
-          overtime: 100,
-          absence: 20
+          scheduled: faker.random.number({min: 0, max: 200}),
+          regular: faker.random.number({min: 0, max: 100}),
+          overtime: faker.random.number({min: 0, max: 50}),
+          absence: faker.random.number({min: 0, max: 10})
         },
         {
           date: "Thursday",
-          scheduled: 100,
-          regular: 80,
-          overtime: 10,
-          absence: 0
+          scheduled: faker.random.number({min: 0, max: 200}),
+          regular: faker.random.number({min: 0, max: 100}),
+          overtime: faker.random.number({min: 0, max: 50}),
+          absence: faker.random.number({min: 0, max: 10})
         },
         {
           date: "Friday",
-          scheduled: 200,
-          regular: 150,
-          overtime: 5,
-          absence: 8
+          scheduled: faker.random.number({min: 0, max: 200}),
+          regular: faker.random.number({min: 0, max: 100}),
+          overtime: faker.random.number({min: 0, max: 50}),
+          absence: faker.random.number({min: 0, max: 10})
         }
       ];
 
       deferred.resolve(data);
+
+      //jshint ignore:end
 
       return deferred.promise;
     };
@@ -110,22 +115,24 @@ angular.module('Examples', ['SumTotalComponents', 'mgcrea.ngStrap', 'ngAnimate',
     this.dounutChartData = function () {
       var deferred = $q.defer();
 
+      //jshint ignore:start
       var data = [
         {
           label: "Expired",
-          value: 12
+          value: faker.random.number({min: 0, max: 100})
         },
         {
           label: "Overdue",
-          value: 30
+          value: faker.random.number({min: 0, max: 100})
         },
         {
           label: "In Progress",
-          value: 20
+          value: faker.random.number({min: 0, max: 100})
         }
       ];
 
       deferred.resolve(data);
+      //jshint ignore:end
 
       return deferred.promise;
     };
@@ -133,42 +140,45 @@ angular.module('Examples', ['SumTotalComponents', 'mgcrea.ngStrap', 'ngAnimate',
     this.pieChartData = function () {
       var deferred = $q.defer();
 
+      //jshint ignore:start
       var data = [
         {
-          key: "Jan",
-          y: 5
+          label: "Jan",
+          value: faker.random.number({min: 0, max: 10})
         },
         {
-          key: "Feb",
-          y: 2
+          label: "Feb",
+          value: faker.random.number({min: 0, max: 10})
         },
         {
-          key: "Mar",
-          y: 9
+          label: "Mar",
+          value: faker.random.number({min: 0, max: 10})
         },
         {
-          key: "Apr",
-          y: 7
+          label: "Apr",
+          value: faker.random.number({min: 0, max: 10})
         },
         {
-          key: "May",
-          y: 4
+          label: "May",
+          value: faker.random.number({min: 0, max: 10})
         },
         {
-          key: "Jun",
-          y: 3
+          label: "Jun",
+          value: faker.random.number({min: 0, max: 10})
         },
         {
-          key: "Jul",
-          y: 9
+          label: "Jul",
+          value: faker.random.number({min: 0, max: 10})
         },
         {
-          key: "Aug",
-          y: 9
+          label: "Aug",
+          value: faker.random.number({min: 0, max: 10})
         }
       ];
 
       deferred.resolve(data);
+
+      //jshint ignore:end
 
       return deferred.promise;
     };
@@ -176,35 +186,57 @@ angular.module('Examples', ['SumTotalComponents', 'mgcrea.ngStrap', 'ngAnimate',
     this.bellChartData = function () {
       var deferred = $q.defer();
 
-      var data = [
-        {
+      //jshint ignore:start
+      var unacceptable = {
           "rating": "Unacceptable",
-          "count": 10,
-          "expenses": 9.5
-        },
-        {
+          "count": faker.random.number({min: 0, max: 100}),
+          "expenses": 0
+        }, below = {
           "rating": "Below",
-          "count": 20,
-          "expenses": 19.5
-        },
-        {
+          "count": 0,
+          "expenses": 0
+        }, meets = {
           "rating": "Meets",
-          "count": 40,
-          "expenses": 39.5
-        },
-        {
+          "count": 0,
+          "expenses": 0
+        }, exceeds = {
           "rating": "Exceeds",
-          "count": 20,
-          "expenses": 19.5
-        },
-        {
+          "count": 0,
+          "expenses": 0
+        }, outstanding = {
           "rating": "Outstanding",
-          "count": 10,
-          "expenses": 9.5
-        }
+          "count": 0,
+          "expenses": 0
+        };
+
+      unacceptable.count = faker.random.number({min: 0, max: 100});
+      unacceptable.expenses = faker.random.number({min: 0, max: unacceptable.count * 10}) / 10;
+
+      below.count = faker.random.number({min: 0, max: 100 - unacceptable.count});
+      below.expenses = faker.random.number({min: 0, max: below.count * 10}) / 10;
+
+      meets.count = faker.random.number({min: 0, max: 100 - unacceptable.count - below.count});
+      meets.expenses = faker.random.number({min: 0, max: meets.count * 10}) / 10;
+
+      exceeds.count = faker.random.number({min: 0, max: 100 - unacceptable.count - below.count - meets.count});
+      exceeds.expenses = faker.random.number({min: 0, max: exceeds.count * 10}) / 10;
+
+      outstanding.count = faker.random.number({min: 0, max: 100 - unacceptable.count - below.count - meets.count - exceeds.count});
+      outstanding.expenses = faker.random.number({min: 0, max: outstanding.count * 10}) / 10;
+
+      console.log(below)
+
+      var data = [
+        unacceptable,
+        below,
+        meets,
+        exceeds,
+        outstanding
       ];
 
       deferred.resolve(data);
+
+      //jshint ignore:end
 
       return deferred.promise;
     };
@@ -320,6 +352,45 @@ angular.module('Examples', ['SumTotalComponents', 'mgcrea.ngStrap', 'ngAnimate',
 
       return deferred.promise;
     };
+
+    this.userData = function (fetchSize) {
+      var deferred = $q.defer();
+
+      var users = [];
+
+      while (users.length < fetchSize) {
+        var userCard = faker.helpers.createCard(); //jshint ignore:line
+        userCard.avatarUrl = faker.internet.avatar(); //jshint ignore:line
+
+        users.push(userCard);
+      }
+
+      deferred.resolve(users);
+
+      return deferred.promise;
+    };
+
+    this.tabularTextData = function (fetchSize) {
+      var deferred = $q.defer();
+
+      var data = [];
+
+      while (data.length < fetchSize) {
+        //jshint ignore:start
+        var datum = {
+          word: faker.lorem.words(1)[0],
+          sentence: faker.lorem.sentence(),
+          paragraph: faker.lorem.paragraph()
+        };
+
+        data.push(datum);
+        //jshint ignore:end
+      }
+
+      deferred.resolve(data);
+
+      return deferred.promise;
+    };
   }])
 
 .controller('ToolTipExample', ['$scope', '$tooltip', '$sce', function ($scope, $tooltip, $sce) {
@@ -336,7 +407,7 @@ angular.module('Examples', ['SumTotalComponents', 'mgcrea.ngStrap', 'ngAnimate',
 
     $timeout(function () {
       for (var i = 0; i < $scope.total; i++) {
-        $scope.cards.push(faker.helpers.createCard());
+        $scope.cards.push(faker.helpers.createCard()); //jshint ignore:line
       }
       deferred.resolve();
     }, 200);
