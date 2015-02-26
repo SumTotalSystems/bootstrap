@@ -481,6 +481,24 @@ angular.module('Examples', ['SumTotalComponents', 'mgcrea.ngStrap', 'ngAnimate',
   };
 
 })
+.controller('dropdownController', function($scope, $alert) {
+
+  $scope.dropdown = [
+    {text: 'Another action', href: '#anotherAction'},
+    {text: 'Display an alert', click: '$alert("Holy guacamole!")'},
+    {text: 'External link', href: '/auth/facebook', target: '_self'},
+    {divider: true},
+    {text: 'Separated link', href: '#separatedLink'}
+  ];
+
+  $scope.$alert = function(title) {
+    $alert({title: title, content: 'Best check yo self, you\'re not looking too good.', placement: 'top', type: 'info', keyboard: true, show: true});
+  };
+
+})
+.controller('navbarController', function($scope, $location) {
+  $scope.$location = $location;
+})
 .controller('collapseController', function($scope) {
 
   $scope.panels = [
@@ -488,7 +506,7 @@ angular.module('Examples', ['SumTotalComponents', 'mgcrea.ngStrap', 'ngAnimate',
     {title:'Collapsible Group Item #2', body: 'Food truck fixie locavore, accusamus mcsweeney\'s marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee.'},
     {title:'Collapsible Group Item #3', body: 'Etsy mixtape wayfarers, ethical wes anderson tofu before they sold out mcsweeney\'s organic lomo retro fanny pack lo-fi farm-to-table readymade.'}
   ];
-
+console.log($scope.panels);
   $scope.panels.activePanel = 1;
 
   $scope.multiplePanels = {
