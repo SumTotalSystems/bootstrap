@@ -377,50 +377,48 @@ angular.module('Examples', ['SumTotalComponents', 'mgcrea.ngStrap', 'ngAnimate',
 
       unacceptable.count = faker.random.number({
         min: 0,
-        max: 100
+        max: 12
       });
       unacceptable.expenses = faker.random.number({
         min: 0,
-        max: unacceptable.count * 10
-      }) / 10;
+        max: unacceptable.count > 0 ? unacceptable.count : 0
+      });
 
       below.count = faker.random.number({
         min: 0,
-        max: 100 - unacceptable.count
+        max: 37
       });
       below.expenses = faker.random.number({
         min: 0,
-        max: below.count * 10
-      }) / 10;
+        max: below.count > 0 ? below.count : 0
+      });
 
       meets.count = faker.random.number({
         min: 0,
-        max: 100 - unacceptable.count - below.count
+        max: 37
       });
       meets.expenses = faker.random.number({
         min: 0,
-        max: meets.count * 10
-      }) / 10;
+        max: meets.count > 0 ? meets.count : 0
+      });
 
       exceeds.count = faker.random.number({
         min: 0,
-        max: 100 - unacceptable.count - below.count - meets.count
+        max: 37
       });
       exceeds.expenses = faker.random.number({
         min: 0,
-        max: exceeds.count * 10
-      }) / 10;
+        max: exceeds.count > 0 ? exceeds.count : 0
+      });
 
       outstanding.count = faker.random.number({
         min: 0,
-        max: 100 - unacceptable.count - below.count - meets.count - exceeds.count
+        max: 37
       });
       outstanding.expenses = faker.random.number({
         min: 0,
-        max: outstanding.count * 10
-      }) / 10;
-
-      console.log(below)
+        max: outstanding.count > 0 ? outstanding.count : 0
+      });
 
       var data = [
         unacceptable,
