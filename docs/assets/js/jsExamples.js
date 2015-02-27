@@ -588,8 +588,31 @@ angular.module('Examples', ['SumTotalComponents', 'mgcrea.ngStrap', 'ngAnimate',
       return deferred.promise;
     };
   }])
+  .directive('fakeParagraphs', [function () {
+    return {
+      restrict: 'A',
+      replace: true,
+      scope: {
+        count: '@'
+      },
+      template: '<div><p>This is fake content. It will allways be static. Include Faker on your page and it will dynamically change. You can add the \'count\' attribute to specifiy the number of paragraphs!</p></div>',
+      link: function (scope, element, attrs) {
+        try {
+          var p = faker.lorem.paragraphs(1); //jshint ignore:line
+        } catch (e) {
+          return;
+        }
 
-.controller('ToolTipExample', ['$scope', '$tooltip', '$sce', function ($scope, $tooltip, $sce) {
+        var html = '';
+        for (var i = 0; i < (scope.count ? parseInt(scope.count, 10) : 1); i++) {
+          html += '<p>' + faker.lorem.paragraph() + '</p>'; //jshint ignore:line
+        }
+
+        element.html(html);
+      }
+    };
+  }])
+  .controller('ToolTipExample', ['$scope', '$tooltip', '$sce', function ($scope, $tooltip, $sce) {
     $scope.tooltip = {
       title: 'Hello Tooltip<br />This is a multiline message!',
       checked: false
@@ -642,21 +665,33 @@ angular.module('Examples', ['SumTotalComponents', 'mgcrea.ngStrap', 'ngAnimate',
     };
   })
 
-.controller('tabController', function($scope, $templateCache) {
+.controller('tabController', function ($scope, $templateCache) {
 
-  $scope.tabs = [
-    {title:'Home', content: 'Raw denim you probably haven\'t heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica.'},
-    {title:'Profile', content: 'Food truck fixie locavore, accusamus mcsweeney\'s marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee.'},
-    {title:'About', content: 'Etsy mixtape wayfarers, ethical wes anderson tofu before they sold out mcsweeney\'s organic lomo retro fanny pack lo-fi farm-to-table readymade.'}
+    $scope.tabs = [
+      {
+        title: 'Home',
+        content: 'Raw denim you probably haven\'t heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica.'
+      },
+      {
+        title: 'Profile',
+        content: 'Food truck fixie locavore, accusamus mcsweeney\'s marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee.'
+      },
+      {
+        title: 'About',
+        content: 'Etsy mixtape wayfarers, ethical wes anderson tofu before they sold out mcsweeney\'s organic lomo retro fanny pack lo-fi farm-to-table readymade.'
+      }
   ];
 
-  $scope.tabs.activeTab = 1;
+    $scope.tabs.activeTab = 1;
 
-  $scope.pushTab = function() {
-    $scope.tabs.push({title: 'Contact', content: 'Reprehenderit butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid.'});
-  };
+    $scope.pushTab = function () {
+      $scope.tabs.push({
+        title: 'Contact',
+        content: 'Reprehenderit butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid.'
+      });
+    };
 
-})
+  })
   .controller('tooltipController', function ($scope, $tooltip) {
 
     $scope.tooltip = {
@@ -687,24 +722,24 @@ angular.module('Examples', ['SumTotalComponents', 'mgcrea.ngStrap', 'ngAnimate',
       }
   ];
 
-})
-.controller('datepickerController', function($scope, $http) {
+  })
+  .controller('datepickerController', function ($scope, $http) {
 
-  $scope.selectedDate = new Date();
-  $scope.selectedDateAsNumber = Date.UTC(1986, 1, 22);
-  // $scope.fromDate = new Date();
-  // $scope.untilDate = new Date();
-  $scope.getType = function(key) {
-    return Object.prototype.toString.call($scope[key]);
-  };
+    $scope.selectedDate = new Date();
+    $scope.selectedDateAsNumber = Date.UTC(1986, 1, 22);
+    // $scope.fromDate = new Date();
+    // $scope.untilDate = new Date();
+    $scope.getType = function (key) {
+      return Object.prototype.toString.call($scope[key]);
+    };
 
-  $scope.clearDates = function() {
-    $scope.selectedDate = null;
-  };
+    $scope.clearDates = function () {
+      $scope.selectedDate = null;
+    };
 
-})
+  })
 
-  .controller('dropdownController', function ($scope, $alert) {
+.controller('dropdownController', function ($scope, $alert) {
 
     $scope.dropdown = [
       {
@@ -762,43 +797,55 @@ angular.module('Examples', ['SumTotalComponents', 'mgcrea.ngStrap', 'ngAnimate',
       }
   ];
 
-  $scope.panels.activePanel = 1;
+    $scope.panels.activePanel = 1;
 
-  $scope.multiplePanels = { activePanels: [0,1] };
+    $scope.multiplePanels = {
+      activePanels: [0, 1]
+    };
 
-  $scope.pushPanel = function() {
-    $scope.panels.push({title: 'Collapsible Group Item #4', body: 'Reprehenderit butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid.'});
-  };
+    $scope.pushPanel = function () {
+      $scope.panels.push({
+        title: 'Collapsible Group Item #4',
+        body: 'Reprehenderit butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid.'
+      });
+    };
 
-})
-.controller('buttonController', function($scope) {
-  $scope.button = {
-    toggle: false,
-    checkbox: {left: false, middle: true, right: false},
-    radio: 'left'
-  };
-})
-.controller('popoverController', function($scope, $popover) {
+  })
+  .controller('buttonController', function ($scope) {
+    $scope.button = {
+      toggle: false,
+      checkbox: {
+        left: false,
+        middle: true,
+        right: false
+      },
+      radio: 'left'
+    };
+  })
+  .controller('popoverController', function ($scope, $popover) {
 
-  $scope.popover = {title: 'Title', content: 'Hello Popover<br />This is a multiline message!'};
+    $scope.popover = {
+      title: 'Title',
+      content: 'Hello Popover<br />This is a multiline message!'
+    };
 
-  var asAServiceOptions = {
-    title: $scope.popover.title,
-    content: $scope.popover.content,
-    trigger: 'manual'
-  }
+    var asAServiceOptions = {
+      title: $scope.popover.title,
+      content: $scope.popover.content,
+      trigger: 'manual'
+    };
 
 
-})
-
-  .controller('timepickerController', function ($scope, $http) {
-    $scope.time = new Date(1970, 0, 1, 10, 30);
-    $scope.selectedTimeAsNumber = 10 * 36e5;
-    $scope.selectedTimeAsString = '10:00';
-    $scope.sharedDate = new Date(new Date().setMinutes(0));
   })
 
-  .controller('typeheadController', function ($scope, $http) {
+.controller('timepickerController', function ($scope, $http) {
+  $scope.time = new Date(1970, 0, 1, 10, 30);
+  $scope.selectedTimeAsNumber = 10 * 36e5;
+  $scope.selectedTimeAsString = '10:00';
+  $scope.sharedDate = new Date(new Date().setMinutes(0));
+})
+
+.controller('typeheadController', function ($scope, $http) {
     $scope.selectedState = '';
     $scope.states = ['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California', 'Colorado', 'Connecticut', 'Delaware', 'Florida', 'Georgia', 'Hawaii', 'Idaho', 'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky', 'Louisiana', 'Maine', 'Maryland', 'Massachusetts', 'Michigan', 'Minnesota', 'Mississippi', 'Missouri', 'Montana', 'Nebraska', 'Nevada', 'New Hampshire', 'New Jersey', 'New Mexico', 'New York', 'North Dakota', 'North Carolina', 'Ohio', 'Oklahoma', 'Oregon', 'Pennsylvania', 'Rhode Island', 'South Carolina', 'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont', 'Virginia', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming'];
 
@@ -872,8 +919,7 @@ angular.module('Examples', ['SumTotalComponents', 'mgcrea.ngStrap', 'ngAnimate',
       $scope.barChartData = result;
     });
 
-    $scope.showAnimation = function()
-    {
+    $scope.showAnimation = function () {
       $scope.$$childTail.animate = true;
       $scope.$$childTail.configureChart();
     };
@@ -888,8 +934,7 @@ angular.module('Examples', ['SumTotalComponents', 'mgcrea.ngStrap', 'ngAnimate',
         "IsStacked": true
       }
     };
-    $scope.showAnimation = function()
-    {
+    $scope.showAnimation = function () {
       $scope.$$childTail.animateChart = true;
       $scope.$$childTail.configureChart();
     };
@@ -911,8 +956,7 @@ angular.module('Examples', ['SumTotalComponents', 'mgcrea.ngStrap', 'ngAnimate',
     };
     $scope.curTheme = 'no-theme';
 
-    $scope.showAnimation = function()
-    {
+    $scope.showAnimation = function () {
       $scope.$$childTail.animate = true;
       $scope.$$childTail.configureChart();
     };
@@ -935,8 +979,7 @@ angular.module('Examples', ['SumTotalComponents', 'mgcrea.ngStrap', 'ngAnimate',
     };
     $scope.curTheme = 'no-theme';
 
-    $scope.showAnimation = function()
-    {
+    $scope.showAnimation = function () {
       $scope.$$childTail.animate = true;
       $scope.$$childTail.configureChart();
     };
@@ -954,8 +997,7 @@ angular.module('Examples', ['SumTotalComponents', 'mgcrea.ngStrap', 'ngAnimate',
     $scope.curTheme = 'no-theme';
     $scope.percentage = 4 / 5 * 100;
 
-    $scope.showAnimation = function()
-    {
+    $scope.showAnimation = function () {
       $scope.$$childTail.animate = true;
       $scope.$$childTail.configureChart();
     };
