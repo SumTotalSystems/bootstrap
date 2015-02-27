@@ -461,13 +461,13 @@ angular.module('Examples', ['SumTotalComponents', 'mgcrea.ngStrap', 'ngAnimate',
         {
           "id": "Competencies",
           "color": "#33c4b3",
-          "percent": 100,
+          "percent": faker.random.number({min: 0, max: 100}),
           "items": []
         },
         {
           "id": "Skills",
           "color": "#00aed3",
-          "percent": 53,
+          "percent": faker.random.number({min: 0, max: 100}),
           "items": [
             {
               "id": "REG1234",
@@ -521,7 +521,7 @@ angular.module('Examples', ['SumTotalComponents', 'mgcrea.ngStrap', 'ngAnimate',
         {
           "id": "Learning",
           "color": "#f27c2a",
-          "percent": 77,
+          "percent": faker.random.number({min: 0, max: 100}),
           "items": [
             {
               "id": "COMM1234",
