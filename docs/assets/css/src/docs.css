@@ -311,7 +311,7 @@ body {
   .bs-docs-header {
     padding-top: 60px;
     padding-bottom: 60px;
-    font-size: 24px;
+    font-size: 20px;
     text-align: left;
   }
   .bs-docs-header h1 {
@@ -1189,7 +1189,6 @@ h1[id] {
   border-radius: 4px;
 }
 .highlight pre {
-  padding: 0;
   margin-top: 0;
   margin-bottom: 0;
   word-break: normal;
