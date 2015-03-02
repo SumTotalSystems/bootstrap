@@ -643,6 +643,8 @@ angular.module('Examples', ['SumTotalComponents', 'mgcrea.ngStrap', 'ngAnimate',
     });
 }])
   .controller('alertsController', function ($scope) {
+  $scope.extend = false;
+  $scope.asideScope =  angular.element('#asideExt');
     $scope.alert = {
       "title": "Holy guacamole!",
       "content": "Best check yo self, you're not looking too good.",
@@ -650,10 +652,20 @@ angular.module('Examples', ['SumTotalComponents', 'mgcrea.ngStrap', 'ngAnimate',
     };
   })
   .controller('asideController', function ($scope) {
+  $scope.expand = false;
     $scope.aside = {
       "title": "Title",
       "content": "Hello Aside<br />This is a multiline message!"
     };
+
+  $scope.fullOpen = function(){
+    $scope.expand = true;
+    angular.element('#asideExt').css('width','1000px');
+  }
+  $scope.halfClose = function(){
+    $scope.expand = false;
+    angular.element('#asideExt').css('width','325px');
+  }
 
   })
   .controller('DialogExampleController', function ($scope, $modal) {
