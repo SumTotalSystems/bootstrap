@@ -1,0 +1,54 @@
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/lodash.js/3.2.0/lodash.min.js"></script>
+
+<div class="bs-docs-section">
+  <h1 id="angular-overview" class="page-header">AngularJS</h1>
+
+  <p class="lead">AngularJS lets you extend HTML vocabulary for your application.</p>
+
+  <p>
+    AngularJS is an open-source JavaScript framework, maintained by Google, that assists with running single-page applications. Its goal is to augment web-based applications with model–view–controller (MVC) capability, in an effort to make both development and testing easier.
+  </p>
+
+  <p>Other frameworks deal with HTML’s shortcomings by either abstracting away HTML, CSS, and/or JavaScript or by providing an imperative way for manipulating the DOM. Neither of these address the root problem that HTML was not designed for dynamic views.</p>
+
+  <p>AngularJS is a toolset for building the framework most suited to your application development. It is fully extensible and works well with other libraries. Every feature can be modified or replaced to suit your unique development workflow and feature needs. Read on to find out how.</p>
+
+  <p>Much like Foundation Bootstrap is a toolbox for building pages, AngularJS is a toolbox to build dynamic page views. In fact, SumTotal Foundation Bootstrap uses AngularJS for building its controls. We've standardized on using AngularJS because we feel it provides a powerful and flexible framework for building the client side interface. The beauty of Foundation is that if you choose to not use AngularJS, but use JQuery you're OK. Obviously you won't be able to take advantage of the growing number of controls that the Foundation team is building, but you're not tied to strictly using AngularJS for building the front end.</p>
+
+  <p>We could speak in metaphors all day long and not actually describe anything about AngularJS! To better understand how AngularJS works read the <a href="https://docs.angularjs.org/guide/concepts" target="_blank">conceptual overview</a>. Once you've seen an example application we believe you'll find yourself head over heals about all the new possibilities for client side development.</p>
+
+
+  <h2 id="angular-training-videos" class="page-header">Egghead.io Training Videos</h2>
+
+  <p>Everyone on the Foundation team agrees that looking at AngularJS for the first time can be a little bit intimidating. The documentation on the AngularJS site is really more at an intermediate and advanced level which doesn't really help beginners get up and running quickly. That's why we've purchased an Enterprise License for Egghead.io. Egghead.io is a wonderful site which provides bite sized training on a number of new client technologies. The site is recognized for its extensive library of AngularJS training videos.</p>
+
+  <p>As part of our license we've downloaded all the AngularJS training videos and placed them on our site for easy viewing. Each lesson builds off the previous. Start with lesson 1 and move forward. Page two has more advanced lessons than page 1 and so on and so forth. Each lesson is broken down to the vary basic parts of the topic. This makes for easy consumption and it allows for a quick review when you're having a problem with some functionality.</p>
+
+  <p>Just click on a line in the table below and select play to get started!</p>
+
+  <div style="min-height: 500px;" ng-controller="videoController">
+    <table ng-table="tableParams" class="table table-striped table-condensed table-hover">
+      <tr ng-cloak ng-repeat="video in $data" ng-click="selectionChanged(); video.$selected = !video.$selected;" ng-class="{'active': video.$selected}">
+        <td data-title="'#'" style="width:50px;">
+          {% raw %}{{(params.page() - 1) * 10 + $index + 1}}{% endraw %}
+        </td>
+        <td data-title="'Video'" style="cursor: pointer;">
+          {% raw %}{{video.title}}{% endraw %}
+          <div ng-show="video.$selected" style="margin-top:10px;">
+            {% raw %}{{video.description}}{% endraw %}
+          </div>
+          <div ng-show="video.$selected">
+            {% raw %}
+            <video id="{{'#video'+($index+1)}}" ng-src="{{'/' + video.link}}" type="video/mp4" width="640" height="480" vidplay ng-attr-poster="{{'/' + video.img}}" preload="none" controls>
+              Your browser does not support the video tag.
+            </video>
+            {% endraw %}
+          </div>
+        </td>
+        <td data-title="'Duration'" style="width: 100px; text-align: center;">
+          {% raw %}{{video.duration}}{% endraw %}
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
