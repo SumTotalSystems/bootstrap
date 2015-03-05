@@ -642,27 +642,36 @@ angular.module('Examples', ['SumTotalComponents', 'mgcrea.ngStrap', 'ngAnimate',
       }
     });
 }])
-  .controller('alertsController', function ($scope) {
-    $scope.alert = {
-      "title": "Holy guacamole!",
-      "content": "Best check yo self, you're not looking too good.",
-      "type": "info"
-    };
-  })
-  .controller('asideController', function ($scope) {
-    $scope.aside = {
-      "title": "Title",
-      "content": "Hello Aside<br />This is a multiline message!"
-    };
+.controller('alertsController', function ($scope) {
+  $scope.alert = {
+    "title": "Holy guacamole!",
+    "content": "Best check yo self, you're not looking too good.",
+    "type": "info"
+  };
+})
+.controller('asideController', function ($scope) {
+  $scope.asideScope =  angular.element('#asideExt');
+  $scope.expand = false;
+  $scope.aside = {
+    "title": "Title",
+    "content": "Hello Aside<br />This is a multiline message!"
+  };
 
-  })
-  .controller('DialogExampleController', function ($scope, $modal) {
-    $scope.modal = {
-      title: 'Title',
-      content: 'Hello Modal<br />This is a multiline message!'
-    };
-  })
-
+  $scope.fullOpen = function(){
+    $scope.expand = true;
+    angular.element('#asideExt').css('width','1000px');
+  }
+  $scope.halfClose = function(){
+    $scope.expand = false;
+    angular.element('#asideExt').css('width','325px');
+  }
+})
+.controller('DialogExampleController', function ($scope, $modal) {
+  $scope.modal = {
+    title: 'Title',
+    content: 'Hello Modal<br />This is a multiline message!'
+  };
+})
 .controller('tabController', function ($scope, $templateCache) {
 
     $scope.tabs = [
