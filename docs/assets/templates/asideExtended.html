@@ -28,10 +28,9 @@
 
 <div id="asideExt" class="aside right am-fade-and-slide-right" tabindex="-1" role="dialog" style="display: block;">
   <div class="orgSlideoutContainer">
-    <button type="button" class="btn btn-default" ng-click="$hide(); $scope.extend = false;">Close</button>
+    <button type="button" class="btn btn-default" ng-click="$hide(); $scope.expand = false;">Close</button>
     <button type="button" class="btn btn-primary" ng-click="fullOpen()" ng-hide="expand">Expand</button>
     <button type="button" class="btn btn-primary" ng-click="halfClose()" ng-show="expand">Collapse</button>
   </div>
-  <div class="expandedOrgSlideoutContainer" ng-show="expand">
-  </div>
+  <div class="expandedOrgSlideoutContainer" ng-show="expand"></div>
 </div>
