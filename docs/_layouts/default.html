@@ -4,11 +4,17 @@
     <!-- Meta, title, CSS, favicons, etc. -->
     {% include header.html %}
   </head>
-  <body class="ng-app:Examples" id="ng-app" ng-app="Examples">
+  <body class="ng-app:Examples" id="ng-app" ng-app="Examples"  ng-cloak>
     <a id="skippy" class="sr-only sr-only-focusable" href="#content"><div class="container"><span class="skiplink-text">Skip to main content</span></div></a>
 
+    <div ng-controller="navSearch">
     <!-- Docs master nav -->
     {% include nav/main.html %}
+
+    <!--Include the search slideout-->
+      {% include search.html %}
+    </div>
+
 
     <!-- Docs page layout -->
     <div class="bs-docs-header" id="content">

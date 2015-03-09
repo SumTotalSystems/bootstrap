@@ -457,6 +457,7 @@ angular.module('Examples', ['SumTotalComponents', 'mgcrea.ngStrap', 'ngAnimate',
     this.clawChartData = function () {
       var deferred = $q.defer();
 
+      //jshint ignore:start
       var data = [
         {
           "id": "Competencies",
@@ -552,6 +553,7 @@ angular.module('Examples', ['SumTotalComponents', 'mgcrea.ngStrap', 'ngAnimate',
 
 
       deferred.resolve(data);
+      //jshint ignore:end
 
       return deferred.promise;
     };
@@ -601,10 +603,12 @@ angular.module('Examples', ['SumTotalComponents', 'mgcrea.ngStrap', 'ngAnimate',
     var people = [];
 
     while (people.length < 20) {
+      //jshint ignore:start
       var person = faker.helpers.userCard();
       person.avatar = faker.internet.avatar();
 
       people.push(person);
+      //jshint ignore:end
     }
 
     deferred.resolve(people);
@@ -614,16 +618,21 @@ angular.module('Examples', ['SumTotalComponents', 'mgcrea.ngStrap', 'ngAnimate',
     }])
   .controller('navSearch', ['$scope', function ($scope) {
     $scope.searchText = '';
+    $scope.results = [];
 
     $scope.resultHandler = function (results) {
+      console.log(results);
       if (!results || !results.length || results.length > 1) {
-        window.location = '/search/?q=' + $scope.searchText;
+        $scope.results = results;
+        angular.element('#SearchResultsSlideout').scope().openSlideOut();
       } else if (results && results.length == 1) {
+        console.log('single result!', results);
         window.location = results[0]._source.url.replace('#', '##');
       }
     };
 
     $scope.submitHandler = function (searchText) {
+      console.log('searchText')
       $scope.searchText = searchText;
     };
 
@@ -702,11 +711,11 @@ angular.module('Examples', ['SumTotalComponents', 'mgcrea.ngStrap', 'ngAnimate',
     $scope.fullOpen = function () {
       $scope.expand = true;
       angular.element('#asideExt').css('width', '1000px');
-    }
+    };
     $scope.halfClose = function () {
       $scope.expand = false;
       angular.element('#asideExt').css('width', '325px');
-    }
+    };
   })
   .controller('DialogExampleController', function ($scope, $modal) {
     $scope.modal = {

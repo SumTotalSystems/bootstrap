@@ -1,5 +1,20 @@
 <div slideout id="SearchResultsSlideout" show-header="true" show-close="true" title-text="" open-slide-out-class="sumt-slideout" close-slide-out-class="sumt-slideout-initial" slide-out-width="400px">
-  <ul>
-  <li ng-repeat="result in results">{{result}}</li>
-  </ul>
+  <div class="panel">
+    <div class="panel-heading">
+      <h3>Search</h3>
+    </div>
+    <div class="panel-body">
+      <table class="ng-table table">
+        <tbody>
+          <tr ng-repeat="result in results">
+            <td>
+              {% raw %}<a ng-href="{{result._source.url}}">{{result._source.key}}</a> <small>{{result._source.title}}</small>
+              <em>
+              <p ng-show="result._source.description">{{result._source.description}}</p></em> {% endraw %}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
 </div>
