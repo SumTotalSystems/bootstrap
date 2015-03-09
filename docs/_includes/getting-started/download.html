@@ -5,18 +5,25 @@
     Foundation Bootstrap (currently v{{ site.current_version }}) is installed using a NodeJS module called sumtotal.
   </p>
   <h2 id="install">Install with SumTotal Module</h2>
+  <div class="bs-callout bs-callout-info">
+    <h4>Only installed once</h4>
+    <p>The <code>sumtotal</code> module is a utility to update the Foundation JavaScript and CSS. Only the person maintaining these files is required to install this Node module. If you're not working with maintaining the latest Foundation code in your project you can probably skip this section.</p>
+  </div>
+  <div class="bs-callout bs-callout-warning">
+    <h4>Private repository</h4>
+    <p>We have placed the <code>sumtotal</code> module on an internal NPM registry. If you are using NodeJS and NPM for other uses you may want to revert your copy of NPM to point back to the public registry. Do this by running: <code>npm set registry https://registry.npmjs.org</code> at the command line.</p>
+  </div>
   <p>The Foundation team is providing a <strong>NodeJS</strong> module which will manage the Foundation source. This module, <code>sumtotal</code>, is used to define where your CSS and Scripts are located and what version of Foundation to deploy.</p>
-  <p>To get started you will need to install <a href="http://nodejs.org" target="_blank">NodeJS</a> and a git client. For those using Windows, the Foundation team recommends <a href="https://msysgit.github.io/" target="_blank">Msysgit (Git for Windows)</a>.</p>
+  <p>To get started you will need to install <a href="http://nodejs.org" target="_blank">NodeJS</a>.</p>
 
   <h3 id="install-module">Install SumTotal Module</h3>
   <p>
-    To download and install Foundation you'll need to clone the sumtotal-module from the TFS Git repository. After cloning you'll run Node's <code>npm</code> command and install it globally. The final argument in the second command below is the directory where the <code>git clone</code> placed the code. It will default to <em>sumtotal-module</em>.
+    To download and install Foundation you'll first need to set Node's NPM client to point to SumTotal's private registry. Then you'll run Node's <code>npm</code> command and install the module globally.
   </p>
   {% highlight bash %}
-git clone http://team2:8080/tfs/DefaultCollection/Foundation/_git/sumtotal-module
-cd sumtotal-module
-npm install -g . {% endhighlight %}
-
+npm set registry http://team.sumtotalsystems.com:4873
+npm install -g sumtotal-module
+  {% endhighlight %}
   <h3 id="init-foundation">Project Initialization</h3>
   <div class="bs-callout bs-callout-warning">
     <h4>Only Needs to be Run Once!</h4>
@@ -40,10 +47,9 @@ npm install -g . {% endhighlight %}
 
   <h3 id="upgrading-module">Upgrade SumTotal Module</h3>
   <p>
-    When upgrading the SumTotal module you'll be pulling the latest code from the module's repostiory. Once the latest code has been pulled the module will need to be force re-installed.
+    From time to time the Foundation team may require a small update to the module. You may upgrade the module at any time by issuing the following command:
   </p>
-  {% highlight bash %} git pull origin master
-npm install -g . --force {% endhighlight %}
+  {% highlight bash %}npm upgrade -g sumtotal-module{% endhighlight %}
 
   <h3 id="upgrading-foundation">Upgrade Foundation</h3>
   <div class="bs-callout bs-callout-info">
