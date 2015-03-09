@@ -596,13 +596,18 @@ angular.module('Examples', ['SumTotalComponents', 'mgcrea.ngStrap', 'ngAnimate',
     };
   }])
   .controller('navSearch', ['$scope', function ($scope) {
+    $scope.searchText = '';
+
     $scope.resultHandler = function(results) {
-      console.log('args', arguments)
-console.log('results', results)
+      if(!results || !results.length || results.length > 1) {
+        window.location = '/search/?q=' + $scope.searchText;
+      } else if (results && results.length == 1) {
+        window.location = results[0]._source.url.replace('#', '##');
+      }
     };
 
     $scope.submitHandler = function(searchText) {
-console.log('searchText', searchText)
+      $scope.searchText = searchText;
     };
 
   }])
