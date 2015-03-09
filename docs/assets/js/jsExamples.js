@@ -596,6 +596,14 @@ angular.module('Examples', ['SumTotalComponents', 'mgcrea.ngStrap', 'ngAnimate',
     };
   }])
   .controller('navSearch', ['$scope', function ($scope) {
+    $scope.resultHandler = function(results) {
+      console.log('args', arguments)
+console.log('results', results)
+    };
+
+    $scope.submitHandler = function(searchText) {
+console.log('searchText', searchText)
+    };
 
   }])
   .directive('fakeParagraphs', [function () {
