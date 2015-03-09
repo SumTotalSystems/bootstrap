@@ -7,7 +7,7 @@ angular.module('Examples', ['SumTotalComponents', 'mgcrea.ngStrap', 'ngAnimate',
       html: true
     });
   })
-  .service("ExamplesData", ['$q', function ($q) {
+  .service('ExamplesData', ['$q', function ($q) {
     //this.colorsHash = new Object();
     this.colorsHash = ["#1fbba6", "#ffc600", "#f27c2a"];
 
@@ -461,13 +461,19 @@ angular.module('Examples', ['SumTotalComponents', 'mgcrea.ngStrap', 'ngAnimate',
         {
           "id": "Competencies",
           "color": "#33c4b3",
-          "percent": faker.random.number({min: 0, max: 100}),
+          "percent": faker.random.number({
+            min: 0,
+            max: 100
+          }),
           "items": []
         },
         {
           "id": "Skills",
           "color": "#00aed3",
-          "percent": faker.random.number({min: 0, max: 100}),
+          "percent": faker.random.number({
+            min: 0,
+            max: 100
+          }),
           "items": [
             {
               "id": "REG1234",
@@ -521,7 +527,10 @@ angular.module('Examples', ['SumTotalComponents', 'mgcrea.ngStrap', 'ngAnimate',
         {
           "id": "Learning",
           "color": "#f27c2a",
-          "percent": faker.random.number({min: 0, max: 100}),
+          "percent": faker.random.number({
+            min: 0,
+            max: 100
+          }),
           "items": [
             {
               "id": "COMM1234",
@@ -586,6 +595,9 @@ angular.module('Examples', ['SumTotalComponents', 'mgcrea.ngStrap', 'ngAnimate',
       return deferred.promise;
     };
   }])
+  .controller('navSearch', ['$scope', function ($scope) {
+
+  }])
   .directive('fakeParagraphs', [function () {
     return {
       restrict: 'A',
@@ -642,37 +654,37 @@ angular.module('Examples', ['SumTotalComponents', 'mgcrea.ngStrap', 'ngAnimate',
       }
     });
 }])
-.controller('alertsController', function ($scope) {
-  $scope.alert = {
-    "title": "Holy guacamole!",
-    "content": "Best check yo self, you're not looking too good.",
-    "type": "info"
-  };
-})
-.controller('asideController', function ($scope) {
-  $scope.asideScope =  angular.element('#asideExt');
-  $scope.expand = false;
-  $scope.aside = {
-    "title": "Title",
-    "content": "Hello Aside<br />This is a multiline message!"
-  };
-
-  $scope.fullOpen = function(){
-    $scope.expand = true;
-    angular.element('#asideExt').css('width','1000px');
-  }
-  $scope.halfClose = function(){
+  .controller('alertsController', function ($scope) {
+    $scope.alert = {
+      "title": "Holy guacamole!",
+      "content": "Best check yo self, you're not looking too good.",
+      "type": "info"
+    };
+  })
+  .controller('asideController', function ($scope) {
+    $scope.asideScope = angular.element('#asideExt');
     $scope.expand = false;
-    angular.element('#asideExt').css('width','325px');
-  }
-})
-.controller('DialogExampleController', function ($scope, $modal) {
-  $scope.modal = {
-    title: 'Title',
-    content: 'Hello Modal<br />This is a multiline message!'
-  };
-})
-.controller('tabController', function ($scope, $templateCache) {
+    $scope.aside = {
+      "title": "Title",
+      "content": "Hello Aside<br />This is a multiline message!"
+    };
+
+    $scope.fullOpen = function () {
+      $scope.expand = true;
+      angular.element('#asideExt').css('width', '1000px');
+    }
+    $scope.halfClose = function () {
+      $scope.expand = false;
+      angular.element('#asideExt').css('width', '325px');
+    }
+  })
+  .controller('DialogExampleController', function ($scope, $modal) {
+    $scope.modal = {
+      title: 'Title',
+      content: 'Hello Modal<br />This is a multiline message!'
+    };
+  })
+  .controller('tabController', function ($scope, $templateCache) {
 
     $scope.tabs = [
       {
@@ -745,8 +757,7 @@ angular.module('Examples', ['SumTotalComponents', 'mgcrea.ngStrap', 'ngAnimate',
     };
 
   })
-
-.controller('dropdownController', function ($scope, $alert) {
+  .controller('dropdownController', function ($scope, $alert) {
 
     $scope.dropdown = [
       {
@@ -844,15 +855,13 @@ angular.module('Examples', ['SumTotalComponents', 'mgcrea.ngStrap', 'ngAnimate',
 
 
   })
-
-.controller('timepickerController', function ($scope, $http) {
+  .controller('timepickerController', function ($scope, $http) {
   $scope.time = new Date(1970, 0, 1, 10, 30);
   $scope.selectedTimeAsNumber = 10 * 36e5;
   $scope.selectedTimeAsString = '10:00';
   $scope.sharedDate = new Date(new Date().setMinutes(0));
 })
-
-.controller('typeheadController', function ($scope, $http) {
+  .controller('typeheadController', function ($scope, $http) {
     $scope.selectedState = '';
     $scope.states = ['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California', 'Colorado', 'Connecticut', 'Delaware', 'Florida', 'Georgia', 'Hawaii', 'Idaho', 'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky', 'Louisiana', 'Maine', 'Maryland', 'Massachusetts', 'Michigan', 'Minnesota', 'Mississippi', 'Missouri', 'Montana', 'Nebraska', 'Nevada', 'New Hampshire', 'New Jersey', 'New Mexico', 'New York', 'North Dakota', 'North Carolina', 'Ohio', 'Oklahoma', 'Oregon', 'Pennsylvania', 'Rhode Island', 'South Carolina', 'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont', 'Virginia', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming'];
 

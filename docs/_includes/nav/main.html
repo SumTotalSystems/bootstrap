@@ -23,9 +23,14 @@
         <li{% if page.slug == "angular" %} class="active"{% endif %}>
           <a href="/angular">JavaScript Components</a>
         </li>
+        <li>
+          <div class="navbar-form">
+            <div class="form-group">
+              <div sumt-search-box host="team.sumtotalsystems.com:9200" index="bootstrap"></div>
+            </div>
+          </div>
+        </li>
       </ul>
-      <div sumt-search-box host="team.sumtotalsystems.com:9200" index="bootstrap">
-      </div>
     </nav>
   </div>
 </header>
