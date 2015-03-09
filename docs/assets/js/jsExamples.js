@@ -595,18 +595,35 @@ angular.module('Examples', ['SumTotalComponents', 'mgcrea.ngStrap', 'ngAnimate',
       return deferred.promise;
     };
   }])
+  .factory('examplePersonData', ['$q', function ($q) {
+    var deferred = $q.defer();
+
+    var people = [];
+
+    while (people.length < 20) {
+      var person = faker.helpers.userCard();
+      person.avatar = faker.internet.avatar();
+
+      people.push(person);
+    }
+
+    deferred.resolve(people);
+
+
+    return deferred.promise;
+    }])
   .controller('navSearch', ['$scope', function ($scope) {
     $scope.searchText = '';
 
-    $scope.resultHandler = function(results) {
-      if(!results || !results.length || results.length > 1) {
+    $scope.resultHandler = function (results) {
+      if (!results || !results.length || results.length > 1) {
         window.location = '/search/?q=' + $scope.searchText;
       } else if (results && results.length == 1) {
         window.location = results[0]._source.url.replace('#', '##');
       }
     };
 
-    $scope.submitHandler = function(searchText) {
+    $scope.submitHandler = function (searchText) {
       $scope.searchText = searchText;
     };
 
@@ -869,11 +886,11 @@ angular.module('Examples', ['SumTotalComponents', 'mgcrea.ngStrap', 'ngAnimate',
 
   })
   .controller('timepickerController', function ($scope, $http) {
-  $scope.time = new Date(1970, 0, 1, 10, 30);
-  $scope.selectedTimeAsNumber = 10 * 36e5;
-  $scope.selectedTimeAsString = '10:00';
-  $scope.sharedDate = new Date(new Date().setMinutes(0));
-})
+    $scope.time = new Date(1970, 0, 1, 10, 30);
+    $scope.selectedTimeAsNumber = 10 * 36e5;
+    $scope.selectedTimeAsString = '10:00';
+    $scope.sharedDate = new Date(new Date().setMinutes(0));
+  })
   .controller('typeheadController', function ($scope, $http) {
     $scope.selectedState = '';
     $scope.states = ['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California', 'Colorado', 'Connecticut', 'Delaware', 'Florida', 'Georgia', 'Hawaii', 'Idaho', 'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky', 'Louisiana', 'Maine', 'Maryland', 'Massachusetts', 'Michigan', 'Minnesota', 'Mississippi', 'Missouri', 'Montana', 'Nebraska', 'Nevada', 'New Hampshire', 'New Jersey', 'New Mexico', 'New York', 'North Dakota', 'North Carolina', 'Ohio', 'Oklahoma', 'Oregon', 'Pennsylvania', 'Rhode Island', 'South Carolina', 'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont', 'Virginia', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming'];
@@ -1066,4 +1083,30 @@ angular.module('Examples', ['SumTotalComponents', 'mgcrea.ngStrap', 'ngAnimate',
       "value": 5 - val,
       "color": "#e2e5e8"
     }];
+}])
+  .controller('NGTableExamples', ['$scope', '$q', 'ngTableParams', 'examplePersonData',
+                                  function ($scope, $q, ngTableParams, examplePersonData) {
+
+      $scope.people = [];
+
+      var peopleDeferred = $q.defer();
+
+      examplePersonData.then(function (people) {
+        $scope.people = people;
+        peopleDeferred.resolve();
+      });
+
+      $scope.tableParams = new ngTableParams({
+        page: 1, // show first page
+        count: 10 // count per page
+      }, {
+        total: 0, // length of data
+        getData: function ($defer, params) {
+          peopleDeferred.promise.then(function () {
+            params.total($scope.people.length);
+
+            $defer.resolve($scope.people.slice((params.page() - 1) * params.count(), params.page() * params.count()));
+          });
+        }
+      });
 }]);
