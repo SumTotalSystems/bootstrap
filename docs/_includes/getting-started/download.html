@@ -29,7 +29,10 @@ npm install -g sumtotal-module grunt-cli gulp bower
     <h4>Only Needs to be Run Once!</h4>
     <p>The command <code>sumtotal init</code> will produce a file called <em>.sumtotal</em>. This should be stored in your source control system. Note: <code>sumtotal init</code> is only run once!</p>
   </div>
-
+  <div class="bs-callout bs-callout-danger">
+    <h4>Config in source control</h4>
+    <p>The <em>.sumtotal</em> files must be kept in source control. This file contains all the information needed for upgrading the Foundation components.</p>
+  </div>
   <p>Now that the SumTotal module is installed. The Foundation components can be applied to your project. Open a NodeJS command prompt in your project's root. Run the <code>sumtotal init</code>. A series of questions will be asked about where your scripts and styles are stored. Answer the questions and a file called <em>.sumtotal</em> will be created.</p>
   {% highlight bash %} sumtotal init {% endhighlight %}
 
@@ -39,7 +42,7 @@ npm install -g sumtotal-module grunt-cli gulp bower
     <p>The command <code>sumtotal install</code> will install the latest <em>tagged</em> version from the Foundation repository. If you desire to have an older version installed you can follow up the install call with <code>sumtotal upgrade</code> to select a specific version to be installed.</p>
   </div>
 
-  <p>Once the SumTotal module has initialized your project you can then install Foundation. Install will always take the latest version of the code and install it according to the settings in <code>.sumtotal</code>.</p>
+  <p>Once the SumTotal module has initialized your project you can then install Foundation. Install will always take the latest version of the code and install it according to the settings in <em>.sumtotal</em>.</p>
   {% highlight bash %} sumtotal install {% endhighlight %}
 
   <h2 id="upgrading">Upgrading</h2>
