@@ -28,4 +28,40 @@
 <img src="..." alt="..." class="img-circle">
 <img src="..." alt="..." class="img-thumbnail">
 {% endhighlight %}
+  <h3 id="images-sizes">Image Shape Sizes</h3>
+  <p>To easily size images a simple class can be applied for three different sizing options. The <code>img-small</code> class will produce an image that is sized 35px by 35px. For medium sized images a class of <code>img-medium</code> may be applied for an image of 60px by60px. A large sized image, 100px by 100px, can be sized with the <code>img-large</code> class.</p>
+  <p>Below you can see how these examples work with the image shapes classes applied.</p>
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $('#image-size-container .img-rounded').attr('src', faker.image.cats(100,100));
+      $('#image-size-container .img-circle').attr('src', faker.image.avatar(100,100));
+      $('#image-size-container .img-thumbnail').attr('src', faker.image.fashion(100,100));
+    });
+  </script>
+  <div id="image-size-container" class="bs-example bs-example-images" data-example-id="image-shapes">
+    <img class="img-rounded img-small" alt="A generic square placeholder image with rounded corners">
+    <img class="img-rounded img-medium" alt="A generic square placeholder image with rounded corners">
+    <img class="img-rounded img-large" alt="A generic square placeholder image with rounded corners">
+
+    <img class="img-circle img-small" alt="A generic square placeholder image where only the portion within the circle circumscribed about said square is visible">
+    <img class="img-circle img-medium" alt="A generic square placeholder image where only the portion within the circle circumscribed about said square is visible">
+    <img class="img-circle img-large" alt="A generic square placeholder image where only the portion within the circle circumscribed about said square is visible">
+
+    <img class="img-thumbnail img-small" alt="generic square placeholder image with a white border around it, making it resemble a photograph taken with an old instant camera">
+    <img class="img-thumbnail img-medium" alt="generic square placeholder image with a white border around it, making it resemble a photograph taken with an old instant camera">
+    <img class="img-thumbnail img-large" alt="A generic square placeholder image with a white border around it, making it resemble a photograph taken with an old instant camera">
+  </div>
+{% highlight html %}
+<img src="..." alt="..." class="img-rounded img-small">
+<img src="..." alt="..." class="img-rounded img-medium">
+<img src="..." alt="..." class="img-rounded img-large">
+
+<img src="..." alt="..." class="img-circle img-small">
+<img src="..." alt="..." class="img-circle img-medium">
+<img src="..." alt="..." class="img-circle img-large">
+
+<img src="..." alt="..." class="img-thumbnail img-small">
+<img src="..." alt="..." class="img-thumbnail img-medium">
+<img src="..." alt="..." class="img-thumbnail img-large">
+{% endhighlight %}
 </div>
