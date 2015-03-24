@@ -1118,4 +1118,26 @@ angular.module('Examples', ['SumTotalComponents', 'mgcrea.ngStrap', 'ngAnimate',
           });
         }
       });
-}]);
+}])
+  .controller('WizardStepController', function ($scope) {
+    $scope.activeStep = 1;
+
+    $scope.goNext = function () {
+      $scope.incrementStep();
+    };
+
+    $scope.goPrev = function () {
+      $scope.decrementStep();
+    };
+  })
+  .controller('AnotherWizardStepController', function ($scope) {
+    $scope.activeStep = 1;
+
+    $scope.goNext = function () {
+      $scope.incrementStep();
+    };
+
+    $scope.goPrev = function () {
+      $scope.decrementStep();
+    };
+  });

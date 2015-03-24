@@ -1,0 +1,35 @@
+<div class="bs-docs-section">
+  <h1 id="Steps" class="page-header">Steps</h1>
+  <div class="bs-example">
+    <div ng-controller="WizardStepController">
+      <h1>Steps</h1>
+      <div sumt-wizard num-steps="5" active-step="activeStep" next-step="incrementStep" prev-step="decrementStep"></div>
+      <button type="button" class="btn btn-default" ng-click="goPrev()">Previous Step</button>
+      <button type="button" class="btn btn-default" ng-click="goNext()">Next Step</button>
+    </div>
+
+
+    <div ng-controller="AnotherWizardStepController">
+      <h1>Steps with Disabled Flag</h1>
+      <div sumt-wizard num-steps="7" active-step="activeStep" next-step="incrementStep" prev-step="decrementStep" allow-disable></div>
+      <button type="button" class="btn btn-default" ng-click="goPrev()">Previous Step</button>
+      <button type="button" class="btn btn-default" ng-click="goNext()">Next Step</button>
+    </div>
+  </div>
+   {% highlight html %}
+   <div ng-controller="WizardStepController">
+      <h1>Steps</h1>
+      <div sumt-wizard num-steps="5" active-step="activeStep" next-step="incrementStep" prev-step="decrementStep"></div>
+      <button type="button" class="btn btn-default" ng-click="goPrev()">Previous Step</button>
+      <button type="button" class="btn btn-default" ng-click="goNext()">Next Step</button>
+    </div>
+
+
+    <div ng-controller="AnotherWizardStepController">
+      <h1>Steps with Disabled Flag</h1>
+      <div sumt-wizard num-steps="7" active-step="activeStep" next-step="incrementStep" prev-step="decrementStep" allow-disable></div>
+      <button type="button" class="btn btn-default" ng-click="goPrev()">Previous Step</button>
+      <button type="button" class="btn btn-default" ng-click="goNext()">Next Step</button>
+    </div>
+  {% endhighlight %}
+</div>
