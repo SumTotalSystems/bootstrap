@@ -1,5 +1,10 @@
 angular.module('Examples', ['SumTotalComponents', 'mgcrea.ngStrap', 'ngAnimate', 'ngSanitize']) //jshint ignore:line
-  .config(function ($tooltipProvider, $modalProvider) {
+  .config(function ($tooltipProvider, $modalProvider, $locationProvider) {
+    $locationProvider.html5Mode({
+      enabled: true,
+      requireBase: false
+    }).hashPrefix('!');
+
     angular.extend($tooltipProvider.defaults, { //jshint ignore:line
       html: true
     });
@@ -616,7 +621,7 @@ angular.module('Examples', ['SumTotalComponents', 'mgcrea.ngStrap', 'ngAnimate',
 
     return deferred.promise;
     }])
-  .controller('navSearch', ['$scope', function ($scope) {
+  .controller('navSearch', ['$scope', '$window', function ($scope, $window) {
     $scope.searchText = '';
     $scope.results = [];
 
@@ -627,7 +632,11 @@ angular.module('Examples', ['SumTotalComponents', 'mgcrea.ngStrap', 'ngAnimate',
         angular.element('#SearchResultsSlideout').scope().openSlideOut();
       } else if (results && results.length == 1) {
         console.log('single result!', results);
-        window.location = results[0]._source.url.replace('#', '##');
+        var navUrl = results[0]._source.url.replace(/\\/g, '/');
+        console.log('single result url!', results[0]._source.url);
+        console.log('single result url formatted!', navUrl);
+        $window.location = navUrl;
+        //window.location = results[0]._source.url;
       }
     };
 
