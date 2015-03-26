@@ -1,6 +1,6 @@
-<div id="searchAside" class="aside right am-fade-and-slide-right asideOpen" tabindex="-1" role="dialog" style="display: block;">
+<div id="searchAside" class="aside right am-fade-and-slide-right asideOpen" role="dialog">
+  <div class="closeTab"><i class="fa fa-times" ng-click="$hide(); $scope.expand = false;"></i></div>
   <div class="orgSlideoutContainer">
-    <div class="closeTab"><i class="fa fa-times" ng-click="$hide(); $scope.expand = false;"></i></div>
     <h3>SEARCH RESULTS (40)</h3>
     <div class="asideCategoryContainer" ng-repeat="result in searchResults track by $index">
       <h4>{{result.category}} ({{result.count}})</h4>

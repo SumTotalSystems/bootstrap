@@ -712,11 +712,8 @@ angular.module('Examples', ['SumTotalComponents', 'mgcrea.ngStrap', 'ngAnimate',
   .controller('asideController', function ($scope) {
     $scope.asideScope = angular.element('#searchAside');
     $scope.expand = false;
-  $scope.aside = {
-      "title": "Title",
-      "content": "Hello Aside<br />This is a multiline message!"
-    };
-    $scope.aside2 = {
+
+    $scope.aside = {
     };
   $scope.showLimit = 3;
   $scope.toggleLimit = false;
