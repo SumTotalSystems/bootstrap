@@ -69,6 +69,56 @@ angular.module('myApp')
   })
 })
 {% endhighlight %}
+    <p>Example custom template for search results.</p>
+    {% highlight html %}
+<div id="searchAside" class="aside right am-fade-and-slide-right asideOpen" tabindex="-1" role="dialog" style="display: block;">
+  <div class="orgSlideoutContainer">
+    <div class="closeTab"><i class="fa fa-times" ng-click="$hide(); $scope.expand = false;"></i></div>
+    <h3>SEARCH RESULTS (40)</h3>
+    <div class="asideCategoryContainer" ng-repeat="result in searchResults track by $index">
+      <h4>{{result.category}} ({{result.count}})</h4>
+      <div class="asideItemContainer" ng-repeat="item in result.items track by $index" ng-show="$index < showLimit || toggleLimit == true">
+        <img class="img-circle img-medium" ng-src="{{item.picUrl}}" />
+        <h4 ng-click="fullOpen()">{{item.title}}</h4>
+        <h5>{{item.description}}</h5>
+      </div>
+      <a ng-hide="result.count <= showLimit || toggleLimit == true" ng-click="toggleLimit = !toggleLimit">View More</a>
+      <a ng-show="toggleLimit" ng-click="toggleLimit = !toggleLimit">View Less</a>
+    </div>
+  </div>
+  <div class="expandedOrgSlideoutContainer">
+    <i class="fa fa-arrow-right" ng-click="halfClose()"></i>
+  </div>
+</div>
+{% endhighlight %}
+    <p>Example custom controller for search results</p>
+    {% highlight js %}
+.controller('asideController', function ($scope) {
+    $scope.asideScope = angular.element('#searchAside');
+    $scope.expand = false;
+  $scope.aside = {
+      "title": "Title",
+      "content": "Hello Aside<br />This is a multiline message!"
+    };
+    $scope.aside2 = {
+    };
+  $scope.showLimit = 3;
+  $scope.toggleLimit = false;
+
+    $scope.fullOpen = function () {
+      $scope.expand = true;
+      angular.element('#searchAside').removeClass('asideOpen');
+      angular.element('#searchAside').addClass('asideFullOpen');
+    };
+    $scope.halfClose = function () {
+      $scope.expand = false;
+      angular.element('#searchAside').addClass('asideOpen');
+      angular.element('#searchAside').removeClass('asideFullOpen');
+    };
+
+  $scope.searchResults = [...];
+  })
+{% endhighlight %}
   </div>
 
   <h3>Options</h3>
