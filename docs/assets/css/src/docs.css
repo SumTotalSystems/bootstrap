@@ -1337,6 +1337,7 @@ h1[id] {
   text-align: center;
   background-color: #f9f9f9;
   border: 1px solid #fff;
+  max-height: 75px;
 }
 .bs-glyphicons .fa {
   margin-top: 5px;
