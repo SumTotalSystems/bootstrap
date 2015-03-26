@@ -710,21 +710,77 @@ angular.module('Examples', ['SumTotalComponents', 'mgcrea.ngStrap', 'ngAnimate',
     };
   })
   .controller('asideController', function ($scope) {
-    $scope.asideScope = angular.element('#asideExt');
+    $scope.asideScope = angular.element('#searchAside');
     $scope.expand = false;
-    $scope.aside = {
+  $scope.aside = {
       "title": "Title",
       "content": "Hello Aside<br />This is a multiline message!"
     };
+    $scope.aside2 = {
+    };
+  $scope.showLimit = 3;
+  $scope.toggleLimit = false;
 
     $scope.fullOpen = function () {
       $scope.expand = true;
-      angular.element('#asideExt').css('width', '1000px');
+      angular.element('#searchAside').removeClass('asideOpen');
+      angular.element('#searchAside').addClass('asideFullOpen');
     };
     $scope.halfClose = function () {
       $scope.expand = false;
-      angular.element('#asideExt').css('width', '325px');
+      angular.element('#searchAside').addClass('asideOpen');
+      angular.element('#searchAside').removeClass('asideFullOpen');
     };
+
+  $scope.searchResults = [
+  {
+    "category": "Books",
+    "count": "5",
+    "items": [
+      {
+        "title": "Catered Lunch for a Week",
+        "description": "Avoid the hassle of leaving for lunch everyday and enjoy a c...",
+        "picUrl": faker.image.business(64,64)
+      },
+      {
+        "title": "iPad Air Tablets",
+        "description": "You have to hold iPad air to believe it, it's just 7.5 millimete...",
+        "picUrl": faker.image.business(64,64)
+      },
+      {
+        "title": "Two (2) Day Vacation",
+        "description": "Enjoy 2 days vacation of your choice.",
+        "picUrl": faker.image.business(64,64)
+      },
+      {
+        "title": "Catered Lunch for a Week",
+        "description": "Avoid the hassle of leaving for lunch everyday and enjoy a c...",
+        "picUrl": faker.image.business(64,64)
+      },
+      {
+        "title": "iPad Air Tablets",
+        "description": "You have to hold iPad air to believe it, it's just 7.5 millimete...",
+        "picUrl": faker.image.business(64,64)
+      }
+    ]
+  },
+  {
+    "category": "Videos",
+    "count": "2",
+    "items": [
+      {
+        "title": "Theatre Tickets",
+        "description": "Visit famous venues and view some of the most popular shows.",
+        "picUrl": faker.image.fashion(64,64)
+      },
+      {
+        "title": "Rock Climbing Adventure",
+        "description": "Go on an adventure exploring mountains and caves.",
+        "picUrl": faker.image.fashion(64,64)
+      }
+    ]
+  }
+];
   })
   .controller('DialogExampleController', function ($scope, $modal) {
     $scope.modal = {
