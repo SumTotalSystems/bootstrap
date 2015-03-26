@@ -1332,16 +1332,16 @@ h1[id] {
   width: 25%;
   height: 115px;
   padding: 10px;
-  font-size: 10px;
+  font-size: 1rem;
   line-height: 1.4;
   text-align: center;
   background-color: #f9f9f9;
   border: 1px solid #fff;
 }
-.bs-glyphicons .glyphicon {
+.bs-glyphicons .fa {
   margin-top: 5px;
   margin-bottom: 10px;
-  font-size: 24px;
+  font-size: 1.5em;
 }
 .bs-glyphicons .glyphicon-class {
   display: block;
@@ -1360,7 +1360,7 @@ h1[id] {
   }
   .bs-glyphicons li {
     width: 12.5%;
-    font-size: 12px;
+    font-size: .875em;
   }
 }
 
