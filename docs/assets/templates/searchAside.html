@@ -1,5 +1,5 @@
-<div id="searchAside" class="aside right am-fade-and-slide-right asideOpen" role="dialog">
-  <div class="closeTab"><i class="fa fa-times" ng-click="$hide(); $scope.expand = false;"></i></div>
+<div id="searchAside" class="aside right am-fade-and-slide-right" ng-class="{'asideOpen': state == 'halfOpen', 'asideClosed': state == 'closed', 'asideFullOpen': state == 'fullOpen'}" role="dialog">
+  <div class="closeTab"><i class="fa fa-times" ng-click="fullClose(); $hide()"></i></div>
   <div class="orgSlideoutContainer">
     <h3>SEARCH RESULTS (40)</h3>
     <div class="asideCategoryContainer" ng-repeat="result in searchResults track by $index">
