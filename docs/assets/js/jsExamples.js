@@ -467,19 +467,13 @@ angular.module('Examples', ['SumTotalComponents', 'mgcrea.ngStrap', 'ngAnimate',
         {
           "id": "Competencies",
           "color": "#33c4b3",
-          "percent": faker.random.number({
-            min: 0,
-            max: 100
-          }),
+          "percent": 100,
           "items": []
         },
         {
           "id": "Skills",
           "color": "#00aed3",
-          "percent": faker.random.number({
-            min: 0,
-            max: 100
-          }),
+          "percent": 53,
           "items": [
             {
               "id": "REG1234",
@@ -533,10 +527,7 @@ angular.module('Examples', ['SumTotalComponents', 'mgcrea.ngStrap', 'ngAnimate',
         {
           "id": "Learning",
           "color": "#f27c2a",
-          "percent": faker.random.number({
-            min: 0,
-            max: 100
-          }),
+          "percent": 77,
           "items": [
             {
               "id": "COMM1234",
@@ -710,8 +701,7 @@ angular.module('Examples', ['SumTotalComponents', 'mgcrea.ngStrap', 'ngAnimate',
     };
   })
   .controller('asideController', function ($scope) {
-    $scope.asideScope = angular.element('#searchAside');
-    $scope.expand = false;
+  $scope.state = 'closed';
 
     $scope.aside = {
     };
@@ -719,15 +709,15 @@ angular.module('Examples', ['SumTotalComponents', 'mgcrea.ngStrap', 'ngAnimate',
   $scope.toggleLimit = false;
 
     $scope.fullOpen = function () {
-      $scope.expand = true;
-      angular.element('#searchAside').removeClass('asideOpen');
-      angular.element('#searchAside').addClass('asideFullOpen');
+      $scope.state = 'fullOpen';
     };
     $scope.halfClose = function () {
-      $scope.expand = false;
-      angular.element('#searchAside').addClass('asideOpen');
-      angular.element('#searchAside').removeClass('asideFullOpen');
+      $scope.state = 'halfOpen';
     };
+  $scope.fullClose = function(){
+    debugger;
+    $scope.state = 'closed';
+  };
 
   $scope.searchResults = [
   {
