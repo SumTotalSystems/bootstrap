@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <div class="bs-docs-section" ng-controller="PieChartCtrl">
   <h1 id="Pie" class="page-header">Pie</h1>
   <div class="bs-example">
@@ -12,12 +13,12 @@
 
   <h1 id="Donut" class="page-header">Donut</h1>
   <div class="bs-example">
-    <div sumt-pie-chart chart-data="pieConfig.barData" chart-config="pieConfig" donut-label-value={{percentage}} donut-label="true" inner-radius="65%" donut-label-color="#e8e8e8" cur-theme="curTheme" chart-height="400px" chart-width="300px" value-field="value" title-field="label" animate="false"></div>
+    <div sumt-pie-chart chart-data="pieConfig.barData" chart-config="pieConfig" donut-label-value="{{percentage}}" donut-label="true" inner-radius="65%" donut-label-color="#e8e8e8" cur-theme="curTheme" chart-height="400px" chart-width="300px" value-field="value" title-field="label" animate="false"></div>
     <button class="btn btn-default sumt-btn-default">Animate</button>
   </div>
   {% highlight html %}
   <div ng-controller="MyController">
-    <div sumt-pie-chart chart-data="pieConfig.barData" chart-config="pieConfig" donut-label-value={{percentage}} donut-label="true" inner-radius="65%" donut-label-color="#e8e8e8" cur-theme="curTheme" chart-height="400px" chart-width="300px" value-field="value" title-field="label" animate="false"></div>
+    <div sumt-pie-chart chart-data="pieConfig.barData" chart-config="pieConfig" donut-label-value="{{percentage}}" donut-label="true" inner-radius="65%" donut-label-color="#e8e8e8" cur-theme="curTheme" chart-height="400px" chart-width="300px" value-field="value" title-field="label" animate="false"></div>
   </div>
   {% endhighlight %}
 </div>
