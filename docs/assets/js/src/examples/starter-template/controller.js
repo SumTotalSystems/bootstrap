@@ -1,4 +1,4 @@
 angular.module('Examples')
   .controller('starterTemplateController', ['$scope', function ($scope) {
-    $scope.user = {};
+    $scope.user = faker.helpers.userCard();
 }]);

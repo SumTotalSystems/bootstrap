@@ -31,33 +31,36 @@
 
   <script src="/dist/js/vendor.js"></script>
   <script src="/dist/js/foundation.js"></script>
+  <script src="/assets/js/docs.min.js"></script>
   <script src="/assets/js/jsExamples.js"></script>
+  <script src="/assets/js/examples.min.js"></script>
 </head>
 
 <body class="ng-app:Examples" id="ng-app" ng-app="Examples" ng-cloak>
-  <div sumt-leftnav header="'My Username'"></div>
-  <div id="pageContentWrapper" class="leftNavOpened">
-    <div class="row">
-      <ol class="breadcrumb">
-        <li><a href="#">Home</a>
-        </li>
-        <li><a href="#">Previous Page</a>
-        </li>
-        <li class="active">Current Page</li>
-      </ol>
-    </div>
-    <div class="row page-header">
-      <h1>Page Title<small>Subtitle</small></h1>
-      <p class="instructions">Page level directions and instructions.</p>
-    </div>
-    <div class="row">
-      <p class="instructions">Directions and instructions.</p>
-    </div>
-    <div class="row">
-      <p> container</p>
-    </div>
+  <div ng-controller="starterTemplateController">
+    <div sumt-leftnav header="user.username"></div>
+    <div id="pageContentWrapper" class="leftNavOpened">
+      <div class="row">
+        <ol class="breadcrumb">
+          <li><a href="#">Home</a>
+          </li>
+          <li><a href="#">Previous Page</a>
+          </li>
+          <li class="active">Current Page</li>
+        </ol>
+      </div>
+      <div class="row page-header">
+        <h1>Page Title<small>Subtitle</small></h1>
+        <p class="instructions">Page level directions and instructions.</p>
+      </div>
+      <div class="row">
+        <p class="instructions">Directions and instructions.</p>
+      </div>
+      <div class="row">
+        <p> container</p>
+      </div>
 
-    <!--      <div class="container">
+      <!--      <div class="container">
 
         <div class="starter-template">
           <h1>Bootstrap starter template</h1>
@@ -68,15 +71,16 @@
       </div>-->
 
 
-    <footer class="footer">
-      <p>footer</p>
+      <footer class="footer">
+        <p>footer</p>
 
-    </footer>
+      </footer>
+    </div>
   </div>
-  <!-- /.container -->
 
   <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
   <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+
 </body>
 
 </html>
