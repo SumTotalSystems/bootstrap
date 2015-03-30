@@ -31,39 +31,33 @@
 
   <script src="/dist/js/vendor.js"></script>
   <script src="/dist/js/foundation.js"></script>
+  <script src="/assets/js/jsExamples.js"></script>
 </head>
 
-<body>
-  <div class="row pageContainer">
-    <div class="col-lg-4 sidepanel" style="background-color:grey;">
-      <ul>
-        <li>Home</li>
-        <li>About</li>
-        <li>Contact</li>
-      </ul>
+<body class="ng-app:Examples" id="ng-app" ng-app="Examples" ng-cloak>
+  <div sumt-leftnav header="'My Username'"></div>
+  <div id="pageContentWrapper" class="leftNavOpened">
+    <div class="row">
+      <ol class="breadcrumb">
+        <li><a href="#">Home</a>
+        </li>
+        <li><a href="#">Previous Page</a>
+        </li>
+        <li class="active">Current Page</li>
+      </ol>
     </div>
-    <div class="col-lg-8">
-      <div class="row">
-        <ol class="breadcrumb">
-          <li><a href="#">Home</a>
-          </li>
-          <li><a href="#">Previous Page</a>
-          </li>
-          <li class="active">Current Page</li>
-        </ol>
-      </div>
-      <div class="row page-header">
-        <h1>Page Title<small>Subtitle</small></h1>
-        <p class="instructions">Page level directions and instructions.</p>
-      </div>
-      <div class="row">
-        <p class="instructions">Directions and instructions.</p>
-      </div>
-      <div class="row">
-        <p> container</p>
-      </div>
+    <div class="row page-header">
+      <h1>Page Title<small>Subtitle</small></h1>
+      <p class="instructions">Page level directions and instructions.</p>
+    </div>
+    <div class="row">
+      <p class="instructions">Directions and instructions.</p>
+    </div>
+    <div class="row">
+      <p> container</p>
+    </div>
 
-      <!--      <div class="container">
+    <!--      <div class="container">
 
         <div class="starter-template">
           <h1>Bootstrap starter template</h1>
@@ -72,21 +66,13 @@
         </div>
 
       </div>-->
-    </div>
+
+
+    <footer class="footer">
+      <p>footer</p>
+
+    </footer>
   </div>
-
-
-  <footer class="footer">
-    <div class="row pageContainer">
-      <div class="col-lg-4 sidepanel">
-        &nbsp;
-      </div>
-      <div class="col-lg-8" style="background-color: #f5f5f5;">
-        <p>footer</p>
-      </div>
-    </div>
-
-  </footer>
   <!-- /.container -->
 
   <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
