@@ -64,8 +64,10 @@ title: Starter Template
       <p class="instructions">Directions and instructions.</p>
       <p>Use this document as a way to quickly start any new project.
         <br> All you get is this text and a mostly barebones HTML document.</p>
-      <footer class="footer">
-        <p>footer</p>
+      <footer>
+        <button class="btn btn-default sumt-btn-default">Close</button>
+        <button class="btn btn-default sumt-btn-default">Back</button>
+        <button class="btn btn-primary">Save</button>
       </footer>
     </div>
   </div>
@@ -155,10 +157,28 @@ $scope.panels = [
   ];
     {% endhighlight %}
 
+    <p>
+      If there is a footer it should be placed into the content area of the <code>sumt-leftnav</code>. If buttons are to be used the <code>button</code> element is used. Add the <code>btn</code> class to all button elements. For the primary, right most button, the class <code>btn-primary</code> must also be added. All other buttons will have <code>btn-default sumt-btn-default</code> applied in addition to the <code>btn</code> class.
+    </p>
 
+    <p>
+      Text in the footer is right aligned. In order for buttons to appear in the correct order please note how they are ordered in the example.
+    </p>
 
-    <footer class="footer">
-      <p>footer</p>
+    <style type="text/css">
+      footer {
+        text-align: right;
+        margin-bottom: 0.625rem;
+      }
+      footer > button {
+        margin-left: 0.625rem;
+      }
+    </style>
+
+    <footer>
+      <button class="btn btn-default sumt-btn-default">Close</button>
+      <button class="btn btn-default sumt-btn-default">Back</button>
+      <button class="btn btn-primary">Save</button>
     </footer>
   </div>
 </div>
