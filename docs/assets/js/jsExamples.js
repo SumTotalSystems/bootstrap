@@ -19,7 +19,7 @@ angular.module('Examples', ['SumTotalComponents', 'mgcrea.ngStrap', 'ngAnimate',
       userInfo: null,
       userData: null,
       sidePanelData: null
-    }
+    };
 
     this.colorsHash = ["#1fbba6", "#ffc600", "#f27c2a"];
 
@@ -592,7 +592,7 @@ angular.module('Examples', ['SumTotalComponents', 'mgcrea.ngStrap', 'ngAnimate',
       deferred.resolve(this._dataStore.userInfo);
 
       return deferred.promise;
-    }
+    };
 
     this.sidePanelData = function () {
       var deferred = $q.defer();
@@ -663,7 +663,7 @@ angular.module('Examples', ['SumTotalComponents', 'mgcrea.ngStrap', 'ngAnimate',
               }
             ]
           }
-        ]
+        ];
       }
 
       deferred.resolve(this._dataStore.sidePanelData);
@@ -732,7 +732,7 @@ angular.module('Examples', ['SumTotalComponents', 'mgcrea.ngStrap', 'ngAnimate',
     };
 
     $scope.submitHandler = function (searchText) {
-      console.log('searchText')
+      console.log('searchText');
       $scope.searchText = searchText;
     };
 
@@ -800,23 +800,43 @@ angular.module('Examples', ['SumTotalComponents', 'mgcrea.ngStrap', 'ngAnimate',
       "type": "info"
     };
   })
+<<<<<<< HEAD
   .controller('asideController', function ($scope) {
+    //this.state = 'closed';
     $scope.expand = false;
-    $scope.showLimit = 3;
-    $scope.toggleLimit = false;
+=======
+.controller('asideController', function ($scope) {
+  $scope.expand = false;
+  $scope.showLimit = 3;
+  $scope.toggleLimit = false;
 
+>>>>>>> eaf45a
     $scope.aside = {};
 
     $scope.fullOpen = function () {
+<<<<<<< HEAD
+      //this.state = 'fullOpen';
       $scope.expand = true;
     };
     $scope.halfClose = function () {
+      //this.state = 'halfOpen';
       $scope.expand = false;
     };
     $scope.fullClose = function () {
+      //this.state = 'closed';
       $scope.expand = false;
       this.$hide();
+=======
+        $scope.expand = true;
     };
+    $scope.halfClose = function () {
+        $scope.expand = false;
+>>>>>>> eaf45a
+    };
+  $scope.fullClose = function(){
+      $scope.expand = false;
+      this.$hide();
+  };
 
     $scope.searchResults = [
       {
@@ -1291,25 +1311,4 @@ angular.module('Examples', ['SumTotalComponents', 'mgcrea.ngStrap', 'ngAnimate',
     $scope.goPrev = function () {
       $scope.decrementStep();
     };
-  })
-  .controller('TimelineController', function ($scope) {
-    $scope.timelineData = [
-      {
-        title: "Sample Title 1",
-        body: "Lorem ipsum and some other stuff",
-        readMore: "",
-        date: "Dec 23"
-      },
-      {
-        title: "Sample Title 2",
-        body: "The quick brown fox jumped over the lazy dog",
-        readMore: "",
-        date: "Dec 25"
-      },
-      {
-        title: "Sample Title 3",
-        body: "Who cares at this point. It's all fake data.",
-        readMore: "",
-        date: "Dec 27"
-      }];
   });
