@@ -800,23 +800,23 @@ angular.module('Examples', ['SumTotalComponents', 'mgcrea.ngStrap', 'ngAnimate',
       "type": "info"
     };
   })
-.controller('asideController', function ($scope) {
-  $scope.expand = false;
-  $scope.showLimit = 3;
-  $scope.toggleLimit = false;
+  .controller('asideController', function ($scope) {
+    $scope.expand = false;
+    $scope.showLimit = 3;
+    $scope.toggleLimit = false;
 
     $scope.aside = {};
 
     $scope.fullOpen = function () {
-        $scope.expand = true;
+      $scope.expand = true;
     };
     $scope.halfClose = function () {
-        $scope.expand = false;
+      $scope.expand = false;
     };
-  $scope.fullClose = function(){
+    $scope.fullClose = function () {
       $scope.expand = false;
       this.$hide();
-  };
+    };
 
     $scope.searchResults = [
       {
@@ -1291,4 +1291,25 @@ angular.module('Examples', ['SumTotalComponents', 'mgcrea.ngStrap', 'ngAnimate',
     $scope.goPrev = function () {
       $scope.decrementStep();
     };
+  })
+  .controller('TimelineController', function ($scope) {
+    $scope.timelineData = [
+      {
+        title: "Sample Title 1",
+        body: "Lorem ipsum and some other stuff",
+        readMore: "",
+        date: "Dec 23"
+      },
+      {
+        title: "Sample Title 2",
+        body: "The quick brown fox jumped over the lazy dog",
+        readMore: "",
+        date: "Dec 25"
+      },
+      {
+        title: "Sample Title 3",
+        body: "Who cares at this point. It's all fake data.",
+        readMore: "",
+        date: "Dec 27"
+      }];
   });
