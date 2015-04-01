@@ -701,22 +701,25 @@ angular.module('Examples', ['SumTotalComponents', 'mgcrea.ngStrap', 'ngAnimate',
     };
   })
   .controller('asideController', function ($scope) {
-  $scope.state = 'closed';
-
+  //this.state = 'closed';
+$scope.expand = false;
     $scope.aside = {
     };
   $scope.showLimit = 3;
   $scope.toggleLimit = false;
 
     $scope.fullOpen = function () {
-      $scope.state = 'fullOpen';
+      //this.state = 'fullOpen';
+        $scope.expand = true;
     };
     $scope.halfClose = function () {
-      $scope.state = 'halfOpen';
+      //this.state = 'halfOpen';
+        $scope.expand = false;
     };
   $scope.fullClose = function(){
-    debugger;
-    $scope.state = 'closed';
+    //this.state = 'closed';
+      $scope.expand = false;
+      this.$hide();
   };
 
   $scope.searchResults = [
