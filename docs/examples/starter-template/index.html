@@ -20,7 +20,16 @@ title: Starter Template
     <p>
       The rest of this page gives an explanation on how to build this default page.
     </p>
-    <p>If you view source on this page you'll see more than you actually need. The page is using AngularJS components which manipulate the DOM. The HTML for the page follows:</p>
+    <p>If you view source on this page you'll see more than you actually need. The page is using AngularJS components which manipulate the DOM. Aside from that there are a couple of items that should be pointed out about the page.</p>
+    <ul>
+      <li>The first three <code>meta</code> tags relate to page and viewport setup. The second two are optional.</li>
+      <li>The order of the css and JavaScript includes are important. Vendor code is included before Foundation and Foundation is included before any page or pillar css or JavaScript.</li>
+      <li>Foundation uses AngularJS so it is important that the app be declared on the <code>body</code> element using the format as shown in the example.</li>
+      <li>Notice that the page's content is placed within the <code>sumt-leftnav</code> directive.</li>
+      <li>The breadcrumb at the top of the page is created using an <code>ol</code> element with a <code>breadcrumb</code> class applied.</li>
+    </ul>
+
+    <p>The HTML for the page follows:</p>
     {% highlight html %}
 <!DOCTYPE html>
 <html lang="en">
