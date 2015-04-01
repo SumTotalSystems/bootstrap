@@ -19,7 +19,7 @@ angular.module('Examples', ['SumTotalComponents', 'mgcrea.ngStrap', 'ngAnimate',
       userInfo: null,
       userData: null,
       sidePanelData: null
-    }
+    };
 
     this.colorsHash = ["#1fbba6", "#ffc600", "#f27c2a"];
 
@@ -592,7 +592,7 @@ angular.module('Examples', ['SumTotalComponents', 'mgcrea.ngStrap', 'ngAnimate',
       deferred.resolve(this._dataStore.userInfo);
 
       return deferred.promise;
-    }
+    };
 
     this.sidePanelData = function () {
       var deferred = $q.defer();
@@ -663,7 +663,7 @@ angular.module('Examples', ['SumTotalComponents', 'mgcrea.ngStrap', 'ngAnimate',
               }
             ]
           }
-        ]
+        ];
       }
 
       deferred.resolve(this._dataStore.sidePanelData);
@@ -732,7 +732,7 @@ angular.module('Examples', ['SumTotalComponents', 'mgcrea.ngStrap', 'ngAnimate',
     };
 
     $scope.submitHandler = function (searchText) {
-      console.log('searchText')
+      console.log('searchText');
       $scope.searchText = searchText;
     };
 
@@ -801,21 +801,24 @@ angular.module('Examples', ['SumTotalComponents', 'mgcrea.ngStrap', 'ngAnimate',
     };
   })
   .controller('asideController', function ($scope) {
-    $scope.state = 'closed';
-
+    //this.state = 'closed';
+    $scope.expand = false;
     $scope.aside = {};
     $scope.showLimit = 3;
     $scope.toggleLimit = false;
 
     $scope.fullOpen = function () {
-      $scope.state = 'fullOpen';
+      //this.state = 'fullOpen';
+      $scope.expand = true;
     };
     $scope.halfClose = function () {
-      $scope.state = 'halfOpen';
+      //this.state = 'halfOpen';
+      $scope.expand = false;
     };
     $scope.fullClose = function () {
-      debugger;
-      $scope.state = 'closed';
+      //this.state = 'closed';
+      $scope.expand = false;
+      this.$hide();
     };
 
     $scope.searchResults = [
