@@ -1331,13 +1331,13 @@ h1[id] {
   float: left;
   width: 25%;
   height: 115px;
-  max-height: 75px;
   padding: 10px;
   font-size: 1rem;
   line-height: 1.4;
   text-align: center;
   background-color: #f9f9f9;
   border: 1px solid #fff;
+  max-height: 75px;
 }
 .bs-glyphicons .fa {
   margin-top: 5px;

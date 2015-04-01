@@ -139,10 +139,6 @@ module.exports = function (grunt) {
       docsJs: {
         src: configBridge.paths.docsJs,
         dest: 'docs/assets/js/docs.min.js'
-      },
-      examplesJs: {
-        src: configBridge.paths.examplesJs,
-        dest: 'docs/assets/js/examples.min.js'
       }
     },
 
@@ -491,7 +487,7 @@ module.exports = function (grunt) {
   // Docs task.
   grunt.registerTask('docs-css', ['autoprefixer:docs', 'autoprefixer:examples', 'csscomb:docs', 'csscomb:examples', 'cssmin:docs']);
   grunt.registerTask('lint-docs-css', ['csslint:docs', 'csslint:examples']);
-  grunt.registerTask('docs-js', ['uglify:docsJs', 'uglify:examplesJs', 'uglify:customize']);
+  grunt.registerTask('docs-js', ['uglify:docsJs', 'uglify:customize']);
   grunt.registerTask('lint-docs-js', ['jshint:assets', 'jscs:assets']);
   grunt.registerTask('docs', ['docs-css', 'lint-docs-css', 'docs-js', 'lint-docs-js', 'clean:docs', 'copy:docs', 'build-glyphicons-data', 'build-customizer']);
 
