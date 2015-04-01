@@ -800,43 +800,23 @@ angular.module('Examples', ['SumTotalComponents', 'mgcrea.ngStrap', 'ngAnimate',
       "type": "info"
     };
   })
-<<<<<<< HEAD
   .controller('asideController', function ($scope) {
-    //this.state = 'closed';
     $scope.expand = false;
-=======
-.controller('asideController', function ($scope) {
-  $scope.expand = false;
-  $scope.showLimit = 3;
-  $scope.toggleLimit = false;
+    $scope.showLimit = 3;
+    $scope.toggleLimit = false;
 
->>>>>>> eaf45a
     $scope.aside = {};
 
     $scope.fullOpen = function () {
-<<<<<<< HEAD
-      //this.state = 'fullOpen';
       $scope.expand = true;
     };
     $scope.halfClose = function () {
-      //this.state = 'halfOpen';
       $scope.expand = false;
     };
     $scope.fullClose = function () {
-      //this.state = 'closed';
       $scope.expand = false;
       this.$hide();
-=======
-        $scope.expand = true;
     };
-    $scope.halfClose = function () {
-        $scope.expand = false;
->>>>>>> eaf45a
-    };
-  $scope.fullClose = function(){
-      $scope.expand = false;
-      this.$hide();
-  };
 
     $scope.searchResults = [
       {
