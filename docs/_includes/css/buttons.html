@@ -33,6 +33,83 @@
     <p>Among other things, there's <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=697451">a bug in Firefox &lt;30</a> that prevents us from setting the <code>line-height</code> of <code>&lt;input&gt;</code>-based buttons, causing them to not exactly match the height of other buttons on Firefox.</p>
   </div>
 
+  <h2 id="buttons-container">Container</h2>
+  <p>Default position of buttons on a form or wizard is bottom right.  To avoid multiple floats we created a class <code>btn-container</code> that will take care of placing multiple buttons to the right.</p>
+  <div class="bs-callout bs-callout-info" id="callout-buttons-container-information">
+    <h4>Quick Floats</h4>
+    <p>For one off floats you can add <code>.pull-left</code> or <code>.pull-right</code>.  Please refer to the <a href="http://team.sumtotalsystems.com/css/#helper-classes-floats">Quick Floats</a> examples.</p>
+  </div>
+  <div class="bs-example" data-example-id="btn-variants">
+    <div class="clearfix">
+      <div class="btn-container">
+        <button type="button" class="btn btn-default sumt-btn-default">SumT Default</button>
+        <button type="button" class="btn btn-primary">Primary</button>
+      </div>
+    </div>
+
+    <form>
+      <div class="form-group">
+        <label for="exampleInputEmail1">Email address</label>
+        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+      </div>
+      <div class="form-group">
+        <label for="exampleInputPassword1">Password</label>
+        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+      </div>
+      <div class="form-group">
+        <label for="exampleInputFile">File input</label>
+        <input type="file" id="exampleInputFile">
+        <p class="help-block">Example block-level help text here.</p>
+      </div>
+      <div class="checkbox">
+        <label>
+          <input type="checkbox"> Check me out
+        </label>
+      </div>
+      <div class="form-group clearfix">
+        <div class="btn-container">
+          <button type="submit" class="btn btn-default sumt-btn-default">Default</button>
+          <button type="submit" class="btn btn-default btn-primary">Submit</button>
+        </div>
+      </div>
+    </form>
+  </div>
+  {% highlight html %}
+<div class="clearfix">
+      <div class="btn-container">
+        <button type="button" class="btn btn-default sumt-btn-default">SumT Default</button>
+        <button type="button" class="btn btn-primary">Primary</button>
+      </div>
+    </div>
+
+    <form>
+      <div class="form-group">
+        <label for="exampleInputEmail1">Email address</label>
+        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+      </div>
+      <div class="form-group">
+        <label for="exampleInputPassword1">Password</label>
+        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+      </div>
+      <div class="form-group">
+        <label for="exampleInputFile">File input</label>
+        <input type="file" id="exampleInputFile">
+        <p class="help-block">Example block-level help text here.</p>
+      </div>
+      <div class="checkbox">
+        <label>
+          <input type="checkbox"> Check me out
+        </label>
+      </div>
+      <div class="form-group clearfix">
+        <div class="btn-container">
+          <button type="submit" class="btn btn-default sumt-btn-default">Default</button>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+      </div>
+    </form>
+  {% endhighlight %}
+
   <h2 id="buttons-options">Options</h2>
   <p>Use any of the available button classes to quickly create a styled button.</p>
   <div class="bs-example" data-example-id="btn-variants">
