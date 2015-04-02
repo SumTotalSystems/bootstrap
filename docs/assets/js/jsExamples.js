@@ -14,6 +14,13 @@ angular.module('Examples', ['SumTotalComponents', 'mgcrea.ngStrap', 'ngAnimate',
   })
   .service('ExamplesData', ['$q', function ($q) {
     //this.colorsHash = new Object();
+
+    this._dataStore = {
+      userInfo: null,
+      userData: null,
+      sidePanelData: null
+    };
+
     this.colorsHash = ["#1fbba6", "#ffc600", "#f27c2a"];
 
     this.barchartData = function () {
@@ -557,16 +564,109 @@ angular.module('Examples', ['SumTotalComponents', 'mgcrea.ngStrap', 'ngAnimate',
     this.userData = function (fetchSize) {
       var deferred = $q.defer();
 
-      var users = [];
+      if (!this._dataStore.userData) {
+        var users = [];
 
-      while (users.length < fetchSize) {
-        var userCard = faker.helpers.createCard(); //jshint ignore:line
-        userCard.avatarUrl = faker.internet.avatar(); //jshint ignore:line
+        while (users.length < fetchSize) {
+          var userCard = faker.helpers.createCard(); //jshint ignore:line
+          userCard.avatarUrl = faker.internet.avatar(); //jshint ignore:line
 
-        users.push(userCard);
+          users.push(userCard);
+        }
+
+        this._dataStore.userData = users;
       }
 
-      deferred.resolve(users);
+      deferred.resolve(this._dataStore.userData);
+
+      return deferred.promise;
+    };
+
+    this.userInfo = function () {
+      var deferred = $q.defer();
+
+      if (!this._dataStore.userInfo) {
+        this._dataStore.userInfo = faker.helpers.userCard();
+      }
+
+      deferred.resolve(this._dataStore.userInfo);
+
+      return deferred.promise;
+    };
+
+    this.sidePanelData = function () {
+      var deferred = $q.defer();
+
+      if (!this._dataStore.sidePanelData) {
+        this._dataStore.sidePanelData = [
+          {
+            "title": "Heading1",
+            "id": "Heading1",
+            "children": [
+              {
+                "title": "subHeading1",
+                "id": "subHeading1",
+                "children": []
+            },
+              {
+                "title": "subHeading2",
+                "id": "subHeading2",
+                "children": []
+            }
+          ]
+        },
+          {
+            "title": "Heading2",
+            "id": "Heading2",
+            "children": [
+              {
+                "title": "subHeading3",
+                "id": "subHeading3",
+                "children": []
+            },
+              {
+                "title": "subHeading4",
+                "id": "subHeading4",
+                "children": []
+            }
+          ]
+        },
+          {
+            "title": "Heading3",
+            "id": "Heading3",
+            "children": [
+              {
+                "title": "subHeading5",
+                "id": "subHeading5",
+                "children": []
+            },
+              {
+                "title": "subHeading6",
+                "id": "subHeading6",
+                "children": []
+            }
+          ]
+        },
+          {
+            "title": "Heading4",
+            "id": "Heading4",
+            "children": [
+              {
+                "title": "subHeading7",
+                "id": "subHeading7",
+                "children": []
+            },
+              {
+                "title": "subHeading8",
+                "id": "subHeading8",
+                "children": []
+              }
+            ]
+          }
+        ];
+      }
+
+      deferred.resolve(this._dataStore.sidePanelData);
 
       return deferred.promise;
     };
@@ -632,7 +732,7 @@ angular.module('Examples', ['SumTotalComponents', 'mgcrea.ngStrap', 'ngAnimate',
     };
 
     $scope.submitHandler = function (searchText) {
-      console.log('searchText')
+      console.log('searchText');
       $scope.searchText = searchText;
     };
 
@@ -701,69 +801,68 @@ angular.module('Examples', ['SumTotalComponents', 'mgcrea.ngStrap', 'ngAnimate',
     };
   })
   .controller('asideController', function ($scope) {
-  $scope.state = 'closed';
+    $scope.expand = false;
+    $scope.showLimit = 3;
+    $scope.toggleLimit = false;
 
-    $scope.aside = {
-    };
-  $scope.showLimit = 3;
-  $scope.toggleLimit = false;
+    $scope.aside = {};
 
     $scope.fullOpen = function () {
-      $scope.state = 'fullOpen';
+      $scope.expand = true;
     };
     $scope.halfClose = function () {
-      $scope.state = 'halfOpen';
+      $scope.expand = false;
     };
-  $scope.fullClose = function(){
-    debugger;
-    $scope.state = 'closed';
-  };
+    $scope.fullClose = function () {
+      $scope.expand = false;
+      this.$hide();
+    };
 
-  $scope.searchResults = [
-  {
-    "category": "Books",
-    "count": "5",
-    "items": [
+    $scope.searchResults = [
       {
-        "title": "Catered Lunch for a Week",
-        "description": "Avoid the hassle of leaving for lunch everyday and enjoy a c...",
-        "picUrl": faker.image.business(64,64)
+        "category": "Books",
+        "count": "5",
+        "items": [
+          {
+            "title": "Catered Lunch for a Week",
+            "description": "Avoid the hassle of leaving for lunch everyday and enjoy a c...",
+            "picUrl": faker.image.business(64, 64)
       },
-      {
-        "title": "iPad Air Tablets",
-        "description": "You have to hold iPad air to believe it, it's just 7.5 millimete...",
-        "picUrl": faker.image.business(64,64)
+          {
+            "title": "iPad Air Tablets",
+            "description": "You have to hold iPad air to believe it, it's just 7.5 millimete...",
+            "picUrl": faker.image.business(64, 64)
       },
-      {
-        "title": "Two (2) Day Vacation",
-        "description": "Enjoy 2 days vacation of your choice.",
-        "picUrl": faker.image.business(64,64)
+          {
+            "title": "Two (2) Day Vacation",
+            "description": "Enjoy 2 days vacation of your choice.",
+            "picUrl": faker.image.business(64, 64)
       },
-      {
-        "title": "Catered Lunch for a Week",
-        "description": "Avoid the hassle of leaving for lunch everyday and enjoy a c...",
-        "picUrl": faker.image.business(64,64)
+          {
+            "title": "Catered Lunch for a Week",
+            "description": "Avoid the hassle of leaving for lunch everyday and enjoy a c...",
+            "picUrl": faker.image.business(64, 64)
       },
-      {
-        "title": "iPad Air Tablets",
-        "description": "You have to hold iPad air to believe it, it's just 7.5 millimete...",
-        "picUrl": faker.image.business(64,64)
+          {
+            "title": "iPad Air Tablets",
+            "description": "You have to hold iPad air to believe it, it's just 7.5 millimete...",
+            "picUrl": faker.image.business(64, 64)
       }
     ]
   },
-  {
-    "category": "Videos",
-    "count": "2",
-    "items": [
       {
-        "title": "Theatre Tickets",
-        "description": "Visit famous venues and view some of the most popular shows.",
-        "picUrl": faker.image.fashion(64,64)
+        "category": "Videos",
+        "count": "2",
+        "items": [
+          {
+            "title": "Theatre Tickets",
+            "description": "Visit famous venues and view some of the most popular shows.",
+            "picUrl": faker.image.fashion(64, 64)
       },
-      {
-        "title": "Rock Climbing Adventure",
-        "description": "Go on an adventure exploring mountains and caves.",
-        "picUrl": faker.image.fashion(64,64)
+          {
+            "title": "Rock Climbing Adventure",
+            "description": "Go on an adventure exploring mountains and caves.",
+            "picUrl": faker.image.fashion(64, 64)
       }
     ]
   }
@@ -1192,4 +1291,25 @@ angular.module('Examples', ['SumTotalComponents', 'mgcrea.ngStrap', 'ngAnimate',
     $scope.goPrev = function () {
       $scope.decrementStep();
     };
+  })
+  .controller('TimelineController', function ($scope) {
+    $scope.timelineData = [
+      {
+        title: "Sample Title 1",
+        body: "Lorem ipsum and some other stuff",
+        readMore: "",
+        date: "Dec 23"
+      },
+      {
+        title: "Sample Title 2",
+        body: "The quick brown fox jumped over the lazy dog",
+        readMore: "",
+        date: "Dec 25"
+      },
+      {
+        title: "Sample Title 3",
+        body: "Who cares at this point. It's all fake data.",
+        readMore: "",
+        date: "Dec 27"
+      }];
   });

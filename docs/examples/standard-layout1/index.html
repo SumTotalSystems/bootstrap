@@ -1,0 +1,185 @@
+---
+layout: example
+title: Standard Layout #1
+---
+<div ng-controller="starterTemplateController">
+  <div sumt-leftnav header="user.name" panels="panels">
+    <ol class="breadcrumb">
+      <li><a href="#">Home</a>
+      </li>
+      <li><a href="#">Previous Page</a>
+      </li>
+      <li class="active">Current Page</li>
+    </ol>
+    <div class="page-header">
+      <h1>Page Title<small>Subtitle</small></h1>
+    </div>
+    <p class="instructions">Directions and instructions.</p>
+    <p>Use this document as a way to quickly start any new project.
+      <br> All you get is this text and a mostly barebones HTML document.</p>
+    <p>
+      The rest of this page gives an explanation on how to build this default page.
+    </p>
+    <p>If you view source on this page you'll see more than you actually need. The page is using AngularJS components which manipulate the DOM. Aside from that there are a couple of items that should be pointed out about the page.</p>
+    <ul>
+      <li>The first three <code>meta</code> tags relate to page and viewport setup. The second two are optional.</li>
+      <li>The order of the css and JavaScript includes are important. Vendor code is included before Foundation and Foundation is included before any page or pillar css or JavaScript.</li>
+      <li>Foundation uses AngularJS so it is important that the app be declared on the <code>body</code> element using the format as shown in the example.</li>
+      <li>Notice that the page's content is placed within the <code>sumt-leftnav</code> directive.</li>
+      <li>The breadcrumb at the top of the page is created using an <code>ol</code> element with a <code>breadcrumb</code> class applied.</li>
+    </ul>
+
+    <p>The HTML for the page follows:</p>
+    {% highlight html %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="icon" href="../../favicon.ico">
+
+  <title>Pillar - Page Title</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="/styles/vendor.css" rel="stylesheet">
+  <link href="/styles/foundation.css" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="pageOrPillar.css" rel="stylesheet">
+
+  <script src="/js/vendor.js"></script>
+  <script src="/js/foundation.js"></script>
+  <script src="/js/examples.min.js"></script>
+</head>
+
+<body class="ng-app:PillarOrPageApp" id="ng-app" ng-app="PillarOrPageApp" ng-cloak>
+  <div ng-controller="generalPageController">
+    <div sumt-leftnav header="user.name" panels="panels">
+      <ol class="breadcrumb">
+        <li><a href="#">Home</a>
+        </li>
+        <li><a href="#">Previous Page</a>
+        </li>
+        <li class="active">Current Page</li>
+      </ol>
+      <div class="page-header">
+        <h1>Page Title<small>Subtitle</small></h1>
+      </div>
+      <p class="instructions">Directions and instructions.</p>
+      <p>Use this document as a way to quickly start any new project.
+        <br> All you get is this text and a mostly barebones HTML document.</p>
+      <footer>
+        <button class="btn btn-default sumt-btn-default">Close</button>
+        <button class="btn btn-default sumt-btn-default">Back</button>
+        <button class="btn btn-primary">Save</button>
+      </footer>
+    </div>
+  </div>
+</body>
+</html>
+    {% endhighlight %}
+
+    <p>
+      The left navigation is driven with a string for the user's name and a JSON object for the navigation sections. The HTML above shows the <code>sumt-leftnav</code> directive within the <code>generalPageController</code> controller. The controller has two properties, <code>user</code> and <code>panels</code> which are used to drive the <code>header</code> and <code>panels</code> attributes on the <code>sumt-leftnav</code> directive.</p>
+    <p>
+      The property <code>user</code> is an object which contains information about the user. When declaring the <code>sumt-leftnav</code> the value <code>user.name</code> is placed into the directive's <code>header</code> attribute to set the header on the left nav. If a static header is desired a string literal can be placed into the directive's attribute: <code>header="'My Awesome Header'"</code>
+    </p>
+    <p>
+      The <code>panels</code> attribute of the <code>sumt-leftnav</code> directive takes a JSON object aray to build the navigation sections . Look at the <code>panels</code> property in the below JavaScript example to see its structure.
+    </p>
+    <p>Here are the properties on the controller's scope:</p>
+    {% highlight js %}
+$scope.user = {
+    username: 'myUsername',
+    name: 'John Smith'
+};
+$scope.panels = [
+    {
+      "title": "Heading1",
+      "id": "Heading1",
+      "children": [
+        {
+          "title": "subHeading1",
+          "id": "subHeading1",
+          "children": []
+      },
+        {
+          "title": "subHeading2",
+          "id": "subHeading2",
+          "children": []
+      }
+    ]
+  },
+    {
+      "title": "Heading2",
+      "id": "Heading2",
+      "children": [
+        {
+          "title": "subHeading3",
+          "id": "subHeading3",
+          "children": []
+      },
+        {
+          "title": "subHeading4",
+          "id": "subHeading4",
+          "children": []
+      }
+    ]
+  },
+    {
+      "title": "Heading3",
+      "id": "Heading3",
+      "children": [
+        {
+          "title": "subHeading5",
+          "id": "subHeading5",
+          "children": []
+      },
+        {
+          "title": "subHeading6",
+          "id": "subHeading6",
+          "children": []
+      }
+    ]
+  },
+    {
+      "title": "Heading4",
+      "id": "Heading4",
+      "children": [
+        {
+          "title": "subHeading7",
+          "id": "subHeading7",
+          "children": []
+      },
+        {
+          "title": "subHeading8",
+          "id": "subHeading8",
+          "children": []
+        }
+      ]
+    }
+  ];
+    {% endhighlight %}
+
+    <p>
+      If there is a footer it should be placed into the content area of the <code>sumt-leftnav</code>. If buttons are to be used the <code>button</code> element is used. Add the <code>btn</code> class to all button elements. For the primary, right most button, the class <code>btn-primary</code> must also be added. All other buttons will have <code>btn-default sumt-btn-default</code> applied in addition to the <code>btn</code> class.
+    </p>
+
+    <p>
+      Text in the footer is right aligned. In order for buttons to appear in the correct order please note how they are ordered in the example.
+    </p>
+
+    <footer>
+      <div class="btn-container">
+        <button class="btn btn-default sumt-btn-default">Close</button>
+        <button class="btn btn-default sumt-btn-default">Back</button>
+        <button class="btn btn-primary">Save</button>
+      </div>
+    </footer>
+  </div>
+</div>

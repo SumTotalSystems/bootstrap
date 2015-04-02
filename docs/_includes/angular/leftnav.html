@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<div class="bs-docs-section">
+  <h1 id="left-nav" class="page-header">Left-hand Navigation</h1>
+
+  <p class="lead">A directive to setup a standard page layout.</p>
+
+  <p>The <code>sumt-leftnav</code> directive sets up the basic page layout for a page with left-hand navigation.</p>
+  <div id="left-nav-example" class="bs-example">
+    <p>The HTML below gives an example of how to structure the basic page.</p>
+    <p>A demo of the left hand navigation can be seen on the <a target="_blank" href="/examples/standard-layout1/">Standard Layout #1</a> and <a target="_blank" href="/examples/standard-layout2/">Standard Layout #2</a> pages.</p>
+  </div>
+{% highlight html %}
+<div sumt-leftnav header="user.name" panels="panels">
+  <ol class="breadcrumb">
+    <li><a href="#">Home</a>
+    </li>
+    <li><a href="#">Previous Page</a>
+    </li>
+    <li class="active">Current Page</li>
+  </ol>
+  <div class="page-header">
+    <h1>Page Title<small>Subtitle</small></h1>
+  </div>
+  <p class="instructions">Directions and instructions.</p>
+  <p>Use this document as a way to quickly start any new project.
+    <br> All you get is this text and a mostly barebones HTML document.</p>
+  <footer>
+    <button class="btn btn-default sumt-btn-default">Close</button>
+    <button class="btn btn-default sumt-btn-default">Back</button>
+    <button class="btn btn-primary">Save</button>
+  </footer>
+</div>
+{% endhighlight %}
+
+  <div class="bs-example">
+    <p>To setup the left-hand navigation a JSON object will need to be passed into the directive.</p>
+  </div>
+  {% highlight js %}
+[{
+  "title": "Heading1",
+  "id": "Heading1",
+  "children": [
+    {
+      "title": "subHeading1",
+      "id": "subHeading1",
+      "children": []
+    },
+    {
+      "title": "subHeading2",
+      "id": "subHeading2",
+      "children": []
+    }
+  ]
+  },
+  {
+    "title": "Heading2",
+    "id": "Heading2",
+    "children": [
+      {
+        "title": "subHeading3",
+        "id": "subHeading3",
+        "children": []
+      },
+      {
+        "title": "subHeading4",
+        "id": "subHeading4",
+        "children": []
+      }]
+  }];
+  {% endhighlight %}
+</div>

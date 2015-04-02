@@ -15,6 +15,9 @@
       "../assets/js/vendor/ZeroClipboard.min.js",
       "../assets/js/vendor/anchor.js",      "../assets/js/vendor/faker.min.js",
       "../assets/js/src/application.js"
+    ],
+    "examplesJs": [
+      "../assets/js/src/examples/**/*.js"
     ]
   },
   "config": {
