@@ -169,6 +169,75 @@
 </table>
 {% endhighlight %}
 
+  <h2 id="tables-header">Table with header</h2>
+  <div class="bs-example" data-example-id="hoverable-table">
+    <div class="sumt-tableHeader">
+      <i class="fa fa-check"></i>
+      <h4>Assign All</h4><i class="fa fa-plus"></i>
+      <h4>Add</h4>
+    </div>
+    <table class="table">
+      <thead>
+        <tr>
+          <th></th>
+          <th>Activity</th>
+          <th>Estimated Credit Hours</th>
+          <th>Start Date</th>
+          <th>Completion Date</th>
+          <th>Expiration Date</th>
+          <th>Score</th>
+          <th>Grade</th>
+          <th>Attended Duration</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">*</th>
+          <td>Mark</td>
+          <td>Otto</td>
+          <td>@mdo</td>
+          <td>Mark</td>
+          <td>Otto</td>
+          <td>@mdo</td>
+          <td>Otto</td>
+          <td>@mdo</td>
+        </tr>
+        <tr>
+          <th scope="row">*</th>
+          <td>Jacob</td>
+          <td>Thornton</td>
+          <td>@fat</td>
+          <td>Jacob</td>
+          <td>Thornton</td>
+          <td>@fat</td>
+          <td>Thornton</td>
+          <td>@fat</td>
+        </tr>
+        <tr>
+          <th scope="row">*</th>
+          <td>Larry</td>
+          <td>the Bird</td>
+          <td>@twitter</td>
+          <td>Larry</td>
+          <td>the Bird</td>
+          <td>Larry</td>
+          <td>the Bird</td>
+          <td>@twitter</td>
+        </tr>
+      </tbody>
+    </table>
+  </div><!-- /example -->
+{% highlight html %}
+<div class="sumt-tableHeader">
+  <i class="fa fa-check"></i>
+  <h4>Assign All</h4><i class="fa fa-plus"></i>
+  <h4>Add</h4>
+</div>
+<table class="table">
+  ...
+</table>
+{% endhighlight %}
+
 
   <h2 id="tables-condensed">Condensed table</h2>
   <p>Add <code>.table-condensed</code> to make tables more compact by cutting cell padding in half.</p>
