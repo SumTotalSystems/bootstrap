@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>Table with header</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../../dist/css/vendor.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="../../assets/js/ie-emulation-modes-warning.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <link href="../../dist/css/foundation.css" rel="stylesheet">
+    <style>
+    .sumt-tableHeader{
+      padding-left:15px;
+      padding-right:15px;
+      background-color:#eee;
+      border-top:1px solid gray;
+    }
+    .sumt-tableHeader i{
+      margin-right: 5px;
+      font-size: 16px;
+    }
+    .sumt-tableHeader h4{
+      display: inline-block;
+      margin-right: 15px;
+    }
+    </style>
+</head>
+
+  <body>
+    <div class="container">
+      <ol class="breadcrumb">
+        <li><a href="#">Home</a>
+        </li>
+        <li><a href="#">Previous Page</a>
+        </li>
+        <li class="active">Current Page</li>
+      </ol>
+
+      <div class="page-header">
+        <h1>Table with header example</h1>
+        <p class="instructions">Basic table with header layout for use in subsections.</p>
+      </div>
+
+      <h2>SECTION HEADER</h2>
+
+      <h3>Subsection/Table Header</h3>
+
+      <div class="sumt-tableHeader">
+          <i class="fa fa-check"></i><h4>Assign All</h4><i class="fa fa-plus"></i><h4>Add</h4>
+      </div>
+      <table class="table">
+        <thead>
+          <tr>
+            <th></th>
+            <th>Activity</th>
+            <th>Estimated Credit Hours</th>
+            <th>Start Date</th>
+            <th>Completion Date</th>
+            <th>Expiration Date</th>
+            <th>Score</th>
+            <th>Grade</th>
+            <th>Attended Duration</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">*</th>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>@mdo</td>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>@mdo</td>
+            <td>Otto</td>
+            <td>@mdo</td>
+          </tr>
+          <tr>
+            <th scope="row">*</th>
+            <td>Jacob</td>
+            <td>Thornton</td>
+            <td>@fat</td>
+            <td>Jacob</td>
+            <td>Thornton</td>
+            <td>@fat</td>
+            <td>Thornton</td>
+            <td>@fat</td>
+          </tr>
+          <tr>
+            <th scope="row">*</th>
+            <td>Larry</td>
+            <td>the Bird</td>
+            <td>@twitter</td>
+            <td>Larry</td>
+            <td>the Bird</td>
+            <td>Larry</td>
+            <td>the Bird</td>
+            <td>@twitter</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <footer>
+        <div class="btn-contaienr">
+          <button class="btn btn-default sumt-btn-default">Close</button>
+          <button class="btn btn-default sumt-btn-default">Back</button>
+          <button class="btn btn-primary">Save</button>
+        </div>
+      </footer>
+    </div> <!-- /container -->
+
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+  </body>
+</html>
