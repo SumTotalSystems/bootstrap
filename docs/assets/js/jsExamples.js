@@ -1292,6 +1292,17 @@ angular.module('Examples', ['SumTotalComponents', 'mgcrea.ngStrap', 'ngAnimate',
       $scope.decrementStep();
     };
   })
+.controller('ExampleWizardController', function ($scope) {
+    $scope.activeStep = 1;
+
+    $scope.goNext = function () {
+      $scope.incrementStep();
+    };
+
+    $scope.goPrev = function () {
+      $scope.decrementStep();
+    };
+  })
   .controller('TimelineController', function ($scope) {
     $scope.timelineData = [
       {
