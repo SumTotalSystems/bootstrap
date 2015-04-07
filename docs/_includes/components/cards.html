@@ -1,6 +1,7 @@
 <div class="bs-docs-section">
   <h1 id="cards" class="page-header">Cards</h1>
-  <p>More Examples and variations coming soon.</p>
+  <h2 id="cards-example">Basic Example</h2>
+  <p>Any content may be placed within a <code>.sumt-card</code>. Here is a simple example of what can go in.</p>
   <div class="bs-example" data-example-id="cards-in-container">
     <div class="sumt-cardContainer">
       <div class="sumt-card">
@@ -62,6 +63,137 @@
       </div>
     </div>
   </div>
+  {% endhighlight %}
+  
+  <h2 id="cards-horizontal">Horizontal Example</h2>
+  <p>This example mimics the structure of an Org Chart tile. Custom configuration of the circle progress can be implemented as needed.</p>
+  <div class="bs-example" data-example-id="cards-in-container">
+    <div style="width:350px;">
+      <div class="sumt-horizontalTile">
+        <div class="medcircleprogress circleprogress-8">
+          <div class="med-circle-mask"></div>
+          <div class="med-circle">
+            <img id="mediumImage" class="img-circle img-medium" src="http://lorempixel.com/640/480/cats">
+          </div>
+        </div>
+        <div class="sumt-horizontalTile-content">
+          <h4>Julie Adams</h5>
+          <h5>Vice President of Sales</h5>
+          <i class="fa fa-map-marker"></i><h5 class="location">Irvine, CA</h5>
+        </div>
+        <div class="progress">
+          <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">40%
+          </div>
+        </div>
+        <div class="sumt-horizontalTile-footer">
+          <a>Hyperlink</a>
+          <button type="button" class="btn btn-primary">LEARNING PLAN</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% highlight html %}
+  <style>
+    .medcircleprogress {
+      width: 64px;
+      height: 64px;
+      margin-bottom: 15px;
+      display: inline-block;
+      -webkit-border-radius: 100%;
+      -moz-border-radius: 100%;
+      border-radius: 100%;
+      overflow: hidden;
+    }
+
+    .med-circle-mask {
+      width: 54px;
+      height: 54px;
+    }
+    .med-circle {
+      margin-left: auto;
+      margin-right: auto;
+      background-color: #fff;
+      color: #fff;
+      -webkit-border-radius: 100%;
+      -moz-border-radius: 100%;
+      border-radius: 100%;
+      border: solid 4px #fff;
+      width: 54px;
+      height: 54px;
+      border: none;
+      margin-top:-49px;
+    }
+      .med-circle img {
+      width: 50px;
+      height: 50px;
+      margin-left: 2px;
+        margin-top: 2px;
+      float: none;
+    }
+
+    .circleprogress-8 {
+      background-image: linear-gradient(20deg, #1fbba6 50%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0)), linear-gradient(270deg, #1fbba6 50%, #e2e5e8 50%, #e2e5e8);
+    }
+  </style>
+  <div style="width:350px;">
+      <div class="sumt-horizontalTile">
+        <div class="medcircleprogress circleprogress-8">
+          <div class="med-circle-mask"></div>
+          <div class="med-circle">
+            <img id="mediumImage" class="img-circle img-medium" src="http://lorempixel.com/640/480/cats">
+          </div>
+        </div>
+        <div class="sumt-horizontalTile-content">
+          <h4>Julie Adams</h5>
+          <h5>Vice President of Sales</h5>
+          <i class="fa fa-map-marker"></i><h5 class="location">Irvine, CA</h5>
+        </div>
+        <div class="progress">
+          <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">40%
+          </div>
+        </div>
+        <div class="sumt-horizontalTile-footer">
+          <a>Hyperlink</a>
+          <button type="button" class="btn btn-primary">LEARNING PLAN</button>
+        </div>
+      </div>
+    </div>
+  {% endhighlight %}
+  
+  <h2 id="cards-vertical">Vertical Example</h2>
+  <p>Another example of employee card use, a vertical tile is useful for listing goals. Note that text too long
+  for the <code>&lt;h5&gt;</code> content area can be truncated with an ellipses.</p>
+  <div class="bs-example" data-example-id="cards-in-container">
+    <div style="width:250px;">
+      <div class="sumt-verticalTile">
+        <div>
+          <img id="mediumImage" class="img-circle img-medium" src="http://lorempixel.com/640/480/cats">
+          <h4>Leadership Essentials</h4>
+        </div>
+        <div class="sumt-verticalTile-content">
+          <h5>Leadership essentials and qualities</h5>
+          <h5>Leadership essentials web sessions</h5>
+          <h5>Leadership essentials and its impact on the workplace</h5>
+        </div>
+        <a>View More</a>
+      </div>
+    </div>
+  </div>
+  {% highlight html %}
+  <div style="width:250px;">
+      <div class="sumt-verticalTile">
+        <div>
+          <img id="mediumImage" class="img-circle img-medium" src="http://lorempixel.com/640/480/cats">
+          <h4>Leadership Essentials</h4>
+        </div>
+        <div class="sumt-verticalTile-content">
+          <h5>Leadership essentials and qualities</h5>
+          <h5>Leadership essentials web sessions</h5>
+          <h5>Leadership essentials and its impact on the workplace</h5>
+        </div>
+        <a>View More</a>
+      </div>
+    </div>
   {% endhighlight %}
 
 </div>
