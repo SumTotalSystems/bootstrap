@@ -6,9 +6,10 @@
   <div class="bs-glyphicons">
     <ul class="bs-glyphicons-list">
       {% for iconClassName in site.data.fontawesome.standardIcons %}
-        <li>
-          <i class="fa {{ iconClassName }}" aria-hidden="true"></i>
-          <span class="glyphicon-class">fa {{ iconClassName }}</span>
+        <li class="large">
+          <p><strong><span>{{ iconClassName[1] }}</span></strong></p>
+          <i class="fa {{ iconClassName[0] }}" aria-hidden="true"></i>
+          <span class="glyphicon-class">fa {{ iconClassName[0] }}</span>
         </li>
       {% endfor %}
     </ul>

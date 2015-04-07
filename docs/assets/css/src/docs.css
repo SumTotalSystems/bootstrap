@@ -1339,6 +1339,9 @@ h1[id] {
   background-color: #f9f9f9;
   border: 1px solid #fff;
 }
+.bs-glyphicons li.large {
+  max-height: 110px;
+}
 .bs-glyphicons .fa {
   margin-top: 5px;
   margin-bottom: 10px;
@@ -1362,6 +1365,9 @@ h1[id] {
   .bs-glyphicons li {
     width: 12.5%;
     font-size: .875em;
+  }
+  .bs-glyphicons li.large {
+    width: 15.5%;
   }
 }
 
