@@ -1,0 +1,83 @@
+---
+layout: example
+title: Wizard with steps
+---
+<div class="container-fluid" ng-controller="AnotherWizardStepController">
+  <ol class="breadcrumb">
+    <li><a href="#">Home</a>
+    </li>
+    <li><a href="#">Previous Page</a>
+    </li>
+    <li class="active">Current Page</li>
+  </ol>
+
+  <div class="page-header">
+    <h1>Page Title</h1>
+    <p class="instructions">Directions and instructions.</p>
+  </div>
+
+    <div sumt-wizard num-steps="5" active-step="activeStep" next-step="incrementStep" prev-step="decrementStep" allow-disable></div>
+
+
+  <h2>SECTION HEADER</h2>
+  <h3></h3>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th></th>
+        <th>Activity</th>
+        <th>Estimated Credit Hours</th>
+        <th>Start Date</th>
+        <th>Completion Date</th>
+        <th>Expiration Date</th>
+        <th>Score</th>
+        <th>Grade</th>
+        <th>Attended Duration</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">*</th>
+        <td>Online Course: Safety Training - Trivia Test</td>
+        <td></td>
+        <td>6/3/2014</td>
+        <td>6/3/2014</td>
+        <td>6/3/2014</td>
+        <td>100</td>
+        <td>Pass</td>
+        <td>Days: 0, Seconds: 49</td>
+      </tr>
+      <tr>
+        <th scope="row">*</th>
+        <td>Online Course: Privacy 101</td>
+        <td></td>
+        <td>6/3/2014</td>
+        <td>6/3/2014</td>
+        <td></td>
+        <td>100</td>
+        <td>Pass</td>
+        <td></td>
+      </tr>
+      <tr>
+        <th scope="row">*</th>
+        <td>ILT Course: Dynamic Customer Care</td>
+        <td>3</td>
+        <td>4/14/2014</td>
+        <td>4/14/2014</td>
+        <td></td>
+        <td>90</td>
+        <td>Pass</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <footer class="clearfix">
+    <div class="btn-contaienr">
+      <button class="btn btn-default sumt-btn-default">Cancel</button>
+      <button class="btn btn-default sumt-btn-default" ng-click="goPrev()">Back</button>
+      <button class="btn btn-primary" ng-click="goNext()">Save</button>
+    </div>
+  </footer>
+</div>

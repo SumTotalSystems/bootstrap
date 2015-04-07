@@ -1292,24 +1292,35 @@ angular.module('Examples', ['SumTotalComponents', 'mgcrea.ngStrap', 'ngAnimate',
       $scope.decrementStep();
     };
   })
+.controller('ExampleWizardController', function ($scope) {
+    $scope.activeStep = 1;
+
+    $scope.goNext = function () {
+      $scope.incrementStep();
+    };
+
+    $scope.goPrev = function () {
+      $scope.decrementStep();
+    };
+  })
   .controller('TimelineController', function ($scope) {
     $scope.timelineData = [
       {
         title: "Sample Title 1",
         body: "Lorem ipsum and some other stuff",
-        readMore: "",
+        readMore: "#0",
         date: "Dec 23"
       },
       {
         title: "Sample Title 2",
         body: "The quick brown fox jumped over the lazy dog",
-        readMore: "",
+        readMore: "#0",
         date: "Dec 25"
       },
       {
         title: "Sample Title 3",
         body: "Who cares at this point. It's all fake data.",
-        readMore: "",
+        readMore: "#0",
         date: "Dec 27"
       }];
   });

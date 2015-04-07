@@ -1,11 +1,11 @@
 <div class="bs-docs-section">
   <h1 id="fontawesome" class="page-header">Font Awesome</h1>
 
-  <h2 id="fontawesome-icons">Available font icons</h2>
-  <p>Includes over 500 ioncs in font format from <a target="_blank" href="http://fontawesome.io/">FontAwesome</a>. <a target="_blank" href="http://fontawesome.io/">FontAwesome</a> has many more icons than those that are shown below. Using the search on <a target="_blank" href="http://fontawesome.io/icons/">FontAwesome's site</a> to find the correct icon if not defined by UX.</p>
+  <h2 id="fontawesome-icons">Most Common Icons</h2>
+  <p>Below is a list of the most common icons used throughout our suite.  Additional icons available from <a target="_blank" href="http://fontawesome.io/">FontAwesome</a>, more examples listed below in the Available Font icons section. </p>
   <div class="bs-glyphicons">
     <ul class="bs-glyphicons-list">
-      {% for iconClassName in site.data.fontawesome %}
+      {% for iconClassName in site.data.fontawesome.standardIcons %}
         <li>
           <i class="fa {{ iconClassName }}" aria-hidden="true"></i>
           <span class="glyphicon-class">fa {{ iconClassName }}</span>
@@ -14,6 +14,18 @@
     </ul>
   </div>
 
+  <h2 id="fontawesome-icons">Available font icons</h2>
+  <p>Includes over 500 ioncs in font format from <a target="_blank" href="http://fontawesome.io/">FontAwesome</a>. <a target="_blank" href="http://fontawesome.io/">FontAwesome</a> has many more icons than those that are shown below. Using the search on <a target="_blank" href="http://fontawesome.io/icons/">FontAwesome's site</a> to find the correct icon if not defined by UX.</p>
+  <div class="bs-glyphicons">
+    <ul class="bs-glyphicons-list">
+      {% for iconClassName in site.data.fontawesome.otherExamples %}
+        <li>
+          <i class="fa {{ iconClassName }}" aria-hidden="true"></i>
+          <span class="glyphicon-class">fa {{ iconClassName }}</span>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
 
   <h2 id="fontawesome-how-to-use">How to use</h2>
   <p>For performance reasons, all icons require a base class and individual icon class. To use, place the following code just about anywhere. Be sure to leave a space between the icon and text for proper padding.</p>
