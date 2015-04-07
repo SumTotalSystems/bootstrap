@@ -54,7 +54,62 @@
     <p>Do not mix form groups directly with <a href="/components/#input-groups">input groups</a>. Instead, nest the input group inside of the form group.</p>
   </div>
 
+  <h2 id="forms-required">Required Fields</h2>
+  <p>Use the <code>.required</code> class on a <code>.form-group</code> to indicate the field must be filled out to be submitted. Additionally, you may add a <code>&lt;div&gt;</code> with class <code>.required-indicator</code> to clarify the meaning of the required labels. The basic example above can be seen again below with two fields marked as required.</p>
+  <div class="bs-example" data-example-id="basic-forms">
+    <form>
+      <div class="form-group required">
+        <label for="exampleInputEmail1">Email address</label>
+        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+      </div>
+      <div class="form-group required">
+        <label for="exampleInputPassword1">Password</label>
+        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+      </div>
+      <div class="required-indicator"></div>
+      <div class="form-group">
+        <label for="exampleInputFile">File input</label>
+        <input type="file" id="exampleInputFile">
+        <p class="help-block">Example block-level help text here.</p>
+      </div> 
+      <div class="checkbox">
+        <label>
+          <input type="checkbox"> Check me out
+        </label>
+      </div>
+      <button type="submit" class="btn btn-default sumt-btn-default">Submit</button>
+    </form>
+  </div><!-- /example -->
+    {% highlight html %}
+    <form>
+      <div class="form-group required">
+        <label for="exampleInputEmail1">Email address</label>
+        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+      </div>
+      <div class="form-group required">
+        <label for="exampleInputPassword1">Password</label>
+        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+      </div>
+      <div class="required-indicator"></div>
+      <div class="form-group">
+        <label for="exampleInputFile">File input</label>
+        <input type="file" id="exampleInputFile">
+        <p class="help-block">Example block-level help text here.</p>
+      </div> 
+      <div class="checkbox">
+        <label>
+          <input type="checkbox"> Check me out
+        </label>
+      </div>
+      <button type="submit" class="btn btn-default sumt-btn-default">Submit</button>
+    </form>
+    {% endhighlight %}
 
+  <div class="bs-callout bs-callout-warning" id="callout-formgroup-inputgroup">
+    <h4>A required tag does not create required functionality</h4>
+    <p>The purpose of these CSS classes is to provide indication of a required field. These styles do not enforce this behavior, they merely indicate the intent. Be sure to properly check if a form is properly filled out before accepting the submission.</p>
+  </div>
+  
   <h2 id="forms-inline">Inline form</h2>
   <p>Add <code>.form-inline</code> to your form (which doesn't have to be a <code>&lt;form&gt;</code>) for left-aligned and inline-block controls. <strong>This only applies to forms within viewports that are at least 768px wide.</strong></p>
   <div class="bs-callout bs-callout-danger" id="callout-inline-form-width">
