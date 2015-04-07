@@ -3,7 +3,7 @@ layout: example
 title: Form layout
 ---
 <link href="form-layout.css" rel="stylesheet">
-<div class="container-fluid">
+<div class="container-fluid" ng-controller="formLayoutController">
   <ol class="breadcrumb">
     <li><a href="#">Home</a>
     </li>
@@ -13,45 +13,177 @@ title: Form layout
   </ol>
 
   <div class="page-header">
-    <h1>PAGE TITLE</h1>
+    <h1>Page Title</h1>
     <p class="instructions">Directions and instructions.</p>
   </div>
 
-  <h2>SECTION HEADER</h2>
+  <div sumt-section heading="Information">
+    <p>The following is a description of how to setup a form using HTML and with AngularJS.</p>
 
-  <form>
-    <div class="form-group">
-        <label for="1">Label</label>
-        <select id="1" class="form-control">
-          <option value="0">All</option>
-        </select>
-    </div>
-    <div class="form-group">
-      <label for="2">Label</label>
-      <select id="2" class="form-control">
-        <option value="0">All</option>
-      </select>
-    </div>
-    <div class="form-group">
-      <label for="3">Label</label>
-      <select id="3" class="form-control">
-        <option value="0">All</option>
-      </select>
-    </div>
-    <div class="form-group">
-      <label for="4">Label</label>
-      <select id="4" class="form-control">
-        <option value="0">All</option>
-      </select>
-    </div>
-  </form>
+    <h3>Basic HTML</h3>
+    <p>Foundation includes a robust set of styles for forms. For most, if not all, forms the layout should be vertical with a label appearing above the user input.</p>
+    <p>To create the basic label and input for the form use the following:</p>
+    {% highlight html %}
+<div class="form-group">
+  <label for="">Email</label>
+  <input type="email" required ng-model="user.email" placeholder="Email" class="form-control" />
+</div>
+    {% endhighlight %}
 
-  <footer class="clearfix">
-    <div class="btn-container">
-      <button class="btn btn-default sumt-btn-default">Close</button>
-      <button class="btn btn-default sumt-btn-default">Back</button>
-      <button class="btn btn-primary">Save</button>
+    <p>For requried input add the <code>requried</code> class to the <code>form-group</code> element.</p>
+    {% highlight html %}
+<div class="form-group required">
+  <label for="2">Password</label>
+  <input type="password" required ng-model="user.password" placeholder="Password" class="form-control" />
+</div>
+    {% endhighlight %}
+
+    <h3>Form Validation</h3>
+    <p>It is highly suggested to use AngularJS to manage form validation. However, form validation can also be done manually through your own means. You should still follow the Foundation guidelines for laying out the correct HTML elements and using the specific CSS classes.</p>
+    <p>There are two main states for validation, success and error. Success is when the user's input is valid. Error is used when the input is invalid. The classes <code>has-success</code> and <code>has-error</code>. These classes are applied to the element which has the <code>form-group</code> class.</p>
+
+    {% highlight html %}
+<div class="form-group required has-success">
+  <label for="2">Password</label>
+  <input type="password" required ng-model="user.password" placeholder="Password" class="form-control" />
+</div>
+    {% endhighlight %}
+
+    {% highlight html %}
+<div class="form-group required has-error">
+  <label for="2">Password</label>
+  <input type="password" required ng-model="user.password" placeholder="Password" class="form-control" />
+</div>
+    {% endhighlight %}
+
+    <h3>Angular Forms</h3>
+    <p>The desire is to move to Angular forms. By using the <code>ng-form</code> directive developers can gain many powerful features for validation and manipulation of user input. </p>
+    <p>The example below is created using Angular forms. While this is a simple example, it should give a good overview of how to use basic form validation in Angular. <em>For a complete guide to using AngularJS Forms read the <a href="https://docs.angularjs.org/guide/forms" target="_blank">Developer Guide - Forms</a> page.</em></p>
+
+    <p>To create an Angular form you can use the <code>ng-form</code> directive. Avoid using <code>form</code> element because in the HTML standard there should only be one <code>form</code> element per page. When declaring the directive you should give your form a name.</p>
+    {% highlight html %}
+<div ng-form="myFormName">
+  ...
+</div>
+    {% endhighlight %}
+
+    <p>Within the form create your label and input groups using the <code>form-group</code> class on <code>div</code> elements. With required fields you should add the <coe>required</coe> class to the <code>form-group</code> and add <code>required</code> as an attribute to the element used for user input.</p>
+
+    {% highlight html %}
+<div class="form-group required">
+  <label for="1">Email</label>
+  <input name="userEmail" type="email" required ng-model="user.email" placeholder="Email" class="form-control" />
+</div>
+    {% endhighlight %}
+
+    <p>By providing a name for the form on the <code>ng-form</code> directive you can access it in the current scope. By also using the <code>name</code> attribute on the user input element you can do the same. This allows you to get the state of a single control within the form or the state of the form as a whole.</p>
+    <p>For example, this allows you to show help text for a required field that is incorrectly filled out. The following example will not show the help text until the user enters data <strong>and</strong> the data is invalid.</p>
+
+    {% highlight html %}
+<div class="form-group required">
+  <label for="userEmail">Email</label>
+  <input id="userEmail" name="userEmail" type="email" required ng-model="user.email" placeholder="Email" class="form-control" describedby="userEmailHelpBlock" />
+  <span id="userEmailHelpBlock" class="help-block" ng-show="userForm.userEmail.$dirty && userForm.userEmail.$invalid">Enter your company's email address</span>
+</div>
+    {% endhighlight %}
+
+    <p>Using the state of the form is useful when you want to disable buttons based on the validity of the user's input. You can use the <code>ng-class</code> directive to set a disabled class on the button as well as set the <code>ng-disabled</code> directive to prevent the form from being submitted.</p>
+
+    {% highlight html %}
+<footer class="clearfix">
+  <div class="btn-container">
+    <button class="btn btn-default sumt-btn-default">Close</button>
+    <button class="btn btn-default sumt-btn-default">Back</button>
+    <button class="btn btn-primary" ng-disabled="userForm.$invalid" ng-class="{'disabled': userForm.$invalid}">Save</button>
+  </div>
+</footer>
+    {% endhighlight %}
+  </div>
+
+
+
+  <div ng-form="userForm" class="form">
+    <div class="form-group required">
+      <label for="userEmail">Email</label>
+      <input id="userEmail" name="userEmail" type="email" required ng-model="user.email" placeholder="Email" class="form-control" describedby="userEmailHelpBlock" />
+      <span id="userEmailHelpBlock" class="help-block" ng-show="userForm.userEmail.$dirty && userForm.userEmail.$invalid">Enter your company's email address</span>
     </div>
-  </footer>
+    <div class="form-group required">
+      <label for="userPassword">Password</label>
+      <input id="userPassword" name="userPassword" type="password" required ng-model="user.password" placeholder="Password" class="form-control" describedby="userPasswordHelpBlock" />
+      <span id="userPasswordHelpBlock" class="help-block" ng-show="userForm.userPassword.$dirty && userForm.userPassword.$invalid">Please enter a valid password.</span>
+    </div>
+    <div class="form-group required">
+      <label for="userPasswordConfirm">Password (Confirm)</label>
+      <input id="userPasswordConfirm" name="userPasswordConfirm" type="password" required ng-model="user.passwordConfirm" placeholder="Password (Confirm)" class="form-control" describedby="userPasswordConfirmHelpBlock" />
+      <span id="userPasswordConfirmHelpBlock" class="help-block" ng-show="userForm.userPasswordConfirm.$dirty">The passwords must match.</span>
+    </div>
+    <div class="form-group">
+      <label for="userState">State</label>
+      <select id="userState" class="form-control" ng-model="user.state" describedby="userStateHelpBlock">
+        <option value="AL">Alabama</option>
+        <option value="AK">Alaska</option>
+        <option value="AZ">Arizona</option>
+        <option value="AR">Arkansas</option>
+        <option value="CA">California</option>
+        <option value="CO">Colorado</option>
+        <option value="CT">Connecticut</option>
+        <option value="DE">Delaware</option>
+        <option value="DC">District Of Columbia</option>
+        <option value="FL">Florida</option>
+        <option value="GA">Georgia</option>
+        <option value="HI">Hawaii</option>
+        <option value="ID">Idaho</option>
+        <option value="IL">Illinois</option>
+        <option value="IN">Indiana</option>
+        <option value="IA">Iowa</option>
+        <option value="KS">Kansas</option>
+        <option value="KY">Kentucky</option>
+        <option value="LA">Louisiana</option>
+        <option value="ME">Maine</option>
+        <option value="MD">Maryland</option>
+        <option value="MA">Massachusetts</option>
+        <option value="MI">Michigan</option>
+        <option value="MN">Minnesota</option>
+        <option value="MS">Mississippi</option>
+        <option value="MO">Missouri</option>
+        <option value="MT">Montana</option>
+        <option value="NE">Nebraska</option>
+        <option value="NV">Nevada</option>
+        <option value="NH">New Hampshire</option>
+        <option value="NJ">New Jersey</option>
+        <option value="NM">New Mexico</option>
+        <option value="NY">New York</option>
+        <option value="NC">North Carolina</option>
+        <option value="ND">North Dakota</option>
+        <option value="OH">Ohio</option>
+        <option value="OK">Oklahoma</option>
+        <option value="OR">Oregon</option>
+        <option value="PA">Pennsylvania</option>
+        <option value="RI">Rhode Island</option>
+        <option value="SC">South Carolina</option>
+        <option value="SD">South Dakota</option>
+        <option value="TN">Tennessee</option>
+        <option value="TX">Texas</option>
+        <option value="UT">Utah</option>
+        <option value="VT">Vermont</option>
+        <option value="VA">Virginia</option>
+        <option value="WA">Washington</option>
+        <option value="WV">West Virginia</option>
+        <option value="WI">Wisconsin</option>
+        <option value="WY">Wyoming</option>
+      </select>
+
+      <span id="userStateHelpBlock" class="help-block">Select the state you live in (optional).</span>
+    </div>
+
+    <footer class="clearfix">
+      <div class="btn-container">
+        <button class="btn btn-default sumt-btn-default">Close</button>
+        <button class="btn btn-default sumt-btn-default">Back</button>
+        <button class="btn btn-primary" ng-class="{'disabled': userForm.$invalid}">Save</button>
+      </div>
+    </footer>
+  </div>
 </div>
 <!-- /container -->
