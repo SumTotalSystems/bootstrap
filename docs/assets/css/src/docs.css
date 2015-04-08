@@ -541,6 +541,14 @@ h4 code {
 .bs-examples p {
   margin-bottom: 20px;
 }
+.bs-examples > [class^="col-"] {
+  display: inline-block;
+  min-height: 300px;
+}
+
+.bs-examples > [class^="col-"] a img {
+  min-height: 190px;
+}
 
 @media (max-width: 480px) {
   .bs-examples {
