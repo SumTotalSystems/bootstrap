@@ -1,7 +1,7 @@
 <div class="bs-docs-section">
   <h1 id="toolbar" class="page-header">Toolbar</h1>
-  <p class="lead">The toolbar <code>.sumt-toolbar</code> class can be used to style icons and buttons that represent common actions.  Toolbars will typically sit at the top of a page or section.</p>
-  <div class="bs-example" data-example-id="cards-in-container">
+  <p class="lead">The toolbar <code>.sumt-toolbar</code> class can be used to style icons and buttons that represent common actions. Toolbars will typically sit at the top of a page or section.</p>
+  <div id="toolbar-basic" class="bs-example" data-example-id="cards-in-container">
     <div class="sumt-toolbar">
       <button class="btn">
         <h4><i class="fa fa-check"></i>Assign All</h4>
@@ -13,16 +13,47 @@
       </select>
     </div>
   </div>
-      {% highlight html %}
+  {% highlight html %}
 <div class="sumt-toolbar">
+  <button class="btn">
+    <h4><i class="fa fa-check"></i>Assign All</h4>
+  </button>
+  <a class="btn"><h4><i class="fa fa-plus"></i>Add</h4></a>
+  <button class="btn"><i class="fa fa-close"></i>Button</button>
+  <select class="form-control">
+    <option>Test</option>
+  </select>
+</div>
+  {% endhighlight %}
+
+  <h2 id="toolbar-right-align">Right Aligned Buttons</h2>
+  <p>Toolbar elements default to the left side of the toolbar. By wrapping the elements in a <code>div</code> with class <code>pull-right</code> they will be placed on the right side of the toolbar.</p>
+  <div class="bs-example">
+    <div class="sumt-toolbar">
       <button class="btn">
         <h4><i class="fa fa-check"></i>Assign All</h4>
       </button>
       <a class="btn"><h4><i class="fa fa-plus"></i>Add</h4></a>
-      <button class="btn"><i class="fa fa-close"></i>Button</button>
-      <select class="form-control">
-        <option>Test</option>
-      </select>
+      <div class="pull-right">
+        <select class="form-control">
+          <option>Test</option>
+        </select>
+        <button class="btn"><i class="fa fa-close"></i>Button</button>
+      </div>
     </div>
-{% endhighlight %}
+  </div>
+  {% highlight html %}
+<div class="sumt-toolbar">
+  <button class="btn">
+    <h4><i class="fa fa-check"></i>Assign All</h4>
+  </button>
+  <a class="btn"><h4><i class="fa fa-plus"></i>Add</h4></a>
+  <div class="pull-right">
+    <select class="form-control">
+      <option>Test</option>
+    </select>
+    <button class="btn"><i class="fa fa-close"></i>Button</button>
+  </div>
+</div>
+  {% endhighlight %}
 </div>
