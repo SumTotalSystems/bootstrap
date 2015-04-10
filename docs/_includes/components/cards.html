@@ -1,34 +1,65 @@
 <div class="bs-docs-section">
   <h1 id="cards" class="page-header">Cards</h1>
+  <p class="lead">When you don't want your DOM in a box you can put your DOM in a card. <small>Postage not needed!</small></p>
+  <div class="bs-callout bs-callout-danger">
+    <h4>Not representative of pillar implementations</h4>
+    <p>The examples below show how content can appear in a card. You may notice that some of this content looks similar to pillar components. These examples should <strong>not</strong> be taken as a redline or how such a component should look like in the actual pillar. The foundation styles give a baseline for the card container and cards. The content within the cards is minimally styled so that each pillar may apply the necessary styles for its own unique set of information.</p>
+  </div>
+  <p>Cards display detailed data in a flexible grid layout. Employee and activity information make good candidates for display in a card layout. To create a card layout place a container with <code>sumt-cardContainer</code> onto your page. You can then add any number of elements with the <code>sumt-card</code> class.</p>
+  <p>Remember, the examples shown here are of content with styling only applied from Foundation. When utilized within specific cases inside of pillars the content will, in most cases, require additional styles to make it appear as an organizational tile, an activity list, etc. Links, headers, and other elements which show left or top aligned may need to be centered or aligned in a different manner than what is shown here.</p>
   <h2 id="cards-example">Basic Example</h2>
-  <p>Any content may be placed within a <code>.sumt-card</code>. Here is a simple example of what can go in.</p>
+  <p>Any content may be placed within multiple <code>sumt-card-content</code> elements. Certain elements pick up special styling which is unique to items within a card. The <code>p</code> element will loose its margin. The header tags will also have margin removed and applied depending on where they are in the card. For <code>img</code> elements you may use the Bootstrap utility class <code>pull-left</code> to make image appear on the left side of the card. To make a footer area add a <code>button</code> with an additional class of <code>pull-right</code> inside of the <code>sumt-card-content</code> element for right alignment.</p>
+
   <div class="bs-example" data-example-id="cards-in-container">
     <div class="sumt-cardContainer">
       <div class="sumt-card">
         <div class="sumt-card-content">
-          <img class="img-circle img-medium" src="data:image/jpeg;base64,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" alt="..."/>
-          <p>General Content Here.</p>
+          <p fake-paragraphs count="2">General Content Here.</p>
         </div>
-        <div class="sumt-cardfooter">
-          <button type="button" class="btn btn-primary ">Button</button>
+        <div class="sumt-card-content">
+          <button type="button" class="btn btn-primary pull-right">Button</button>
         </div>
       </div>
       <div class="sumt-card">
         <div class="sumt-card-content">
-          <img class="img-circle img-medium" src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAUDBA4ODwoKDg4ODhAPDwoNDRANCw4NEA0NDQ0ICA0OCAoIDRANCAgOCQwMDyENDhERExMTCA0YGhYSGBASFBIBBQUFCAcIDwkJDxgUEhQZFhcXGBgaFxUUGBMUFBcXFBQYFRQWFBccFRUUFBQUFBQVFBQUFBIUFBgUFRQVFBQUHv/AABEIAFoAeAMBIgACEQEDEQH/xAAdAAACAgMBAQEAAAAAAAAAAAAABgQFAQMHAggJ/8QARBAAAgEDAgQDBAQKBwkAAAAAAQIDAAQREiEFBhMxQVFhByJx4jKBkaMUQkNSU6GiscHwFiMkk9Hh4wgVM2JjcoKDkv/EABsBAAICAwEAAAAAAAAAAAAAAAQFAAMCBgcB/8QAMxEAAgEDAwEFBwEJAAAAAAAAAQIAAwQRBRIhMQYTIlFxQWGBkbHR0hQVFkNToaLB4fD/2gAMAwEAAhEDEQA/APjKinOPkXP5b7r569nkL/r/AHX+pRX6KtjO3j4TYB2W1I/wv7k/KJNFNVxyhp/K5/8AX89ak5VJ/KfsfNVHdtKW7PX6naafPqv3i1RTenJJ79X7v56iXHK2Nupn/wAPmrMW9QjOPpPKvZ6/pjL08fFfvFuime25Uz3lCjxJTt+3Uq35EeTeJnkGQurolV1EEgamfuQD8cV4aLgZI+kGqaXcUxucAerL9M5idRXQj7LZAAWlRTnTpYLnO+O0h227nxI86mw+yQtGJBcb/jKYRsPNWSY6hn0Bqo8QQUXJwPqJzCiny79nDKM9YEeapn7ffyp+NQZuSsDPV+7+evQM9I2Ts5fvT7xUyvmGT8oo0UyryrnbqfsfNUteSD+k+7+eoFJldvoN9Xz3dPOPev8AkxPopwPI5/Sfd/PRWfdN5Qj919S/lf1X8o25NeWc1IQelZSGnfdOy+GdY2ZMrpos1ut7eprWwrE5xWCafUHLcTzukQljNNw+BVQyEmt1zOSak8Mh1MB51VVcLwOgiTULnvMkeya7fhjEglTgbgY2J/5sVaWzzt/V5Kj80bb4AAx5AA//AEfM11Llzh6qqoFGwHcdzgb/AG1cxcHQsJCgz54/netXr6mdxE1j9lNceNm5M5bw/lqRsFg2c58SfAg5NPfL3s3LD3mZRjB8CBjJxn4U7cOgAwSBj4Vc3nGQFI22B7D08fOljakxMMGi00HXM4pz9wqK1QCFckg6y/vE/aTp+r0rnCya/QjuPj5eldY9oNwkiHbffcH+B7/CuTcJA6oA8nB32P4wwMZU7djTqxrb+so0pqlK7W3ydrkAj2cyRbWmN6loKkyisBaZgTq1GxSiNqcSO1FbQuTRVu/EzFAtyJnq48KyLgeVegla2ipilWqvQzBlM9TzCqy8kqZMtQroVhWuHYcxfeZwZAKZNXHAE99fq/eKjW0O1WfCIveU0vHiBzEVe2xRLN7Z1/gK500xqmMDFcl4TxGXVhbhAc50AZYDtg7YFPEXE3eM4JDKBnbx7Vpd1S8XWK7O5BGMR4uSunGB/PnSrxtjggGlaXmCbtJcRovb3lIYj/u7Ct9pe6zpDhx5gg/aRuProBqBXxZlhuQx24ihzecZ8D8f4UrcM4Vpkjkzg++T6jSfT1p958tMqG8qqOWbPAlk23UhtgWKgMcB2GUXx2p7YVwoDGK7VNuo02PQMD8jmQruEGoqwetSA+oAjOCAd++++/rWDHWyCdmqItQ7wJrig371mvSHes0XT2Y5nlNFx0mlFavLK1SbaatjSVaX84OKCMuQxlRcaqiuMmrS8NFnYljgAknsAMk/ADc0I75im6tsttB9cyMq1b8voNcefzl/Uc1b8M5Du5cFbeTGQMsugZ9DLjNNdt7LZ4160zxxBSNgTI316BgDOB38aypNS2PuI6ECJdQvrdabKzr0xjPMzYcMUZcbA/AD7e9SuHMQsj4907E0p85cXkjjUKfpFgMeBAH8KWeGceuum4LMwG47A9xnBG5AFae9szgnM1U6hSRgqg9PZOvcOto3OQMN2+rvjB2qZfWCodu5H89q5Fac13AAYnGNzqYDONs575xT5y3zCbhNRGCuAdu+c7jzFLbihUQdeITR1ClUOAOZSc/K2nSgJ/yqFwS102zylTqYFcY33IXt4gDf6qvuLNlsUp2/FZ2uRBGxCxsrjOyHQpeRWbGdWnBAz6eNGWILAL5cwXvlSuHPOeBK923/AHV7dxXWeK+z8Xca3dsoWRlLvD2VzkgmD8xiRnT2+Fca4tfiJ2hkjdHU4ZXXSQc43DetbbSqq44nUbTX7KpSz3gUjghuCD5f7npmGaKp+McZCEYXNFZESit2gs6DlHcZ9DLS0NSVNUEHFIf08X96n+NMnJvE7PrRtcTwGJdbFTMn9a6g9KJtMqFYmlKktqUaEcagSKvd1HMrqa3QtbZqrMDtGcAgk+4esv8AlXkxrjTK56cXhj6UmM/8MHsuRjUfPsa7fyxwe2tlBRFQ9s51O30iCzNuBt4VyqPn2xR2RL1NGqTpsZID04tfD+mjJL78s/Rluxr6wXVw9M5Eg1RuN842ZWQRXse8cxLLdRlmnP8Avl48deKIbl7NdXRAQBdz09VK6zsx68Tk+r9p69/UJBKr5Djj3+c7fdcxIO2SR2228hilvjHEzNlMnBBBHoBn91IX9NbDVJi9jSLUxi/tEUj6Q8C4laQMy5TrOCUJ2RSwxloVpzlaYg6l/EG6b9fTJb4WXQoVUKazJFJJrbWobpqY0IZi0ih7XJ6iITWEjy8QWeWaFkIAxpZhjLrlW0bD6Puj4MKrYOT4myramX8QM7DRnJPTI7Ak9vSqvmbjFkA00FyrToQ41TwBJg03EEeNxGgZXS1W0fWXOo3LKANBCsdpzfw89Qi+TAVOlqdFZj0ZmbqRvAAJRdCJOiXRAkjMLhz7q1VaDlsoRGtvfUlQbgT8Of8AuZIseRbZNGUVhjJzk5OdtTOSSB5bVfxxhBgbDc+XYHy7CqSXn6wyifhnu9mfXbtsJeHodMSxIctbSXcgy3utYoDq6oBq+Nc6WhWcJeoWBtxECyYkVtPX1MI16ejJwx0Z0EaWyrMDVsqz9SPnCxqlDgBT8p74nxLGrG7HOKq+WuGNJMsYYgbu5ycAkYkfH5wQBceJIFYh43w/fTdAu0a4LSQJGsq2/ClCOpiBIkuWvQZQ6hfwZWbV1AWYuAcXsIo1k/D4FZmjEgFzAzZxxDWBH0maK2V4oMSh5SwuSxizoQlUrR0OBiDtqFIKHIOQeB7/ALTsnLN8Ik6m+AFjjHooCr8T2+2mbjnK9lfoiXUEchwAGPuuvf6EkeGB9M18/wD9NLFioN7FsX1H8JRVZWXgyhBKsTMY0YX5Vlt0Zii6hB1dVNvKXtQtF6ytfWyqJZejqubcYi1s0YwHzoCaQNWW8D2olUamM5iv9TubMovaZ/s4yjMllKkqjcRSnQ4z4JIcrKe3fSazXSbD2v8ADxjVfWfr/a4fDHm/oP10UQty+JdUumc5Y5M/Oyiiir4lhRRRUkhRRRUkhRRRUkhRRRUkhRRRUkhRRRUkhRRRUkn/2Q==" alt="..."/>
-          <p>General Content Here.</p>
+          <img class="img-circle img-medium pull-left" src="http://lorempixel.com/640/480/cats" />
+          <h3>Julie Adams</h3>
+          <p>Vice President of Sales</p>
+          <p><i class="fa fa-map-marker"></i>Irvine, CA</p>
         </div>
-        <div class="sumt-cardfooter">
-          <button type="button" class="btn btn-primary ">Button</button>
+        <div class="sumt-card-content">
+          <div class="progress">
+            <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">40%
+            </div>
+          </div>
+        </div>
+        <div class="sumt-card-content">
+          <button type="button" class="btn btn-primary pull-right">LEARNING PLAN</button>
         </div>
       </div>
       <div class="sumt-card">
         <div class="sumt-card-content">
-          <img class="img-circle img-medium" src="data:image/jpeg;base64,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" alt="..."/>
-          <p>General Content Here.</p>
+          <img class="img-circle img-medium pull-left" src="http://lorempixel.com/100/100/fashion" alt="..."/>
+          <p fake-paragraphs count="2">General Content Here.</p>
         </div>
-        <div class="sumt-cardfooter">
-          <button type="button" class="btn btn-primary ">Button</button>
+        <div class="sumt-card-content">
+          <button type="button" class="btn btn-primary pull-right">Button</button>
+        </div>
+      </div>
+      <div class="sumt-card card-vertical">
+        <div class="sumt-card-content">
+          <img class="img-circle img-medium center-block" src="http://lorempixel.com/640/480/cats" />
+        </div>
+        <div class="sumt-card-content">
+          <h3>Leadership Essentials</h3>
+          <ul class="list-unstyled">
+            <li>Leadership essentials and qualities</li>
+            <li>Leadership essentials and qualities</li>
+            <li>Leadership essentials and qualities</li>
+          </ul>
+        </div>
+        <div class="sumt-card-content">
+          <a href="#">View More</a>
         </div>
       </div>
     </div>
@@ -37,57 +68,36 @@
 <div class="sumt-cardContainer">
   <div class="sumt-card">
     <div class="sumt-card-content">
-      <img class="img-circle img-medium" src="myAwesomeImage.png" alt="..."/>
-      <p>General Content Here.</p>
+      <img class="img-circle img-medium pull-left" src="myAwesomeImage.png" alt="..."/>
+      <p>...</p>
+      <p>...</p>
     </div>
-    <div class="sumt-cardfooter">
-      <button type="button" class="btn btn-primary ">Button</button>
-    </div>
-  </div>
-  <div class="sumt-card">
     <div class="sumt-card-content">
-      <img class="img-circle img-medium" src="myAwesomeImage.png" alt="..."/>
-      <p>General Content Here.</p>
-    </div>
-    <div class="sumt-cardfooter">
-      <button type="button" class="btn btn-primary ">Button</button>
-    </div>
-  </div>
-  <div class="sumt-card">
-    <div class="sumt-card-content">
-      <img class="img-circle img-medium" src="myAwesomeImage.png" alt="..." />
-      <p>General Content Here.</p>
-    </div>
-    <div class="sumt-cardfooter">
-      <button type="button" class="btn btn-primary ">Button</button>
+      <button type="button" class="btn btn-primary pull-right">Button</button>
     </div>
   </div>
 </div>
   {% endhighlight %}
 
   <h2 id="cards-horizontal">Horizontal Example</h2>
-  <p>This example mimics the structure of an Org Chart tile. Custom configuration of the circle progress can be implemented as needed.</p>
+  <p>This example shows the basic the structure of a card which could appear in the organizational chart. Note the use of multiple <code>sumt-card-content</code> elements. These elements break areas into sections within the card. The &quot;header&quote;, or first section, uses the Bootstrap <code>pull-left</code> on the <code>img</code> element to pull it to the left side of the card. This allows the content to flow around the image. The user's name, inclosed in a <code>h3</code> element, is specially styled within the card. Also note that the <code>i</code> element has had a right margin applied so that text will not run up against it.</p>
   <div class="bs-example" data-example-id="cards-in-container">
-    <div style="width:350px;">
-      <div class="sumt-horizontalTile">
-        <div class="medcircleprogress circleprogress-8">
-          <div class="med-circle-mask"></div>
-          <div class="med-circle">
-            <img id="mediumImage" class="img-circle img-medium" src="http://lorempixel.com/640/480/cats">
+    <div class="sumt-cardContainer">
+      <div class="sumt-card">
+        <div class="sumt-card-content">
+          <img class="img-circle img-medium pull-left" src="http://lorempixel.com/640/480/cats" />
+          <h3>Julie Adams</h3>
+          <p>Vice President of Sales</p>
+          <p><i class="fa fa-map-marker"></i>Irvine, CA</p>
+        </div>
+        <div class="sumt-card-content">
+          <div class="progress">
+            <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">40%
+            </div>
           </div>
         </div>
-        <div class="sumt-horizontalTile-content">
-          <h4>Julie Adams</h4>
-          <h5>Vice President of Sales</h5>
-          <i class="fa fa-map-marker"></i><h5 class="location">Irvine, CA</h5>
-        </div>
-        <div class="progress">
-          <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">40%
-          </div>
-        </div>
-        <div class="sumt-horizontalTile-footer">
-          <a>Hyperlink</a>
-          <button type="button" class="btn btn-primary">LEARNING PLAN</button>
+        <div class="sumt-card-content clearfix">
+          <button type="button" class="btn btn-primary pull-right">LEARNING PLAN</button>
         </div>
       </div>
     </div>
@@ -95,55 +105,61 @@
   {% highlight html %}
 <div class="sumt-card">
   <div class="sumt-card-content">
-    <img id="img-circle img-medium" class="img-circle img-medium" src="http://lorempixel.com/640/480/cats" />
-    <h4>Julie Adams</h4>
-    <h5>Vice President of Sales</h5>
-    <i class="fa fa-map-marker"></i>
-    <h5 class="location">Irvine, CA</h5>
+    <img class="img-circle img-medium pull-left" src="http://lorempixel.com/640/480/cats" />
+    <h3>Julie Adams</h3>
+    <p>Vice President of Sales</p>
+    <p><i class="fa fa-map-marker"></i>Irvine, CA</p>
+  </div>
+  <div class="sumt-card-content">
     <div class="progress">
       <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">40%
       </div>
     </div>
   </div>
-  <div class="sumt-card-footer">
-    <a>Hyperlink</a>
-    <button type="button" class="btn btn-primary">LEARNING PLAN</button>
+  <div class="sumt-card-content clearfix">
+    <button type="button" class="btn btn-primary pull-right">LEARNING PLAN</button>
   </div>
 </div>
   {% endhighlight %}
 
   <h2 id="cards-vertical">Vertical Example</h2>
-  <p>Another example of employee card use, a vertical tile is useful for listing goals. Note that text too long
-  for the <code>&lt;h5&gt;</code> content area can be truncated with an ellipses.</p>
+  <p>A less common use of the card is to display a vertical list of data. When it is necessary to do this apply the card class as <code>sumt-card card-vertical</code> to have the card inherit the special vertical styling. The vertical card applies special styling to <code>ul</code> elements. All <code>li</code> elements in the list will gain a border. If a <code>h3</code> comes before the list an additional darker border is set on the top of the list. Also note the image in this vertical card is using the Bootstrap <code>center-block</code> utility class to center the image within the card.</p>
   <div class="bs-example" data-example-id="cards-in-container">
-    <div style="width:250px;">
-      <div class="sumt-verticalTile">
-        <div>
-          <img id="mediumImage" class="img-circle img-medium" src="http://lorempixel.com/640/480/cats" />
-          <h4>Leadership Essentials</h4>
+    <div class="sumt-cardContainer">
+      <div class="sumt-card card-vertical">
+        <div class="sumt-card-content">
+          <img class="img-circle img-medium center-block" src="http://lorempixel.com/640/480/cats" />
         </div>
-        <div class="sumt-verticalTile-content">
-          <h5>Leadership essentials and qualities</h5>
-          <h5>Leadership essentials web sessions</h5>
-          <h5>Leadership essentials and its impact on the workplace</h5>
+        <div class="sumt-card-content">
+          <h3>Leadership Essentials</h3>
+          <ul class="list-unstyled">
+            <li>Leadership essentials and qualities</li>
+            <li>Leadership essentials and qualities</li>
+            <li>Leadership essentials and qualities</li>
+          </ul>
         </div>
-        <a>View More</a>
+        <div class="sumt-card-content">
+          <a href="#">View More</a>
+        </div>
       </div>
     </div>
   </div>
   {% highlight html %}
-<div class="sumt-card vertical">
-  <div>
-    <img class="img-circle img-medium" src="http://lorempixel.com/640/480/cats" />
-    <h4>Leadership Essentials</h4>
+<div class="sumt-card card-vertical">
+  <div class="sumt-card-content">
+    <img class="img-circle img-medium center-block" src="http://lorempixel.com/640/480/cats" />
   </div>
   <div class="sumt-card-content">
-    <h5>Leadership essentials and qualities</h5>
-    <h5>Leadership essentials web sessions</h5>
-    <h5>Leadership essentials and its impact on the workplace</h5>
+    <h3>Leadership Essentials</h3>
+    <ul class="list-unstyled">
+      <li>Leadership essentials and qualities</li>
+      <li>Leadership essentials and qualities</li>
+      <li>Leadership essentials and qualities</li>
+    </ul>
   </div>
-  <a>View More</a>
+  <div class="sumt-card-content">
+    <a href="#">View More</a>
+  </div>
 </div>
   {% endhighlight %}
-
 </div>
