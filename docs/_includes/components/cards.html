@@ -1,13 +1,12 @@
 <div class="bs-docs-section">
   <h1 id="cards" class="page-header">Cards</h1>
   <p class="lead">When you don't want your DOM in a box you can put your DOM in a card. <small>Postage not needed!</small></p>
-  <p>Cards display detailed data in a flexible grid layout. Employee and activity information make good candidates for display in a card layout.</p>
-  <p>To create a card layout place a container with <code>sumt-cardContainer</code> onto your page. You can then add any number of elements with <code>sumt-card</code> class.</p>
-  <div class="bs-callout bs-callout-warning">
-    <h4>Not representative of pillar components</h4>
+  <div class="bs-callout bs-callout-danger">
+    <h4>Not representative of pillar implementations</h4>
     <p>The examples below show how content can appear in a card. You may notice that some of this content looks similar to pillar components. These examples should <strong>not</strong> be taken as a redline or how such a component should look like in the actual pillar. The foundation styles give a baseline for the card container and cards. The content within the cards is minimally styled so that each pillar may apply the necessary styles for its own unique set of information.</p>
   </div>
-
+  <p>Cards display detailed data in a flexible grid layout. Employee and activity information make good candidates for display in a card layout. To create a card layout place a container with <code>sumt-cardContainer</code> onto your page. You can then add any number of elements with the <code>sumt-card</code> class.</p>
+  <p>Remember, the examples shown here are of content with styling only applied from Foundation. When utilized within specific cases inside of pillars the content will, in most cases, require additional styles to make it appear as an organizational tile, an activity list, etc. Links, headers, and other elements which show left or top aligned may need to be centered or aligned in a different manner than what is shown here.</p>
   <h2 id="cards-example">Basic Example</h2>
   <p>Any content may be placed within multiple <code>sumt-card-content</code> elements. Certain elements pick up special styling which is unique to items within a card. The <code>p</code> element will loose its margin. The header tags will also have margin removed and applied depending on where they are in the card. For <code>img</code> elements you may use the Bootstrap utility class <code>pull-left</code> to make image appear on the left side of the card. To make a footer area add a <code>button</code> with an additional class of <code>pull-right</code> inside of the <code>sumt-card-content</code> element for right alignment.</p>
 
@@ -163,6 +162,4 @@
   </div>
 </div>
   {% endhighlight %}
-
-    <p>Remember, the examples shown above are of content with styling only applied from Foundation. When utilized within specific cases inside of pillars the content will, in most cases, require additional styles to make it appear as an organizational tile, an activity list, etc. Links, headers, and other elements which show left or top aligned may need to be centered or aligned in a different manner than what is shown here.</p>
 </div>
