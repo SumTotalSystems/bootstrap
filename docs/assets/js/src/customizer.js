@@ -62,42 +62,6 @@ window.onload = function () { // wait for load in a dumb way because B-0
     return match && decodeURIComponent(match[1].replace(/\+/g, ' '))
   }
 
-  function createGist(configJson, callback) {
-    var data = {
-      description: 'Bootstrap Customizer Config',
-      'public': true,
-      files: {
-        'config.json': {
-          content: configJson
-        }
-      }
-    }
-    $.ajax({
-      url: 'https://api.github.com/gists',
-      type: 'POST',
-      contentType: 'application/json; charset=UTF-8',
-      dataType: 'json',
-      data: JSON.stringify(data)
-    })
-    .success(function (result) {
-      var gistUrl = result.html_url;
-      var origin = window.location.protocol + '//' + window.location.host
-      var customizerUrl = origin + window.location.pathname + '?id=' + result.id
-      showSuccess('<strong>Success!</strong> Your configuration has been saved to <a href="' + gistUrl + '">' + gistUrl + '</a> ' +
-        'and can be revisited here at <a href="' + customizerUrl + '">' + customizerUrl + '</a> for further customization.')
-      history.replaceState(false, document.title, customizerUrl)
-      callback(gistUrl, customizerUrl)
-    })
-    .error(function (err) {
-      try {
-        showError('<strong>Ruh roh!</strong> Could not save gist file, configuration not saved.', err)
-      } catch (sameErr) {
-        // deliberately ignore the error
-      }
-      callback('<none>', '<none>')
-    })
-  }
-
   function getCustomizerData() {
     var vars = {}
 
@@ -154,8 +118,8 @@ window.onload = function () { // wait for load in a dumb way because B-0
     })
   }
 
-  function generateZip(css, js, fonts, config, complete) {
-    if (!css && !js) return showError('<strong>Ruh roh!</strong> No Bootstrap files selected.', new Error('no Bootstrap'))
+  function generateZip(css, config, complete) {
+    if (!css) return showError('<strong>Ruh roh!</strong> No CSS was created!.', new Error('no Bootstrap'))
 
     var zip = new JSZip()
 
@@ -163,20 +127,6 @@ window.onload = function () { // wait for load in a dumb way because B-0
       var cssFolder = zip.folder('css')
       for (var fileName in css) {
         cssFolder.file(fileName, css[fileName])
-      }
-    }
-
-    if (js) {
-      var jsFolder = zip.folder('js')
-      for (var jsFileName in js) {
-        jsFolder.file(jsFileName, js[jsFileName])
-      }
-    }
-
-    if (fonts) {
-      var fontsFolder = zip.folder('fonts')
-      for (var fontsFileName in fonts) {
-        fontsFolder.file(fontsFileName, fonts[fontsFileName], { base64: true })
       }
     }
 
@@ -208,32 +158,68 @@ window.onload = function () { // wait for load in a dumb way because B-0
 
   // Returns an Array of @import'd filenames in the order
   // in which they appear in the file.
-  function includedLessFilenames(lessFilename) {
-    var IMPORT_REGEX = /^@import \"(.*?)\";$/
-    var lessLines = __less[lessFilename].split('\n')
+  function includedLessFilenames(lessFilename, prefix) {
+    var IMPORT_REGEX = /^@import \"(.*?)\";/,
+        lessLines = '',
+        imports = [];
 
-    var imports = []
+    if(prefix != undefined) {
+      if(!__less[prefix + lessFilename]) console.log('oh no', prefix + lessFilename);
+      lessLines = __less[prefix + lessFilename].split('\n');
+    } else {
+      lessLines = __less[lessFilename].split('\n');
+    }
+
     $.each(lessLines, function (index, lessLine) {
       var match = IMPORT_REGEX.exec(lessLine)
       if (match) {
-        var importee = match[1]
-        var transitiveImports = includedLessFilenames(importee)
+        var importee = match[1],
+            path = prefix,
+            transitiveImports = [];
+
+        if(prefix != undefined) {
+          // get the current full 'path' of the importee
+          var lastSlash = importee.lastIndexOf('/');
+          if(lastSlash >= 0) {
+            path = prefix + importee.substring(0, lastSlash + 1);
+          }
+
+          // modify the importee's name to reflect the prefixed path.
+//          importee = prefix + importee;
+          imports.push(prefix + importee);
+          importee = importee.substring(lastSlash + 1);
+        }
+        else {
+          imports.push(importee);
+        }
+
+        if (path) {
+          transitiveImports = includedLessFilenames(importee, path);
+        } else {
+          transitiveImports = includedLessFilenames(importee);
+        }
+
         $.each(transitiveImports, function (index, transitiveImportee) {
           if ($.inArray(transitiveImportee, imports) === -1) {
             imports.push(transitiveImportee)
           }
         })
-        imports.push(importee)
       }
     })
 
     return imports
   }
 
-  function generateLESS(lessFilename, lessFileIncludes, vars) {
-    var lessSource = __less[lessFilename]
+  function generateLESS(lessFilename, lessFileIncludes, vars, prefix) {
+    var lessSource = '';
 
-    var lessFilenames = includedLessFilenames(lessFilename)
+    if(prefix != undefined) {
+      lessSource = __less[prefix + lessFilename];
+    } else {
+      lessSource = __less[lessFilename];
+    }
+
+    var lessFilenames = includedLessFilenames(lessFilename, prefix)
     $.each(lessFilenames, function (index, filename) {
       var fileInclude = lessFileIncludes[filename]
 
@@ -241,21 +227,24 @@ window.onload = function () { // wait for load in a dumb way because B-0
       // Core stylesheets like 'normalize.less' are not included in the form
       // since disabling them would wreck everything, and so their 'fileInclude'
       // will be 'undefined'.
-      if (fileInclude || (fileInclude == null))    lessSource += __less[filename]
+      if (fileInclude || (fileInclude == null))  {
+        lessSource += __less[filename]
+      }
 
       // Custom variables are added after Bootstrap variables so the custom
       // ones take precedence.
-      if (('variables.less' === filename) && vars) lessSource += generateCustomLess(vars)
+      if ((filename.indexOf('variables.less') >= 0) && vars) lessSource += generateCustomLess(vars)
     })
 
     lessSource = lessSource.replace(/@import[^\n]*/gi, '') // strip any imports
+
     return lessSource
   }
 
-  function compileLESS(lessSource, baseFilename, intoResult) {
+  function compileLESS(lessSource, baseFilename, intoResult, paths) {
     var promise = $.Deferred()
     var parser = new less.Parser({
-      paths: ['variables.less', 'mixins.less'],
+      paths: paths,
       optimization: 0,
       filename: baseFilename + '.css'
     })
@@ -281,15 +270,14 @@ window.onload = function () { // wait for load in a dumb way because B-0
     var promise = $.Deferred()
     var oneChecked = false
     var lessFileIncludes = {}
-    $('#less-section input').each(function () {
-      var $this = $(this)
-      var checked = $this.is(':checked')
-      lessFileIncludes[$this.val()] = checked
-
-      oneChecked = oneChecked || checked
-    })
-
-    if (!oneChecked) return false
+    var sumtLessFileIncludes = [];
+    for(var key in __less) {
+      if (key.indexOf('sumtotal') == 0) {
+        sumtLessFileIncludes[key] = key.indexOf('sumtotal/variables.less') == -1;
+      } else {
+        lessFileIncludes = key.indexOf('variables.less') == -1;
+      }
+    }
 
     var result = {}
     var vars = {}
@@ -300,13 +288,13 @@ window.onload = function () { // wait for load in a dumb way because B-0
       })
 
     var bsLessSource    = preamble + generateLESS('bootstrap.less', lessFileIncludes, vars)
-    var themeLessSource = preamble + generateLESS('theme.less',     lessFileIncludes, vars)
+    var sumtotalLessSource = generateLESS('foundation.less', sumtLessFileIncludes, vars, 'sumtotal/')
 
     var prefixer = autoprefixer({ browsers: __configBridge.autoprefixerBrowsers })
 
     $.when(
-      compileLESS(bsLessSource, 'bootstrap', result),
-      compileLESS(themeLessSource, 'bootstrap-theme', result)
+      compileLESS(bsLessSource, 'bootstrap', result, ['variables.less', 'mixins.less']),
+      compileLESS(sumtotalLessSource, 'foundation', result, ['sumtotal/variables.less', 'sumtotal/mixins.less'])
     ).done(function () {
       for (var key in result) {
         result[key] = prefixer.process(result[key]).css
@@ -318,44 +306,6 @@ window.onload = function () { // wait for load in a dumb way because B-0
     })
 
     return promise.promise()
-  }
-
-  function uglify(js) {
-    var ast = UglifyJS.parse(js)
-    ast.figure_out_scope()
-
-    var compressor = UglifyJS.Compressor()
-    var compressedAst = ast.transform(compressor)
-
-    compressedAst.figure_out_scope()
-    compressedAst.compute_char_frequency()
-    compressedAst.mangle_names()
-
-    var stream = UglifyJS.OutputStream()
-    compressedAst.print(stream)
-
-    return stream.toString()
-  }
-
-  function generateJS(preamble) {
-    var $checked = $('#plugin-section input:checked')
-    var jqueryCheck = __configBridge.jqueryCheck.join('\n')
-    var jqueryVersionCheck = __configBridge.jqueryVersionCheck.join('\n')
-
-    if (!$checked.length) return false
-
-    var js = $checked
-      .map(function () { return __js[this.value] })
-      .toArray()
-      .join('\n')
-
-    preamble = cw + preamble
-    js = jqueryCheck + jqueryVersionCheck + js
-
-    return {
-      'bootstrap.js': preamble + js,
-      'bootstrap.min.js': preamble + uglify(js)
-    }
   }
 
   function removeImportAlerts() {
@@ -407,19 +357,7 @@ window.onload = function () { // wait for load in a dumb way because B-0
   $('#import-file-select').on('change', handleConfigFileSelect)
   $('#import-manual-trigger').on('click', removeImportAlerts)
 
-  var inputsComponent = $('#less-section input')
-  var inputsPlugin    = $('#plugin-section input')
   var inputsVariables = $('#less-variables-section input')
-
-  $('#less-section .toggle').on('click', function (e) {
-    e.preventDefault()
-    inputsComponent.prop('checked', !inputsComponent.is(':checked'))
-  })
-
-  $('#plugin-section .toggle').on('click', function (e) {
-    e.preventDefault()
-    inputsPlugin.prop('checked', !inputsPlugin.is(':checked'))
-  })
 
   $('#less-variables-section .toggle').on('click', function (e) {
     e.preventDefault()
@@ -458,24 +396,19 @@ window.onload = function () { // wait for load in a dumb way because B-0
 
     $compileBtn.attr('disabled', 'disabled')
 
-    createGist(configJson, function (gistUrl, customizerUrl) {
-      configData.customizerUrl = customizerUrl
-      configJson = JSON.stringify(configData, null, 2)
-
-      var preamble = '/*!\n' +
-        ' * Generated using the Bootstrap Customizer (' + customizerUrl + ')\n' +
-        ' * Config saved to config.json and ' + gistUrl + '\n' +
+    var preamble = '/*!\n' +
+        ' * Generated using the Foundation and Bootstrap Customizer\n' +
         ' */\n'
 
-      $.when(
-        generateCSS(preamble),
-        generateJS(preamble),
-        generateFonts()
-      ).done(function (css, js, fonts) {
-        generateZip(css, js, fonts, configJson, function (blob) {
-          $compileBtn.removeAttr('disabled')
-          setTimeout(function () { saveAs(blob, 'bootstrap.zip') }, 0)
-        })
+    $.when(
+      generateCSS(preamble)
+    ).done(function (css) {
+      $compileBtn.removeAttr('disabled')
+      generateZip(css, configJson, function (blob) {
+        $compileBtn.removeAttr('disabled');
+        showSuccess('<strong>Success!</strong> Your configuration has been saved to the config.json file included in your zip file. ' +
+        'You can upload this file to this site to revisit your customizations at any time.')
+        setTimeout(function () { saveAs(blob, 'foundation.zip') }, 0)
       })
     })
   });
