@@ -1623,3 +1623,16 @@ h1[id] {
   -webkit-box-shadow: 0 0 8px rgba(82,168,236,.6);
           box-shadow: 0 0 8px rgba(82,168,236,.6);
 }
+
+.aside.search {
+  overflow-x: hidden;
+  background-color: transparent;
+}
+
+.aside.search .asideCategoryContainer a {
+  float: inherit;
+}
+
+.aside.search .asideCategoryContainer h5 {
+  margin-left: inherit;
+}

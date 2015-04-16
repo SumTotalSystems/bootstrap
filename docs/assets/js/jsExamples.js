@@ -18,7 +18,8 @@ angular.module('Examples', ['SumTotalComponents', 'mgcrea.ngStrap', 'ngAnimate',
     this._dataStore = {
       userInfo: null,
       userData: null,
-      sidePanelData: null
+      sidePanelData: null,
+      searchResults: []
     };
 
     this.colorsHash = ["#1fbba6", "#ffc600", "#f27c2a"];
@@ -692,6 +693,14 @@ angular.module('Examples', ['SumTotalComponents', 'mgcrea.ngStrap', 'ngAnimate',
 
       return deferred.promise;
     };
+
+    this.searchResults = function(results) {
+      if(results) {
+        this._dataStore.searchResults = results;
+      }
+
+      return this._dataStore.searchResults;
+    }
   }])
   .factory('examplePersonData', ['$q', function ($q) {
     var deferred = $q.defer();
@@ -712,15 +721,15 @@ angular.module('Examples', ['SumTotalComponents', 'mgcrea.ngStrap', 'ngAnimate',
 
     return deferred.promise;
     }])
-  .controller('navSearch', ['$scope', '$window', function ($scope, $window) {
+  .controller('navSearch', ['$scope', '$window', 'ExamplesData', '$aside', function ($scope, $window, examplesData, $aside) {
     $scope.searchText = '';
-    $scope.results = [];
+    $scope.searchResults = [];
 
     $scope.resultHandler = function (results) {
       console.log(results);
       if (!results || !results.length || results.length > 1) {
-        $scope.results = results;
-        angular.element('#SearchResultsSlideout').scope().openSlideOut();
+        $scope.searchResults = results;
+        $aside({title: 'SEARCH RESULTS', scope: $scope, template: '/assets/templates/searchResults.html'})
       } else if (results && results.length == 1) {
         console.log('single result!', results);
         var navUrl = results[0]._source.url.replace(/\\/g, '/');
@@ -1292,7 +1301,7 @@ angular.module('Examples', ['SumTotalComponents', 'mgcrea.ngStrap', 'ngAnimate',
       $scope.decrementStep();
     };
   })
-.controller('ExampleWizardController', function ($scope) {
+  .controller('ExampleWizardController', function ($scope) {
     $scope.activeStep = 1;
 
     $scope.goNext = function () {

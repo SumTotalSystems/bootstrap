@@ -1,0 +1,14 @@
+<div class="aside search" tabindex="-1" role="dialog">
+  <div class="closeTab"><i class="fa fa-times" ng-click="$hide()"></i>
+  </div>
+  <div class="orgSlideoutContainer">
+    <h3><span ng-bind-html="title"></span> ({{searchResults.length}})</h3>
+    <div class="asideCategoryContainer">
+      <h5>Topics ({{searchResults.length}})</h5>
+      <div class="asideItemContainer" ng-repeat="result in searchResults">
+        <h5><a ng-href="{{result._source.url}}">{{result._source.key}}</a> <small>{{result._source.title}}</small></h5>
+        <em><p ng-show="result._source.description">{{result._source.description}}</p></em>
+      </div>
+    </div>
+  </div>
+</div>
