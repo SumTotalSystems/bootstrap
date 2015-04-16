@@ -4,8 +4,6 @@ title: Customize and download
 slug: customize
 lead: Customize Bootstrap's components, Less variables, and jQuery plugins to get your very own version.
 ---
-
-
 <!-- less.js isn't IE8-compatible and throws an exception during initialization, so our Blob compatibility check and error messaging code never get called in that case.
   So we use a conditional comment instead to inform folks about the lack of IE8 support.
 -->
@@ -26,7 +24,8 @@ lead: Customize Bootstrap's components, Less variables, and jQuery plugins to ge
 <!-- Customizer form -->
 
 <div id="defaults-change-alert" class="alert alert-warning alert-dismissible" role="alert">
-  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span>
+  </button>
   <strong>Heads up!</strong> The default value for <code>@brand-primary</code> has changed in the latest release to improve contrast and accessibility. Please double check your compiled CSS when upgrading.
 </div>
 
@@ -36,7 +35,10 @@ lead: Customize Bootstrap's components, Less variables, and jQuery plugins to ge
       <span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span>
     </div>
     <p class="lead">Have an existing configuration? Upload your <code>config.json</code> to import it.</p>
-    <p>Drag and drop here, or <label id="import-manual-trigger" class="btn-link">manually upload<input type="file" id="import-file-select" class="hidden"></label>.</p>
+    <p>Drag and drop here, or
+      <label id="import-manual-trigger" class="btn-link">manually upload
+        <input type="file" id="import-file-select" class="hidden">
+      </label>.</p>
     <hr>
     <p><strong>Don't have one?</strong> That's okay—just start customizing the fields below.</p>
   </div>
@@ -52,16 +54,36 @@ lead: Customize Bootstrap's components, Less variables, and jQuery plugins to ge
   </div>
 
   <div class="bs-docs-section">
+    <h1 class="page-header">Using Customized Foundation Files</h1>
+
+    <p class="lead">Using the customized files requires little extra work.</p>
+    <p>The zip file which is downloaded from this site will contain a folder called <em>css</em>. This folder contains two sets of style files. The <code>.css</code> file contains a full processed stylesheet and the <code>.min.css</code> is a minified version. The full version is good for development use and the minified version can be used in production. Place the files in the following order:</p>
+    <ol>
+      <li><code>vendor.css</code>
+      </li>
+      <li><code>foundation.css</code>
+      </li>
+      <li><code>bootstrap-customized.css</code>
+      </li>
+      <li><code>foundation-customized.css</code>
+      </li>
+    </ol>
+  </div>
+
+  <div class="bs-docs-section">
     <h1 id="download" class="page-header">Download</h1>
 
     <p class="lead">Hooray! Your custom version of Bootstrap is now ready to be compiled. Just click the button below to finish the process.</p>
     <div id="firefox-customizer-alert" class="alert alert-warning alert-dismissible fade in" role="alert">
-      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span>
+      </button>
       <h4>Warning for Firefox users!</h4>
       <p>Due to a possible browser bug, the customizer download randomly fails in Firefox. If this happens to you, we advise either retrying in Firefox or using one of the other browsers supported by the Customizer (Chrome or IE10+).</p>
     </div>
     <div class="bs-customize-download">
       <button type="submit" id="btn-compile" disabled class="btn btn-block btn-lg btn-outline" onclick="ga('send', 'event', 'Customize', 'Download', 'Customize and Download');">Compile and Download</button>
     </div>
-  </div><!-- /download -->
+  </div>
+  <!-- /download -->
+
 </form>

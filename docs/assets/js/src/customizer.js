@@ -293,8 +293,8 @@ window.onload = function () { // wait for load in a dumb way because B-0
     var prefixer = autoprefixer({ browsers: __configBridge.autoprefixerBrowsers })
 
     $.when(
-      compileLESS(bsLessSource, 'bootstrap', result, ['variables.less', 'mixins.less']),
-      compileLESS(sumtotalLessSource, 'foundation', result, ['sumtotal/variables.less', 'sumtotal/mixins.less'])
+      compileLESS(bsLessSource, 'bootstrap-customized', result, ['variables.less', 'mixins.less']),
+      compileLESS(sumtotalLessSource, 'foundation-customized', result, ['sumtotal/variables.less', 'sumtotal/mixins.less'])
     ).done(function () {
       for (var key in result) {
         result[key] = prefixer.process(result[key]).css
