@@ -56,4 +56,37 @@
   </div>
 </div>
   {% endhighlight %}
+
+  <h2>Right Aligned Buttons Only</h2>
+  <p>In the example above buttons are placed both on the left and right portions of the toolbar. If using only right aligned buttons this will cause the toolbar to collapse because all of the content in the toolbar would be floated to the right. Bootstrap/Foundation provides an easy fix for this. Using the <code>clearfix</code> class <a href="/css/#helper-classes-clearfix">(described here in more detail)</a> on the toolbar will prevent this from happening.</p>
+  <div class="bs-example">
+   <p>Without <code>clearfix</code>.</p>
+    <div class="sumt-toolbar">
+      <div class="pull-right">
+        <select class="form-control">
+          <option>Test</option>
+        </select>
+        <button class="btn"><i class="fa fa-close"></i>Button</button>
+      </div>
+    </div>
+    <p style="margin-top:25px;"><strong>With</strong> <code>clearfix</code>.</p>
+    <div class="sumt-toolbar clearfix">
+      <div class="pull-right">
+        <select class="form-control">
+          <option>Test</option>
+        </select>
+        <button class="btn"><i class="fa fa-close"></i>Button</button>
+      </div>
+</div>
+  </div>
+  {% highlight html %}
+<div class="sumt-toolbar clearfix">
+  <div class="pull-right">
+    <select class="form-control">
+      <option>Test</option>
+    </select>
+    <button class="btn"><i class="fa fa-close"></i>Button</button>
+  </div>
+</div>
+  {% endhighlight %}
 </div>
