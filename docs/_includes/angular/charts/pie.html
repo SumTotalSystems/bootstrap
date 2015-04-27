@@ -1,24 +1,26 @@
 <!DOCTYPE html>
 <div class="bs-docs-section" ng-controller="PieChartCtrl">
   <h1 id="Pie" class="page-header">Pie</h1>
+  <p class="lead">A Pie, a Donut, both are tasty!</p>
+  <p>The <code>sumt-pie-chart</code> directive can be used to bake a pie or a donut. By default the directive will create a donut chart. The inner radius is set to be <code>87%</code>. This can be adjusted through the <code>inner-radius</code> attribute. The smaller the percentage the thicker the donut will appear. A value of <code>0</code> passed in will cause the chart to be drawn as a pie.</p>
   <div class="bs-example">
-    <div sumt-pie-chart chart-data="pieChartData" chart-config="pieConfig" cur-theme="curTheme" chart-height="400px" chart-width="300px" value-field="value" title-field="label" animate="false"></div>
+    <div sumt-pie-chart chart-data="pieChartData" chart-config="pieConfig" cur-theme="curTheme" chart-height="400px" inner-radius="0" chart-width="300px" value-field="value" title-field="label" animate="false"></div>
     <button class="btn btn-default sumt-btn-default">Animate</button>
   </div>
   {% highlight html %}
   <div ng-controller="MyController">
-    <div sumt-pie-chart chart-data="pieChartData" chart-config="pieConfig" cur-theme="curTheme" chart-height="400px" chart-width="300px" value-field="value" title-field="label" animate="false"></div>
+    <div sumt-pie-chart chart-data="pieChartData" chart-config="pieConfig" cur-theme="curTheme" inner-radius="0" chart-height="400px" chart-width="300px" inner-radius="0" value-field="value" title-field="label" animate="false"></div>
   </div>
   {% endhighlight %}
 
   <h1 id="Donut" class="page-header">Donut</h1>
   <div class="bs-example">
-    <div sumt-pie-chart chart-data="pieConfig.barData" chart-config="pieConfig" donut-label-value="{{percentage}}" donut-label="true" inner-radius="65%" donut-label-color="#e8e8e8" cur-theme="curTheme" chart-height="400px" chart-width="300px" value-field="value" title-field="label" animate="false"></div>
+    <div sumt-pie-chart chart-data="pieConfig.barData" chart-config="pieConfig" donut-label-value="{{percentage}}" donut-label="true" donut-label-color="#e8e8e8" cur-theme="curTheme" chart-height="400px" chart-width="300px" value-field="value" title-field="label" animate="false"></div>
     <button class="btn btn-default sumt-btn-default">Animate</button>
   </div>
   {% highlight html %}
   <div ng-controller="MyController">
-    <div sumt-pie-chart chart-data="pieConfig.barData" chart-config="pieConfig" donut-label-value="{{percentage}}" donut-label="true" inner-radius="65%" donut-label-color="#e8e8e8" cur-theme="curTheme" chart-height="400px" chart-width="300px" value-field="value" title-field="label" animate="false"></div>
+    <div sumt-pie-chart chart-data="pieConfig.barData" chart-config="pieConfig" donut-label-value="{{percentage}}" donut-label="true" donut-label-color="#e8e8e8" cur-theme="curTheme" chart-height="400px" chart-width="300px" value-field="value" title-field="label" animate="false"></div>
   </div>
   {% endhighlight %}
 </div>
