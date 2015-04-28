@@ -1,6 +1,20 @@
 <div class="bs-docs-section">
   <h1 id="fontawesome" class="page-header">Font Awesome</h1>
-
+  <p class="lead">Font Awesome gives you scalable vector icons that can instantly be customized — size, color, drop shadow, and anything that can be done with the power of CSS.</p>
+  <div class="row">
+    <div class="col-md-4">
+     <h3><i class="fa fa-flag"></i> One Font, 500+ Icons</h3>
+      In a single collection, Font Awesome is a pictographic language of web-related actions.
+    </div>
+    <div class="col-md-4">
+     <h3><i class="fa fa-pencil"></i> CSS Control</h3>
+      Easily style icon color, size, shadow, and anything that's possible with CSS.
+    </div>
+    <div class="col-md-4">
+     <h3><i class="fa fa-arrows-alt"></i> Infinite Scalability</h3>
+      Scalable vector graphics means every icon looks awesome at any size.
+    </div>
+  </div>
   <h2 id="fontawesome-icons">Most Common Icons</h2>
   <p>Below is a list of the most common icons used throughout our suite.  Additional icons available from <a target="_blank" href="http://fontawesome.io/">FontAwesome</a>, more examples listed below in the Available Font icons section. </p>
   <div class="bs-glyphicons">
@@ -48,6 +62,151 @@
 <i class="fa fa-search" aria-hidden="true"></i>
 {% endhighlight %}
 
+  <h2 id="fontawesome-fixed-width">Fixed Width Icons</h2>
+  <p>Use <code>fa-fw</code> to set icons at a fixed width. Great to use when different icon widths throw off alignment. Especially useful in things like nav lists &amp; list groups.</p>
+  <div class="bs-example">
+    <div class="list-group">
+      <a class="list-group-item" href="#"><i class="fa fa-home fa-fw"></i>&nbsp; Home</a>
+      <a class="list-group-item" href="#"><i class="fa fa-book fa-fw"></i>&nbsp; Library</a>
+      <a class="list-group-item" href="#"><i class="fa fa-pencil fa-fw"></i>&nbsp; Applications</a>
+      <a class="list-group-item" href="#"><i class="fa fa-cog fa-fw"></i>&nbsp; Settings</a>
+    </div>
+  </div>
+  {% highlight html %}
+<div class="list-group">
+  <a class="list-group-item" href="#"><i class="fa fa-home fa-fw"></i>&nbsp; Home</a>
+  <a class="list-group-item" href="#"><i class="fa fa-book fa-fw"></i>&nbsp; Library</a>
+  <a class="list-group-item" href="#"><i class="fa fa-pencil fa-fw"></i>&nbsp; Applications</a>
+  <a class="list-group-item" href="#"><i class="fa fa-cog fa-fw"></i>&nbsp; Settings</a>
+</div>
+  {% endhighlight %}
+
+  <h2 id="fontawesome-list-icons">List Icons</h2>
+  <p>Use <code>fa-ul</code> and <code>fa-li</code> to easily replace default bullets in unordered lists.</p>
+  <div class="bs-example">
+    <ul class="fa-ul">
+      <li><i class="fa-li fa fa-check-square"></i>List icons</li>
+      <li><i class="fa-li fa fa-check-square"></i>can be used</li>
+      <li><i class="fa-li fa fa-spinner fa-spin"></i>as bullets</li>
+      <li><i class="fa-li fa fa-square"></i>in lists</li>
+    </ul>
+  </div>
+  {% highlight html %}
+<ul class="fa-ul">
+  <li><i class="fa-li fa fa-check-square"></i>List icons</li>
+  <li><i class="fa-li fa fa-check-square"></i>can be used</li>
+  <li><i class="fa-li fa fa-spinner fa-spin"></i>as bullets</li>
+  <li><i class="fa-li fa fa-square"></i>in lists</li>
+</ul>
+  {% endhighlight %}
+
+  <h2 id="fontawesome-bordered-pulled">Bordered &amp; Pulled Icons</h2>
+  <p>Use <code>fa-border</code> and <code>pull-right</code> or <code>pull-left</code> for easy pull quotes or article icons.</p>
+  <div class="bs-example">
+    <p style="max-width: 300px;">
+      <i class="fa fa-quote-left fa-3x pull-left fa-border"></i>...tomorrow we will run faster, stretch out our arms farther... And then one fine morning— So we beat on, boats against thecurrent, borne back ceaselessly into the past.</p>
+  </div>
+  {% highlight html %}
+<i class="fa fa-quote-left fa-3x pull-left fa-border"></i>
+...tomorrow we will run faster, stretch out our arms farther...
+And then one fine morning— So we beat on, boats against the
+current, borne back ceaselessly into the past.
+  {% endhighlight %}
+
+  <h2 id="fontawesome-animated">Animated Icons</h2>
+  <p>Use the <code>fa-spin</code> class to get any icon to rotate, and use <code>fa-pulse</code> to have it rotate with 8 steps. Works well with <code>fa-spinner</code>, <code>fa-refresh</code>, and <code>fa-cog</code>. </p>
+  <div class="bs-example">
+    <p>
+      <i class="fa fa-spinner fa-spin fa-3x fa-fw margin-bottom"></i>
+      <i class="fa fa-circle-o-notch fa-spin fa-3x fa-fw margin-bottom"></i>
+      <i class="fa fa-refresh fa-spin fa-3x fa-fw margin-bottom"></i>
+      <i class="fa fa-cog fa-spin fa-3x fa-fw margin-bottom"></i>
+      <i class="fa fa-spinner fa-pulse fa-3x fa-fw margin-bottom"></i>
+    </p>
+  </div>
+  {% highlight html %}
+<p>
+  <i class="fa fa-spinner fa-spin fa-3x fa-fw margin-bottom"></i>
+  <i class="fa fa-circle-o-notch fa-spin fa-3x fa-fw margin-bottom"></i>
+  <i class="fa fa-refresh fa-spin fa-3x fa-fw margin-bottom"></i>
+  <i class="fa fa-cog fa-spin fa-3x fa-fw margin-bottom"></i>
+  <i class="fa fa-spinner fa-pulse fa-3x fa-fw margin-bottom"></i>
+</p>
+  {% endhighlight %}
+
+  <h2 id="fontawesome-rotated">Rotated &amp; Flipped</h2>
+  <p>To arbitrarily rotate and flip icons, use the <code>fa-rotate-*</code> and <code>fa-flip-*</code> classes.</p>
+  <div class="bs-example">
+    <p style="font-size: 18px;">
+      <i class="fa fa-shield"></i>&nbsp; normal<br>
+      <i class="fa fa-shield fa-rotate-90"></i>&nbsp; fa-rotate-90<br>
+      <i class="fa fa-shield fa-rotate-180"></i>&nbsp; fa-rotate-180<br>
+      <i class="fa fa-shield fa-rotate-270"></i>&nbsp; fa-rotate-270<br>
+      <i class="fa fa-shield fa-flip-horizontal"></i>&nbsp; fa-flip-horizontal<br>
+      <i class="fa fa-shield fa-flip-vertical"></i>&nbsp; fa-flip-vertical
+    </p>
+  </div>
+  {% highlight html %}
+<p style="font-size: 18px;">
+  <i class="fa fa-shield"></i>&nbsp; normal<br>
+  <i class="fa fa-shield fa-rotate-90"></i>&nbsp; fa-rotate-90<br>
+  <i class="fa fa-shield fa-rotate-180"></i>&nbsp; fa-rotate-180<br>
+  <i class="fa fa-shield fa-rotate-270"></i>&nbsp; fa-rotate-270<br>
+  <i class="fa fa-shield fa-flip-horizontal"></i>&nbsp; fa-flip-horizontal<br>
+  <i class="fa fa-shield fa-flip-vertical"></i>&nbsp; fa-flip-vertical
+</p>
+  {% endhighlight %}
+
+  <h2 id="fontawesome-stacked">Stacked</h2>
+  <p>To stack multiple icons, use the <code>fa-stack</code> class on the parent, the <code>fa-stack-1x</code> for the regularly sized icon, and <code>fa-stack-2x</code> for the larger icon. <code>fa-inverse</code> can be used as an alternative icon color. You can even throw larger icon classes on the parent to get further control of sizing.</p>
+  <div class="bs-example">
+    <div class="margin-bottom">
+      <span class="fa-stack fa-lg">
+        <i class="fa fa-square-o fa-stack-2x"></i>
+        <i class="fa fa-twitter fa-stack-1x"></i>
+      </span>
+      fa-twitter on fa-square-o<br>
+      <span class="fa-stack fa-lg">
+        <i class="fa fa-circle fa-stack-2x"></i>
+        <i class="fa fa-flag fa-stack-1x fa-inverse"></i>
+      </span>
+      fa-flag on fa-circle<br>
+      <span class="fa-stack fa-lg">
+        <i class="fa fa-square fa-stack-2x"></i>
+        <i class="fa fa-terminal fa-stack-1x fa-inverse"></i>
+      </span>
+      fa-terminal on fa-square<br>
+      <span class="fa-stack fa-lg">
+        <i class="fa fa-camera fa-stack-1x"></i>
+        <i class="fa fa-ban fa-stack-2x text-danger"></i>
+      </span>
+      fa-ban on fa-camera
+    </div>
+  </div>
+  {% highlight html %}
+<div class="margin-bottom">
+  <span class="fa-stack fa-lg">
+    <i class="fa fa-square-o fa-stack-2x"></i>
+    <i class="fa fa-twitter fa-stack-1x"></i>
+  </span>
+  fa-twitter on fa-square-o<br>
+  <span class="fa-stack fa-lg">
+    <i class="fa fa-circle fa-stack-2x"></i>
+    <i class="fa fa-flag fa-stack-1x fa-inverse"></i>
+  </span>
+  fa-flag on fa-circle<br>
+  <span class="fa-stack fa-lg">
+    <i class="fa fa-square fa-stack-2x"></i>
+    <i class="fa fa-terminal fa-stack-1x fa-inverse"></i>
+  </span>
+  fa-terminal on fa-square<br>
+  <span class="fa-stack fa-lg">
+    <i class="fa fa-camera fa-stack-1x"></i>
+    <i class="fa fa-ban fa-stack-2x text-danger"></i>
+  </span>
+  fa-ban on fa-camera
+</div>
+  {% endhighlight %}
 
   <h2 id="fontawesome-examples">Examples</h2>
   <p>Use them in buttons, button groups for a toolbar, navigation, or prepended form inputs.</p>
@@ -66,27 +225,107 @@
       <button type="button" class="btn btn-default btn-sm"><i class="fa fa-star" aria-hidden="true"></i> Star</button>
       <button type="button" class="btn btn-default btn-xs"><i class="fa fa-star" aria-hidden="true"></i> Star</button>
     </div>
-  </div>
-{% highlight html %}
-<button type="button" class="btn btn-default" aria-label="Left Align">
-  <i class="fa fa-align-left" aria-hidden="true"></i>
-</button>
+    <a class="btn btn-danger" href="#">
+      <i class="fa fa-trash-o fa-lg"></i> Delete</a>
+    <a class="btn btn-default btn-sm" href="#">
+      <i class="fa fa-cog"></i> Settings</a>
 
-<button type="button" class="btn btn-default btn-lg">
-  <i class="fa fa-star" aria-hidden="true"></i> Star
-</button>
+    <a class="btn btn-lg btn-success" href="#">
+      <i class="fa fa-flag fa-2x pull-left"></i> Font Awesome<br>Version 4.3.0</a>
+
+    <div class="btn-group">
+      <a class="btn btn-default" href="#"><i class="fa fa-align-left"></i></a>
+      <a class="btn btn-default" href="#"><i class="fa fa-align-center"></i></a>
+      <a class="btn btn-default" href="#"><i class="fa fa-align-right"></i></a>
+      <a class="btn btn-default" href="#"><i class="fa fa-align-justify"></i></a>
+    </div>
+
+    <div class="input-group margin-bottom-sm">
+      <span class="input-group-addon"><i class="fa fa-envelope-o fa-fw"></i></span>
+      <input class="form-control" type="text" placeholder="Email address">
+    </div>
+    <div class="input-group">
+      <span class="input-group-addon"><i class="fa fa-key fa-fw"></i></span>
+      <input class="form-control" type="password" placeholder="Password">
+    </div>
+
+    <div class="btn-group open">
+      <a class="btn btn-primary" href="#"><i class="fa fa-user fa-fw"></i> User</a>
+      <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#">
+        <span class="fa fa-caret-down"></span></a>
+      <ul class="dropdown-menu">
+        <li><a href="#"><i class="fa fa-pencil fa-fw"></i> Edit</a></li>
+        <li><a href="#"><i class="fa fa-trash-o fa-fw"></i> Delete</a></li>
+        <li><a href="#"><i class="fa fa-ban fa-fw"></i> Ban</a></li>
+        <li class="divider"></li>
+        <li><a href="#"><i class="i"></i> Make admin</a></li>
+      </ul>
+    </div>
+  </div>
+  {% highlight html %}
+<div class="btn-toolbar" role="toolbar">
+  <div class="btn-group">
+    <button type="button" class="btn btn-default" aria-label="Left Align"><i class="fa fa-align-left" aria-hidden="true"></i></button>
+    <button type="button" class="btn btn-default" aria-label="Center Align"><i class="fa fa-align-center" aria-hidden="true"></i></button>
+    <button type="button" class="btn btn-default" aria-label="Right Align"><i class="fa fa-align-right" aria-hidden="true"></i></button>
+    <button type="button" class="btn btn-default" aria-label="Justify"><i class="fa fa-align-justify" aria-hidden="true"></i></button>
+  </div>
+</div>
+<div class="btn-toolbar" role="toolbar">
+  <button type="button" class="btn btn-default btn-lg"><i class="fa fa-star" aria-hidden="true"></i> Star</button>
+  <button type="button" class="btn btn-default"><i class="fa fa-star" aria-hidden="true"></i> Star</button>
+  <button type="button" class="btn btn-default btn-sm"><i class="fa fa-star" aria-hidden="true"></i> Star</button>
+  <button type="button" class="btn btn-default btn-xs"><i class="fa fa-star" aria-hidden="true"></i> Star</button>
+</div>
+<a class="btn btn-danger" href="#">
+  <i class="fa fa-trash-o fa-lg"></i> Delete</a>
+<a class="btn btn-default btn-sm" href="#">
+  <i class="fa fa-cog"></i> Settings</a>
+
+<a class="btn btn-lg btn-success" href="#">
+  <i class="fa fa-flag fa-2x pull-left"></i> Font Awesome<br>Version 4.3.0</a>
+
+<div class="btn-group">
+  <a class="btn btn-default" href="#"><i class="fa fa-align-left"></i></a>
+  <a class="btn btn-default" href="#"><i class="fa fa-align-center"></i></a>
+  <a class="btn btn-default" href="#"><i class="fa fa-align-right"></i></a>
+  <a class="btn btn-default" href="#"><i class="fa fa-align-justify"></i></a>
+</div>
+
+<div class="input-group margin-bottom-sm">
+  <span class="input-group-addon"><i class="fa fa-envelope-o fa-fw"></i></span>
+  <input class="form-control" type="text" placeholder="Email address">
+</div>
+<div class="input-group">
+  <span class="input-group-addon"><i class="fa fa-key fa-fw"></i></span>
+  <input class="form-control" type="password" placeholder="Password">
+</div>
+
+<div class="btn-group open">
+  <a class="btn btn-primary" href="#"><i class="fa fa-user fa-fw"></i> User</a>
+  <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#">
+    <span class="fa fa-caret-down"></span></a>
+  <ul class="dropdown-menu">
+    <li><a href="#"><i class="fa fa-pencil fa-fw"></i> Edit</a></li>
+    <li><a href="#"><i class="fa fa-trash-o fa-fw"></i> Delete</a></li>
+    <li><a href="#"><i class="fa fa-ban fa-fw"></i> Ban</a></li>
+    <li class="divider"></li>
+    <li><a href="#"><i class="i"></i> Make admin</a></li>
+  </ul>
+</div>
 {% endhighlight %}
+
   <p>An icon used in an <a href="#alerts">alert</a> to convey that it's an error message, with additional <code>.sr-only</code> text to convey this hint to users of assistive technologies.</p>
   <div class="bs-example" data-example-id="glyphicons-accessibility">
     <div class="alert alert-danger" role="alert">
-      <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+      <span class="fa fa-exclamation-triangle" aria-hidden="true"></span>
       <span class="sr-only">Error:</span>
       Enter a valid email address
     </div>
   </div>
 {% highlight html %}
 <div class="alert alert-danger" role="alert">
-  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+  <span class="fa fa-exclamation-triangle" aria-hidden="true"></span>
   <span class="sr-only">Error:</span>
   Enter a valid email address
 </div>
