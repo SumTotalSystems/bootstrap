@@ -1,0 +1,210 @@
+<div class="bs-docs-section">   
+  <h1 id="tree" class="page-header">AngularUI Tree</h1>
+  <h2 id="tree-example">Example</h2>
+    
+  <p>This collapsable tree structure is powered by Angular-UI-Tree, and can be built with drag and drop support. The            SumTotal component has drag and drop disabled by default. It is fed a data set via a JSON object in the scope of the   controller. For more information on how to use the tree, please <a href="https://github.com/angular-ui-tree/angular-ui-  tree">visit their Github</a>, and you can <a href="http://jimliu.github.io/angular-ui-tree/">view a demo</a>.</p>
+    
+  <div ng-app="TreeApp">    
+    <div class="bs-example">
+        <div ng-controller="TreeCtrl">
+          <div style="margin-bottom: 10px;">
+            <button ng-click="completeAll()">Complete all tasks!</button>
+          </div>
+          <div style="width: 350px;">
+            <div class="tree-header">
+                <img class="img-circle img-small center-block" src="http://lorempixel.com/640/480/cats" />
+                <h4>
+                    Rock Climbing Training
+                </h4>
+              </div>
+                <div ui-tree data-drag-delay="200" data-drag-enabled="false">
+                      <ol ui-tree-nodes="" ng-model="activityData">
+                        <li ng-repeat="item in activityData" ui-tree-node>
+                          <div ui-tree-handle ng-click="toggle(this)">
+                            <i class="fa fa-caret-right fa-lg" ng-show="collapsed"></i>
+                            <i class="fa fa-caret-down fa-lg" ng-show="!collapsed"></i>
+                              {{item.id}} {{item.title}}
+                              <span class="fa-stack fa-lg tree-complete" ng-show="checkCompleted(item.completed)">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-check fa-stack-1x fa-inverse"></i>
+                              </span>
+                          </div>
+                          <ol ui-tree-nodes="" ng-model="item.items" ng-class="{hidden: collapsed}">
+                            <li ng-repeat="subItem in item.items" ui-tree-node>
+                              <div ui-tree-handle ng-click="toggle(this)">
+                                <i class="fa fa-caret-right fa-lg" ng-show="collapsed"></i>
+                                <i class="fa fa-caret-down fa-lg" ng-show="!collapsed"></i>
+                                  {{subItem.id}} {{subItem.title}}
+                                  <span class="fa-stack fa-lg tree-complete" ng-show="checkCompleted(subItem.completed)">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-check fa-stack-1x fa-inverse"></i>
+                                  </span>
+                              </div>
+                              <ol ui-tree-nodes="" ng-model="item.items" ng-class="{hidden: collapsed}">
+                                <li ng-repeat="subSubItem in subItem.items" ui-tree-node>
+                                  <div ui-tree-handle ng-click="toggle(this)">
+                                    <i class="fa fa-caret-right fa-lg" ng-show="collapsed && depth(this) == 0"></i>
+                                    <i class="fa fa-caret-down fa-lg" ng-show="!collapsed && depth(this) == 0"></i>
+                                      {{subSubItem.id}} {{subSubItem.title}}
+                                      <span class="fa-stack fa-lg tree-complete" ng-show="checkCompleted(subSubItem.completed)">
+                                        <i class="fa fa-circle fa-stack-2x"></i>
+                                        <i class="fa fa-check fa-stack-1x fa-inverse"></i>
+                                      </span>
+                                  </div>
+                                </li>
+                              </ol>
+                            </li>
+                          </ol>
+                        </li>
+                      </ol>
+                  </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    {% highlight html %}
+      <div ng-app="TreeApp">
+        <div ng-controller="TreeCtrl">
+          <div style="margin-bottom: 10px;">
+            <button ng-click="completeAll()">Complete all tasks!</button>
+          </div>
+          <div style="width: 350px;">
+            <div class="tree-header">
+                <img class="img-circle img-small center-block" src="http://lorempixel.com/640/480/cats" />
+                <h4>
+                    Rock Climbing Training
+                </h4>
+              </div>
+                <div ui-tree data-drag-delay="200" data-drag-enabled="false">
+                      <ol ui-tree-nodes="" ng-model="activityData">
+                        <li ng-repeat="item in activityData" ui-tree-node>
+                          <div ui-tree-handle ng-click="toggle(this)">
+                            <i class="fa fa-caret-right fa-lg" ng-show="collapsed"></i>
+                            <i class="fa fa-caret-down fa-lg" ng-show="!collapsed"></i>
+                              {{item.id}} {{item.title}}
+                              <span class="fa-stack fa-lg tree-complete" ng-show="checkCompleted(item.completed)">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-check fa-stack-1x fa-inverse"></i>
+                              </span>
+                          </div>
+                          <ol ui-tree-nodes="" ng-model="item.items" ng-class="{hidden: collapsed}">
+                            <li ng-repeat="subItem in item.items" ui-tree-node>
+                              <div ui-tree-handle ng-click="toggle(this)">
+                                <i class="fa fa-caret-right fa-lg" ng-show="collapsed"></i>
+                                <i class="fa fa-caret-down fa-lg" ng-show="!collapsed"></i>
+                                  {{subItem.id}} {{subItem.title}}
+                                  <span class="fa-stack fa-lg tree-complete" ng-show="checkCompleted(subItem.completed)">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-check fa-stack-1x fa-inverse"></i>
+                                  </span>
+                              </div>
+                              <ol ui-tree-nodes="" ng-model="item.items" ng-class="{hidden: collapsed}">
+                                <li ng-repeat="subSubItem in subItem.items" ui-tree-node>
+                                  <div ui-tree-handle ng-click="toggle(this)">
+                                    <i class="fa fa-caret-right fa-lg" ng-show="collapsed && depth(this) == 0"></i>
+                                    <i class="fa fa-caret-down fa-lg" ng-show="!collapsed && depth(this) == 0"></i>
+                                      {{subSubItem.id}} {{subSubItem.title}}
+                                      <span class="fa-stack fa-lg tree-complete" ng-show="checkCompleted(subSubItem.completed)">
+                                        <i class="fa fa-circle fa-stack-2x"></i>
+                                        <i class="fa fa-check fa-stack-1x fa-inverse"></i>
+                                      </span>
+                                  </div>
+                                </li>
+                              </ol>
+                            </li>
+                          </ol>
+                        </li>
+                      </ol>
+                  </div>
+                </div>
+            </div>
+        </div>
+    {% endhighlight %}
+    
+    <h2 id="tree-usage">Usage</h2>
+    <p>Pass in data to the tree using a controller with the following JSON object form.</p>
+    
+    {% highlight js %}
+        var treeApp = angular.module('TreeApp', ['ui.tree']);
+
+        treeApp.controller('TreeCtrl', ['$scope', '$timeout', function($scope, $timeout) {
+
+            $scope.activityData = [
+                {
+                    "id": "1.",
+                    "title": "Rock Climbing",
+                    "completed": "true",
+                    "items": [
+                        {
+                          "id": "1.1",
+                          "title": "Basics",
+                          "completed": "true",
+                          "items": []
+                        }
+                    ]
+                },
+                {
+                    "id": "2.",
+                    "title": "Indoor Climbing",
+                    "completed": "false",
+                    "items": [
+                      {
+                        "id": "2.1.",
+                        "title": "Indoor Climbing Basics 1",
+                        "completed": "false",
+                        "items": [
+                          {
+                            "id": "2.1.1.",
+                            "title": "Indoor Climbing 101",
+                            "completed": "false",
+                            "items": []
+                          },
+                          {
+                            "id": "2.1.2.",
+                            "title": "Indoor Climbing 102",
+                            "completed": "false",
+                            "items": []
+                          },
+                          {
+                            "id": "2.1.3.",
+                            "title": "Indoor Climbing 103",
+                            "completed": "false",
+                            "items": []
+                          }
+                        ]
+                      },
+                      {
+                        "id": "2.2.",
+                        "title": "Indoor Climbing Basics 2",
+                        "completed": "false",
+                        "items": [
+                          {
+                            "id": "2.2.1.",
+                            "title": "Indoor Climbing 201",
+                            "completed": "false",
+                            "items": []
+                          },
+                          {
+                            "id": "2.2.2.",
+                            "title": "Indoor Climbing 202",
+                            "completed": "false",
+                            "items": []
+                          },
+                          {
+                            "id": "2.2.3.",
+                            "title": "Indoor Climbing 203",
+                            "completed": "false",
+                            "items": []
+                          }
+                        ]
+                      }
+                    ]
+                }
+
+            ];
+
+            //Methods elided...
+        }]);
+    {% endhighlight %}
+</div>
