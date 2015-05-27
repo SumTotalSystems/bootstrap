@@ -12,9 +12,9 @@
     
     {% highlight html %}
       <div ng-app="Examples">
-    <div ng-controller="TreeCtrl">  
-      <sumt-tree dataSource="activityData"></sumt-tree>
-    </div>
+  <div ng-controller="TreeCtrl">  
+    <sumt-tree dataSource="activityData"></sumt-tree>
+  </div>
 </div>
     {% endhighlight %}
     
@@ -22,7 +22,7 @@
     <p>Pass in data to the tree using a controller with the following JSON object form.</p>
     
     {% highlight js %}
-       .controller('TreeCtrl', ['$scope', '$timeout', function($scope, $timeout) {
+.controller('TreeCtrl', ['$scope', '$timeout', function($scope, $timeout) {
 
     $scope.activityData = [
         {

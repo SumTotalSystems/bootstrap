@@ -1335,6 +1335,9 @@ angular.module('Examples', ['SumTotalComponents', 'mgcrea.ngStrap', 'ngAnimate',
   })
 
   .controller('TreeCtrl', ['$scope', '$timeout', function($scope, $timeout) {
+      
+    $scope.title = "Rock Climbing Training";
+      
     $scope.activityData = [
         {
             "id": "1.",
@@ -1342,7 +1345,7 @@ angular.module('Examples', ['SumTotalComponents', 'mgcrea.ngStrap', 'ngAnimate',
             "completed": "true",
             "items": [
                 {
-                  "id": "1.1",
+                  "id": "1.1.",
                   "title": "Basics",
                   "completed": "true",
                   "items": []
@@ -1363,7 +1366,21 @@ angular.module('Examples', ['SumTotalComponents', 'mgcrea.ngStrap', 'ngAnimate',
                     "id": "2.1.1.",
                     "title": "Indoor Climbing 101",
                     "completed": "false",
-                    "items": []
+                    "items": [
+                      {
+                        "id": "2.1.1.1.",
+                        "title": "Safety Precautions",
+                        "completed": "true",
+                        "items": [
+                          {
+                            "id": "2.1.1.1.1.",
+                            "title": "Proper Protective Gear",
+                            "completed": "true",
+                            "items": []
+                          }
+                        ]
+                      }
+                    ]
                   },
                   {
                     "id": "2.1.2.",
