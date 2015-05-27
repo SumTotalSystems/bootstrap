@@ -1332,4 +1332,100 @@ angular.module('Examples', ['SumTotalComponents', 'mgcrea.ngStrap', 'ngAnimate',
         readMore: "#0",
         date: "Dec 27"
       }];
-  });
+  })
+
+  .controller('TreeCtrl', ['$scope', '$timeout', function($scope, $timeout) {
+    $scope.activityData = [
+        {
+            "id": "1.",
+            "title": "Rock Climbing",
+            "completed": "true",
+            "items": [
+                {
+                  "id": "1.1",
+                  "title": "Basics",
+                  "completed": "true",
+                  "items": []
+                }
+            ]
+        },
+        {
+            "id": "2.",
+            "title": "Indoor Climbing",
+            "completed": "false",
+            "items": [
+              {
+                "id": "2.1.",
+                "title": "Indoor Climbing Basics 1",
+                "completed": "false",
+                "items": [
+                  {
+                    "id": "2.1.1.",
+                    "title": "Indoor Climbing 101",
+                    "completed": "false",
+                    "items": []
+                  },
+                  {
+                    "id": "2.1.2.",
+                    "title": "Indoor Climbing 102",
+                    "completed": "false",
+                    "items": []
+                  },
+                  {
+                    "id": "2.1.3.",
+                    "title": "Indoor Climbing 103",
+                    "completed": "false",
+                    "items": []
+                  }
+                ]
+              },
+              {
+                "id": "2.2.",
+                "title": "Indoor Climbing Basics 2",
+                "completed": "false",
+                "items": [
+                  {
+                    "id": "2.2.1.",
+                    "title": "Indoor Climbing 201",
+                    "completed": "false",
+                    "items": []
+                  },
+                  {
+                    "id": "2.2.2.",
+                    "title": "Indoor Climbing 202",
+                    "completed": "false",
+                    "items": []
+                  },
+                  {
+                    "id": "2.2.3.",
+                    "title": "Indoor Climbing 203",
+                    "completed": "false",
+                    "items": []
+                  }
+                ]
+              }
+            ]
+        }
+        
+    ];
+    
+    $scope.completeAll = function() {
+        
+        angular.forEach($scope.activityData, function(value, key) {
+            value.completed = "true";
+            angular.forEach(value.items, function(_value, _key) {
+                _value.completed = "true";
+                angular.forEach(_value.items, function(v, k) {
+                    v.completed = "true";   
+                }, _value);
+            }, value);
+        }, $scope.activityData);
+    }
+    
+    $scope.checkCompleted = function( item ) {
+        var show = false;
+        if ( item === "true" ) 
+            show = true;
+        return show;
+    }
+  }]);
