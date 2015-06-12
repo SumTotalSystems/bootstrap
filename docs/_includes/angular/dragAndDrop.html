@@ -13,7 +13,7 @@
                 <div ng-repeat="(listName, list) in models.lists" class="col-md-6">
                     <div class="panel panel-info">
                         <div class="panel-heading">
-                            <h3 class="panel-title">List {{listName}}</h3>
+                            <h3 class="panel-title">List {% raw %} {{listName}} {% endraw %}</h3>
                         </div>
                         <div class="panel-body">
 
@@ -32,7 +32,7 @@
                                 ng-class="{'selected': models.selected === item}"
                                 class="list-group-item"
                                 >
-                                {{item.label}}
+                                {% raw %} {{item.label}} {% endraw %}
                             </li>
                         </ul>
 
@@ -48,7 +48,7 @@
 <div ng-repeat="(listName, list) in models.lists" class="col-md-6">
     <div class="panel panel-info">
         <div class="panel-heading">
-            <h3 class="panel-title">List {{listName}}</h3>
+            <h3 class="panel-title">List {% raw %} {{listName}} {% endraw %}</h3>
         </div>
         <div class="panel-body">
 
@@ -67,7 +67,7 @@
                 ng-class="{'selected': models.selected === item}"
                 class="list-group-item"
                 >
-                {{item.label}}
+                {{&#123;&#123;item.label&#125;&#125;}}
             </li>
         </ul>
 
