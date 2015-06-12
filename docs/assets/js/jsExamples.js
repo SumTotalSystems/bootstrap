@@ -1423,27 +1423,6 @@ angular.module('Examples', ['SumTotalComponents', 'mgcrea.ngStrap', 'ngAnimate',
               }
             ]
         }];
-
-    
-    $scope.completeAll = function() {
-        
-        angular.forEach($scope.activityData, function(value, key) {
-            value.completed = "true";
-            angular.forEach(value.items, function(_value, _key) {
-                _value.completed = "true";
-                angular.forEach(_value.items, function(v, k) {
-                    v.completed = "true";   
-                }, _value);
-            }, value);
-        }, $scope.activityData);
-    }
-    
-    $scope.checkCompleted = function( item ) {
-        var show = false;
-        if ( item === "true" ) 
-            show = true;
-        return show;
-    }
   }])
 
 .controller('hammerCtrl', ['$scope', function($scope) {
