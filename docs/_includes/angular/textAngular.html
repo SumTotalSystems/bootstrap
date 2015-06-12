@@ -4,14 +4,16 @@
     
   <p>This example shows an Angular rich text editor from textAngular. Simply edit the input box below and see a (semi) live preview of the generated HTML below. You may pass in another template HTML set to initally display in the text editor by using a scope variable on the controller, if desired. For more information, <a href="https://github.com/fraywing/textAngular">visit textAngular on Github.</a></p>
     
-    <div ng-controller="textAngularCtrl">
-        <div text-angular ng-model="htmlContent" name="demo-editor"></div>
-        <br>
-        <div>
-            <h2>HTML Output</h2>
-                <p ng-bind="htmlContent" class="text-left text-med text-gray"></p>
+    <div class="bs-example">
+        <div ng-controller="textAngularCtrl">
+            <div text-angular ng-model="htmlContent" name="demo-editor"></div>
+            <br>
+            <div>
+                <h2>HTML Output</h2>
+                    <p ng-bind="htmlContent" class="text-left text-med text-gray"></p>
+            </div>
+
         </div>
-				
     </div>
     
     {% highlight html %}
