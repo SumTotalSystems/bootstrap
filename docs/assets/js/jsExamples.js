@@ -1422,9 +1422,8 @@ angular.module('Examples', ['SumTotalComponents', 'mgcrea.ngStrap', 'ngAnimate',
                 ]
               }
             ]
-        }
-        
-    ];
+        }];
+
     
     $scope.completeAll = function() {
         
