@@ -6,7 +6,11 @@
     <p>Hammer.js is a mobile friendly web framework that allows touch gestures to be added to any webpage. Any function may be called on event listeners for swipes, taps, presses, pans, pinches, rotates, drag and drops, and more. For more information, <a href="http://hammerjs.github.io/">visit HammerJS on Github.</a></p>
     <p>The grey box below will detect several kinds of mobile gestures (pans in all directions, taps, presses, pinches, and rotates). Give it a try!</p>
       
-      <div id="myElement" style=""></div>
+      <div id="myElement" style="background: silver;
+      height: 300px;
+      text-align: center;
+      font: 30px/300px Helvetica, Arial, sans-serif;
+        margin-bottom: 25px;"></div>
       <script type="text/javascript">
         var myElement = document.getElementById('myElement');
 
@@ -24,7 +28,14 @@
       <h2 id="hammer-angular-example">Angular Hammer</h2>
       <p>To avoid having to mix regular Javascript with angular, there is an angular wrapper for Hammer.js by Ryan Mullins. There are over 30 directives that can be used, each of which can be wired to a custom function in the controller (or all to the same function, as in the example below). Certain events can overlap and should not be used together to prevent unexpected results (ie, a panleft and a pan). Custom gesture recongnizers can also be created (for instance, a two finger pan, a doubletap, etc). For more information and a full list of directives, <a href="http://ryanmullins.github.io/angular-hammer/">visit his page on Github.</a></p>
       <div ng-controller="hammerCtrl">
-        <div id="myElement2" hm-panleft="onHammer" hm-panright="onHammer" hm-panup="onHammer" hm-pandown="onHammer" hm-press="onHammer" hm-swipe="onHammer" hm-tap="onHammer" hm-pinch="onHammer" hm-rotate="onHammer">
+        <div id="myElement2" hm-panleft="onHammer" hm-panright="onHammer" hm-panup="onHammer" hm-pandown="onHammer" hm-press="onHammer" hm-swipe="onHammer" hm-tap="onHammer" hm-pinch="onHammer" hm-rotate="onHammer" style="background: silver;
+      height: 300px;
+      text-align: center;
+      font: 30px/300px Helvetica, Arial, sans-serif;
+      touch-action: none;
+      -webkit-user-select: none;
+      -webkit-user-drag: none;
+      -webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
             {{option}}
         </div>
       </div>
