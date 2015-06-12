@@ -1,4 +1,4 @@
-angular.module('Examples', ['SumTotalComponents', 'mgcrea.ngStrap', 'ngAnimate', 'ngSanitize']) //jshint ignore:line
+angular.module('Examples', ['SumTotalComponents', 'mgcrea.ngStrap', 'ngAnimate', 'ngSanitize', 'dndLists', 'textAngular', 'hmTouchEvents']) //jshint ignore:line
   .config(function ($tooltipProvider, $modalProvider, $locationProvider) {
     $locationProvider.html5Mode({
       enabled: true,
@@ -1445,4 +1445,34 @@ angular.module('Examples', ['SumTotalComponents', 'mgcrea.ngStrap', 'ngAnimate',
             show = true;
         return show;
     }
-  }]);
+  }])
+
+.controller('hammerCtrl', ['$scope', function($scope) {
+    
+    $scope.option = "No events yet.";
+    
+    $scope.onHammer = function onHammer( val ) {
+        $scope.option = val.type + " gesture detected.";
+    }
+}])
+
+.controller('DragDropCtrl', ['$scope', function($scope) {
+    $scope.models = {
+        selected: null,
+        lists: {"A": [], "B": []}
+    };
+
+    // Generate initial model
+    for (var i = 1; i <= 3; ++i) {
+        $scope.models.lists.A.push({label: "Item A" + i});
+        $scope.models.lists.B.push({label: "Item B" + i});
+    }
+    
+    $scope.$watch('models', function(model) {
+        $scope.modelAsJson = angular.toJson(model, true);
+    }, true);
+}])
+
+.controller('textAngularCtrl', ['$scope', function($scope) {
+    $scope.htmlContent = '<h2>Try me!</h2><p>textAngular is a super cool WYSIWYG Text Editor directive for AngularJS</p><p><b>Features:</b></p><ol><li>Automatic Seamless Two-Way-Binding</li><li style="color: blue;">Super Easy <b>Theming</b> Options</li><li>Simple Editor Instance Creation</li><li>Safely Parses Html for Custom Toolbar Icons</li><li>Doesn&apos;t Use an iFrame</li><li>Works with Firefox, Chrome, and IE8+</li></ol><p><b>Code at GitHub:</b> <a href="https://github.com/fraywing/textAngular">Here</a> </p>';
+}]);

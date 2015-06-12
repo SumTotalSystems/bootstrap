@@ -1,0 +1,114 @@
+<div class="bs-docs-section">   
+  <h1 id="dnd" class="page-header">Drag and Drop Lists</h1>
+  <h2 id="dnd-example">Example</h2>
+    
+  <p>Drag and drop the list items to move them around. These lists and containers may be styled as desired. A <code>&lt;ul&gt;</code> is highly recommended for the host element of the <code>dnd-list</code> directive, but any other kind of element may be placed within, not just <code>&lt;li&gt;</code>'s. You may override css attributes such as the <code>ul[dnd-list] .dndPlaceholder</code> and <code>ul[dnd-list] .dndDraggingSource</code> selectors. Watch how the two-way data binding causes the generated JSON object model to update as the list is reordered.</p>
+      <br />
+    
+
+
+<div class="simpleDemo row" ng-controller="DragDropCtrl">
+
+    <div class="col-md-8">
+        <div class="row">
+            <div ng-repeat="(listName, list) in models.lists" class="col-md-6">
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">List {{listName}}</h3>
+                    </div>
+                    <div class="panel-body">
+                    
+                        <!-- The dnd-list directive allows to drop elements into it.
+                         The dropped data will be added to the referenced list -->
+                    <ul dnd-list="list" class="list-group">
+                        <!-- The dnd-draggable directive makes an element draggable and will
+                             transfer the object that was assigned to it. If an element was
+                             dragged away, you have to remove it from the original list
+                             yourself using the dnd-moved attribute -->
+                        <li ng-repeat="item in list"
+                            dnd-draggable="item"
+                            dnd-moved="list.splice($index, 1)"
+                            dnd-effect-allowed="move"
+                            dnd-selected="models.selected = item"
+                            ng-class="{'selected': models.selected === item}"
+                            class="list-group-item"
+                            >
+                            {{item.label}}
+                        </li>
+                    </ul>
+                    
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="col-md-4">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Generated Model</h3>
+            </div>
+            <div class="panel-body">
+                <pre class="code">{{modelAsJson}}</pre>
+            </div>
+        </div>
+    </div>
+
+    
+    {% highlight html %}
+      
+<div ng-repeat="(listName, list) in models.lists" class="col-md-6">
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <h3 class="panel-title">List {{listName}}</h3>
+        </div>
+        <div class="panel-body">
+
+            <!-- The dnd-list directive allows to drop elements into it.
+             The dropped data will be added to the referenced list -->
+        <ul dnd-list="list" class="list-group">
+            <!-- The dnd-draggable directive makes an element draggable and will
+                 transfer the object that was assigned to it. If an element was
+                 dragged away, you have to remove it from the original list
+                 yourself using the dnd-moved attribute -->
+            <li ng-repeat="item in list"
+                dnd-draggable="item"
+                dnd-moved="list.splice($index, 1)"
+                dnd-effect-allowed="move"
+                dnd-selected="models.selected = item"
+                ng-class="{'selected': models.selected === item}"
+                class="list-group-item"
+                >
+                {{item.label}}
+            </li>
+        </ul>
+
+        </div>
+    </div>
+</div>
+
+    {% endhighlight %}
+    
+    <h2 id="dnd-usage">Usage</h2>
+    <p>Pass in a default template using HTML format to the editor using a controller with the following form.</p>
+    
+    {% highlight js %}
+.controller('DragDropCtrl', ['$scope', function($scope) {
+    $scope.models = {
+        selected: null,
+        lists: {"A": [], "B": []}
+    };
+
+    // Generate initial model
+    for (var i = 1; i &lt;= 3; ++i) {
+        $scope.models.lists.A.push({label: "Item A" + i});
+        $scope.models.lists.B.push({label: "Item B" + i});
+    }
+    
+    $scope.$watch('models', function(model) {
+        $scope.modelAsJson = angular.toJson(model, true);
+    }, true);
+}]);
+    {% endhighlight %}
+</div>

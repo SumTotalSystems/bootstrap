@@ -1,0 +1,53 @@
+<div class="bs-docs-section">   
+  <h1 id="hammer" class="page-header">Hammer.js</h1>
+
+    
+    <h2 id="hammer-js-example">Hammer.js Example</h2>
+    <p>Hammer.js is a mobile friendly web framework that allows touch gestures to be added to any webpage. Any function may be called on event listeners for swipes, taps, presses, pans, pinches, rotates, drag and drops, and more. For more information, <a href="http://hammerjs.github.io/">visit HammerJS on Github.</a></p>
+    <p>The grey box below will detect several kinds of mobile gestures (pans in all directions, taps, presses, pinches, and rotates). Give it a try!</p>
+      
+      <div id="myElement" style=""></div>
+      <script type="text/javascript">
+        var myElement = document.getElementById('myElement');
+
+        // create a simple instance
+        // by default, it only adds horizontal recognizers
+        var mc = new Hammer(myElement);
+
+        // listen to events...
+        mc.on("panleft panright tap press panup pandown pinch rotate", function(ev) {
+            myElement.textContent = ev.type +" gesture detected.";
+        });  
+      </script>
+      
+      
+      <h2 id="hammer-angular-example">Angular Hammer</h2>
+      <p>To avoid having to mix regular Javascript with angular, there is an angular wrapper for Hammer.js by Ryan Mullins. There are over 30 directives that can be used, each of which can be wired to a custom function in the controller (or all to the same function, as in the example below). Certain events can overlap and should not be used together to prevent unexpected results (ie, a panleft and a pan). Custom gesture recongnizers can also be created (for instance, a two finger pan, a doubletap, etc). For more information and a full list of directives, <a href="http://ryanmullins.github.io/angular-hammer/">visit his page on Github.</a></p>
+      <div ng-controller="hammerCtrl">
+        <div id="myElement2" hm-panleft="onHammer" hm-panright="onHammer" hm-panup="onHammer" hm-pandown="onHammer" hm-press="onHammer" hm-swipe="onHammer" hm-tap="onHammer" hm-pinch="onHammer" hm-rotate="onHammer">
+            {{option}}
+        </div>
+      </div>
+    {% highlight html %}
+<div ng-controller="hammerCtrl">
+    <div id="myElement2" hm-panleft="onHammer" hm-panright="onHammer" hm-panup="onHammer" hm-pandown="onHammer" hm-press="onHammer" hm-swipe="onHammer" hm-tap="onHammer" hm-pinch="onHammer" hm-rotate="onHammer">
+        {{option}}
+    </div>
+</div>
+
+    {% endhighlight %}
+    
+    <h2 id="hammer-usage">Usage</h2>
+    <p>The above example is quite trivial - it merely displays the resulting gesture. Of course, you can link the gesture detection to any function you'd normally put in the controller.</p>
+    
+    {% highlight js %}
+.controller('hammerCtrl', ['$scope', function($scope) {
+    
+    $scope.option = "No events yet.";
+    
+    $scope.onHammer = function onHammer( val ) {
+        $scope.option = val.type + " gesture detected.";
+    }
+}]);
+    {% endhighlight %}
+</div>
