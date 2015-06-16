@@ -1462,4 +1462,10 @@ angular.module('Examples', ['SumTotalComponents', 'mgcrea.ngStrap', 'ngAnimate',
     $scope.personAvatar = "{{person.avatar}}";
     $scope.personName = "{{person.name}}";
     $scope.personUsername = "{{person.username}}";
+    $scope.resultCategory = "{{result.category}}";
+    $scope.resultCount = "{{result.count}}";
+    $scope.itemPicUrl = "{{item.picUrl}}";
+    $scope.itemTitle = "{{item.title}}";
+    $scope.itemDescription = "{{item.description}}";
+    $scope.percentage = "{{percentage}}";
 }]);
