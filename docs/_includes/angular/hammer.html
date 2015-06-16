@@ -1,3 +1,13 @@
+<style>
+    .braces::before {
+       content: "\007B\007B";    
+    }
+    .braces::after {
+        content: "\007D\007D";   
+    }
+</style>
+
+
 <div class="bs-docs-section">   
   <h1 id="hammer" class="page-header">Hammer.js</h1>
 
@@ -40,18 +50,20 @@
       -webkit-user-select: none;
       -webkit-user-drag: none;
       -webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
-            {{option}}
+            {% raw %} {{option}} {% endraw %}
         </div>
       </div>
     </div>
+    <div ng-controller="curlyCtrl">
     {% highlight html %}
 <div ng-controller="hammerCtrl">
     <div id="myElement2" hm-panleft="onHammer" hm-panright="onHammer" hm-panup="onHammer" hm-pandown="onHammer" hm-press="onHammer" hm-swipe="onHammer" hm-tap="onHammer" hm-pinch="onHammer" hm-rotate="onHammer">
-        {% raw %} {{option}} {% endraw %}
+        {% raw %} {{content}} {% endraw %}
     </div>
 </div>
 
-    {% endhighlight %}
+        {% endhighlight %}
+    </div>
     
     <h2 id="hammer-usage">Usage</h2>
     <p>The above example is quite trivial - it merely displays the resulting gesture. Of course, you can link the gesture detection to any function you'd normally put in the controller.</p>
