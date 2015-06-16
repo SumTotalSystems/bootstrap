@@ -17,16 +17,18 @@
     </table>
   </div>
 
+<div ng-controller="curlyCtrl">
   {% highlight html %}
 <table ng-cloak ng-table="tableParams" class="table">
   <tr ng-repeat="person in $data">
-    <td><img ng-src="{% raw %}{{person.avatar}}{% endraw %}" style="height:32px; width: 32px;" class="img-circle" />
+    <td><img ng-src="{% raw %}{{personAvatar}}{% endraw %}" style="height:32px; width: 32px;" class="img-circle" />
     </td>
-    <td data-title="'Name'">{% raw %}{{person.name}}{% endraw %}</td>
-    <td data-title="'Username'">{% raw %}{{person.username}}{% endraw %}</td>
+    <td data-title="'Name'">{% raw %}{{personName}}{% endraw %}</td>
+    <td data-title="'Username'">{% raw %}{{personUsername}}{% endraw %}</td>
   </tr>
 </table>
   {% endhighlight %}
+</div>  
 <h3>JavaScript</h3>
   {% highlight js %}
 angular.module('ThirdParty', ['ngTable'])

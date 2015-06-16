@@ -1456,5 +1456,10 @@ angular.module('Examples', ['SumTotalComponents', 'mgcrea.ngStrap', 'ngAnimate',
 }])
 
 .controller('curlyCtrl', ['$scope', function($scope) {
-$scope.content = "{{option}}";
+    $scope.content = "{{option}}";
+    $scope.listName = "{{listName}}";
+    $scope.itemLabel = "{{item.label}}";
+    $scope.personAvatar = "{{person.avatar}}";
+    $scope.personName = "{{person.name}}";
+    $scope.personUsername = "{{person.username}}";
 }]);

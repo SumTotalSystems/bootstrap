@@ -42,9 +42,8 @@
     </div>
 </div>
 
-    
-    {% highlight html %}
-      
+<div ng-controller="curlyCtrl">
+    {% highlight html %} 
 <div ng-repeat="(listName, list) in models.lists" class="col-md-6">
     <div class="panel panel-info">
         <div class="panel-heading">
@@ -67,7 +66,7 @@
                 ng-class="{'selected': models.selected === item}"
                 class="list-group-item"
                 >
-                {{&#123;&#123;item.label&#125;&#125;}}
+                {% raw %} {{itemLabel}} {% endraw %}
             </li>
         </ul>
 
@@ -76,7 +75,7 @@
 </div>
 
     {% endhighlight %}
-    
+</div>
     <h2 id="dnd-usage">Usage</h2>
     <p>Pass in a default template using HTML format to the editor using a controller with the following form.</p>
     
@@ -92,10 +91,6 @@
         $scope.models.lists.A.push({label: "Item A" + i});
         $scope.models.lists.B.push({label: "Item B" + i});
     }
-    
-    $scope.$watch('models', function(model) {
-        $scope.modelAsJson = angular.toJson(model, true);
-    }, true);
 }]);
     {% endhighlight %}
 </div>
