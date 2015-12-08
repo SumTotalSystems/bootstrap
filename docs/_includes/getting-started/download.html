@@ -36,6 +36,7 @@ npm install -g sumtotal-module grunt-cli gulp bower
   <p>Now that the SumTotal module is installed. The Foundation components can be applied to your project. Open a NodeJS command prompt in your project's root. Run the <code>sumtotal init</code>. A series of questions will be asked about where your scripts and styles are stored. Answer the questions and a file called <em>.sumtotal</em> will be created.</p>
   {% highlight bash %} sumtotal init {% endhighlight %}
 
+
   <h3 id="install-foundation">Install Foundation</h3>
   <div class="bs-callout bs-callout-warning">
     <h4>Latest Version is Installed</h4>
@@ -45,8 +46,10 @@ npm install -g sumtotal-module grunt-cli gulp bower
   <p>Once the SumTotal module has initialized your project you can then install Foundation. Install will always take the latest version of the code and install it according to the settings in <em>.sumtotal</em>.</p>
   {% highlight bash %} sumtotal install {% endhighlight %}
 
+
   <h2 id="upgrading">Upgrading</h2>
   <p>There are two parts that can be upgraded, the SumTotal NodeJS module and the actual Foundation CSS and scripts. The NodeJS module is only required to be upgraded when a fix has been pushed out. When a new version of Foundation is released it is not necessarily going to include a new NodeJS module. When upgrading you'll mostly be upgrading the Foundation source.</p>
+
 
   <h3 id="upgrading-module">Upgrade SumTotal Module</h3>
   <p>
@@ -54,11 +57,13 @@ npm install -g sumtotal-module grunt-cli gulp bower
   </p>
   {% highlight bash %}npm upgrade -g sumtotal-module{% endhighlight %}
 
+
   <h3 id="upgrading-foundation">Upgrade Foundation</h3>
   <div class="bs-callout bs-callout-info">
     <h4>Only Released Version Will Be Available By Default</h4>
     <p>When the command <code>sumtotal upgrade</code> is run a list of released versions will be presented for selection. <strong>It is recommended that for standard development that you use only this method.</strong> To get the bleeding edge version of Foundation you may run <code>sumtotal upgrade --dev</code>. Beware that this may include breaking changes.</p>
   </div>
+
 
   <p>
     In the case where you need to upgrade to a later version of Foundation controls or you wish to change versions you can run the upgrade command to select a version which will be installed.
