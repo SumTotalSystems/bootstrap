@@ -50,3 +50,7 @@ vendor.js
 /docs/dist/css/foundation.css.map
 /docs/dist/css/assets
 /less/sumtotal
+/docs/dist/js/foundation-charts.js
+/docs/dist/js/vendor-charts.js
+/docs/dist/css/foundation-rtl.css
+/docs/dist/css/foundation-rtl.css.map
